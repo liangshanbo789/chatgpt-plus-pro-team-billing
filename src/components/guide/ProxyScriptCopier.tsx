@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import { Terminal, Copy, Check, Settings, ShieldCheck, Undo2 } from "lucide-react";
+import { Terminal, Copy, Check, Undo2 } from "lucide-react";
 
 type OSTarget = "pwsh" | "cmd" | "bash" | "git" | "vscode";
 

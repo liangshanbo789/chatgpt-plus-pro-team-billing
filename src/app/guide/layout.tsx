@@ -85,13 +85,13 @@ export default function GuideLayout({
               <span>72h 封号包赔协议</span>
             </Link>
             <ThemeToggle />
-            <a
+            <Link
               href="/#calculator"
               className="btn-openai-white text-xs px-3.5 py-1.5 hidden sm:inline-flex items-center gap-1.5"
             >
               <Calculator className="w-3.5 h-3.5" />
               <span>测算集采预算</span>
-            </a>
+            </Link>
           </div>
         </div>
 

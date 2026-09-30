@@ -96,12 +96,12 @@ export default function DocsLayout({
               <span>企业GPT集采</span>
             </Link>
             <ThemeToggle />
-            <a
+            <Link
               href="/#calculator"
               className="btn-openai-white text-xs px-3.5 py-1.5 hidden sm:inline-flex"
             >
               测算对公预算
-            </a>
+            </Link>
           </div>
         </div>
 

@@ -2,27 +2,15 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import {
   ShieldCheck,
-  Zap,
   Globe,
   Server,
   AlertTriangle,
-  CheckCircle2,
   ExternalLink,
   Laptop,
-  Terminal,
-  Cpu,
-  Layers,
   Sparkles,
   Lock,
-  ArrowRight,
-  HelpCircle,
-  Clock,
-  Building2,
-  BookmarkCheck,
   Check,
-  Flame,
   Radio,
-  Share2,
 } from "lucide-react";
 import StabilityChecklist from "@/components/guide/StabilityChecklist";
 import ProxyScriptCopier from "@/components/guide/ProxyScriptCopier";
@@ -773,7 +761,7 @@ export default function StabilityGuidePage() {
                 <strong className="text-emerald-600 dark:text-emerald-400">
                   标准处置 SOP：
                 </strong>
-                在浏览器开发者工具 (F12) 中进入【Application】->【Storage】点击
+                在浏览器开发者工具 (F12) 中进入【Application】→【Storage】点击
                 Clear site data，关闭网页翻译插件后刷新即可。
               </p>
             </div>
@@ -827,12 +815,12 @@ export default function StabilityGuidePage() {
           </p>
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-3.5 pt-4">
-            <a
+            <Link
               href="/#calculator"
-              className="btn-openai-white w-full sm:w-auto text-xs sm:text-sm px-7 py-3.5 shadow-lg"
+              className="btn-openai-white w-full sm:w-auto text-xs sm:text-sm px-7 py-3.5 shadow-lg text-center"
             >
               前往实时测算集采预算
-            </a>
+            </Link>
             <Link
               href="/docs/pricing/"
               className="btn-openai-secondary w-full sm:w-auto text-xs sm:text-sm px-6 py-3.5"

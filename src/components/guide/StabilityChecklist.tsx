@@ -2,10 +2,8 @@
 
 import React, { useState } from "react";
 import {
-  ShieldCheck,
   AlertTriangle,
   CheckCircle2,
-  XCircle,
   ExternalLink,
   RotateCcw,
   Sparkles,

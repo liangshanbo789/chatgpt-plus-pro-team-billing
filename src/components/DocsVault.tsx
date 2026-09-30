@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import { FileText, Copy, Check, BookOpen } from "lucide-react";
+import { Copy, Check, BookOpen } from "lucide-react";
 
 interface DocsVaultProps {
   isOpen: boolean;
@@ -9,14 +9,14 @@ interface DocsVaultProps {
   onOpenContact: (source?: string) => void;
 }
 
+type DocKey = "proposal" | "pricing" | "sla" | "agreement";
+
 export default function DocsVault({
   isOpen,
   onClose,
   onOpenContact,
 }: DocsVaultProps) {
-  const [activeDoc, setActiveDoc] = useState<
-    "proposal" | "pricing" | "sla" | "agreement"
-  >("proposal");
+  const [activeDoc, setActiveDoc] = useState<DocKey>("proposal");
   const [copied, setCopied] = useState(false);
 
   if (!isOpen) return null;
@@ -181,7 +181,7 @@ export default function DocsVault({
             <button
               key={tab.id}
               onClick={() => {
-                setActiveDoc(tab.id as any);
+                setActiveDoc(tab.id as DocKey);
                 setCopied(false);
               }}
               className={`px-5 py-3 text-xs font-medium whitespace-nowrap transition-all border-b-2 cursor-pointer ${
