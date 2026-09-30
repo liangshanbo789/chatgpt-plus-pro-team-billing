@@ -9,9 +9,16 @@ import {
   Receipt,
   FileText,
   FileCheck,
+  Compass,
 } from "lucide-react";
 
 const DOCS_NAV = [
+  {
+    href: "/guide/stability/",
+    label: "稳定使用与IP检测指南",
+    icon: Compass,
+    badge: "避坑必读",
+  },
   {
     href: "/docs/proposal",
     label: "立项呈批模板",

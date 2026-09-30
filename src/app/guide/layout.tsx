@@ -4,28 +4,42 @@ import BrandLogo from "@/components/BrandLogo";
 import ThemeToggle from "@/components/ThemeToggle";
 import {
   ArrowLeft,
+  ShieldCheck,
   Code2,
   Building2,
   BookOpen,
   Calculator,
+  Compass,
 } from "lucide-react";
 
-const SOLUTIONS_NAV = [
+const GUIDE_NAV = [
+  {
+    href: "/guide/stability/",
+    label: "稳定使用与网络自检指南",
+    icon: Compass,
+    badge: "必读",
+  },
   {
     href: "/solutions/codex-procurement/",
-    label: "Codex 研发代码助手采购",
+    label: "Codex 研发代采方案",
     icon: Code2,
-    badge: "研发效能",
+    badge: "效能",
   },
   {
     href: "/solutions/gpt-bulk-procurement/",
-    label: "企业 GPT 官方集中采购",
+    label: "企业 GPT 官方集采",
     icon: Building2,
-    badge: "阶梯集采",
+    badge: "对公",
+  },
+  {
+    href: "/docs/pricing/",
+    label: "2026 最新代采阶梯报价单",
+    icon: BookOpen,
+    badge: "手册",
   },
 ];
 
-export default function SolutionsLayout({
+export default function GuideLayout({
   children,
 }: {
   children: React.ReactNode;
@@ -56,7 +70,7 @@ export default function SolutionsLayout({
                   AI 代采
                 </span>
                 <span className="text-[11px] font-mono text-emerald-600 dark:text-emerald-400 bg-emerald-500/10 px-1.5 py-0.5 rounded border border-emerald-500/20">
-                  行业解决方案
+                  技术避坑指南
                 </span>
               </div>
             </Link>
@@ -64,11 +78,11 @@ export default function SolutionsLayout({
 
           <div className="flex items-center gap-3">
             <Link
-              href="/docs/pricing/"
+              href="/docs/sla/"
               className="text-xs text-secondary hover:text-primary transition-colors hidden md:inline-flex items-center gap-1"
             >
-              <BookOpen className="w-3.5 h-3.5" />
-              <span>知识库文档</span>
+              <ShieldCheck className="w-3.5 h-3.5 text-emerald-500" />
+              <span>72h 封号包赔协议</span>
             </Link>
             <ThemeToggle />
             <a
@@ -81,13 +95,13 @@ export default function SolutionsLayout({
           </div>
         </div>
 
-        {/* 二级方案切换导航条 */}
+        {/* 二级场景切换导航条 */}
         <div className="border-t border-theme-subtle bg-surface-elevated/60 overflow-x-auto scrollbar-none">
           <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center gap-3 py-2">
             <span className="text-[11px] font-mono text-tertiary mr-1 shrink-0">
-              方案场景:
+              知识库专区:
             </span>
-            {SOLUTIONS_NAV.map((item) => {
+            {GUIDE_NAV.map((item) => {
               const Icon = item.icon;
               return (
                 <Link
@@ -107,12 +121,12 @@ export default function SolutionsLayout({
         </div>
       </header>
 
-      {/* 方案正文主体 */}
-      <main className="flex-1 max-w-5xl mx-auto w-full px-4 sm:px-6 lg:px-8 py-10">
+      {/* 正文主体 */}
+      <main className="flex-1 max-w-6xl mx-auto w-full px-4 sm:px-6 lg:px-8 py-10">
         {children}
       </main>
 
-      {/* 底部版权与内链网络 */}
+      {/* 底部版权与生态网络 */}
       <footer className="border-t border-theme-subtle bg-surface-elevated text-xs text-secondary py-10 mt-16 transition-colors">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-left border-b border-theme-subtle/60 pb-6">
@@ -121,21 +135,29 @@ export default function SolutionsLayout({
                 AI 代采 · 官方企业服务
               </div>
               <p className="text-secondary text-xs leading-relaxed">
-                专注为国内研发技术团队、出海机构及中大型企业提供 OpenAI
-                官方代采、GPT 战略集采、对公结算与 6% 增值税专用发票开具服务。
+                国内领先的海外 AI 生产力与 OpenAI Codex 代码助手官方代采平台。
+                为企业提供 100% 正规海外商业银行卡直充、对公结算、6% 增值税专用发票与 SLA 72h 封号包赔兜底服务。
               </p>
             </div>
             <div>
               <div className="font-semibold text-primary mb-2 text-sm">
-                核心方案专区
+                实用资源与方案
               </div>
               <ul className="space-y-1.5 text-xs">
+                <li>
+                  <Link
+                    href="/guide/stability/"
+                    className="hover:text-primary transition-colors text-emerald-600 dark:text-emerald-400 font-medium"
+                  >
+                    • 国内稳定使用 ChatGPT & Codex 全景指南
+                  </Link>
+                </li>
                 <li>
                   <Link
                     href="/solutions/codex-procurement/"
                     className="hover:text-primary transition-colors"
                   >
-                    • 研发团队 OpenAI Codex / 代码助手对公代采
+                    • 研发团队 OpenAI Codex / 代码助手企业代采
                   </Link>
                 </li>
                 <li>
@@ -143,7 +165,7 @@ export default function SolutionsLayout({
                     href="/solutions/gpt-bulk-procurement/"
                     className="hover:text-primary transition-colors"
                   >
-                    • 大中型企业 GPT 官方集中采购 (集采) 方案
+                    • 企业 GPT 官方集中采购 (集采) 方案
                   </Link>
                 </li>
                 <li>
@@ -154,31 +176,22 @@ export default function SolutionsLayout({
                     • 2026 最新官方代采阶梯报价单手册
                   </Link>
                 </li>
-                <li>
-                  <Link
-                    href="/guide/stability/"
-                    className="hover:text-primary transition-colors text-emerald-600 dark:text-emerald-400 font-medium"
-                  >
-                    • 国内稳定使用 ChatGPT & Codex 全景指南
-                  </Link>
-                </li>
               </ul>
             </div>
             <div>
               <div className="font-semibold text-primary mb-2 text-sm">
-                合规与支持
+                合规保障与服务支持
               </div>
               <ul className="space-y-1.5 text-xs text-secondary">
-                <li>• 结算银行：中国工商银行股份有限公司对公账户</li>
-                <li>• 发票资质：国家税务数电 6% 增值税专用发票</li>
-                <li>• 兜底协议：公章法律效力《SLA 72h 封号包赔协议》</li>
-                <li>• 咨询微信：yqtp01 · 邮箱：liang@yqtp.cn</li>
+                <li>• 对公账户：中国工商银行股份有限公司账户</li>
+                <li>• 票据资质：国家税务数电 6% 增值税专用发票</li>
+                <li>• 法律条款：盖公章《SLA 72h 封号包赔退款协议》</li>
+                <li>• 技术与商务咨询微信：yqtp01 · 邮箱：liang@yqtp.cn</li>
               </ul>
             </div>
           </div>
           <div className="text-center text-[11px] text-tertiary font-mono">
-            © 2026 AI 代采 (gongsi.one) ·
-            四川省成都市高新区AI创新中心 · 统一社会信用代码可查
+            © 2026 AI 代采 (gongsi.one) · 四川省成都市高新区AI创新中心 · 统一社会信用代码可查
           </div>
         </div>
       </footer>

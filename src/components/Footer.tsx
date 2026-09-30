@@ -63,6 +63,17 @@ export default function Footer({ onOpenDocs, onOpenContact }: FooterProps) {
                 </Link>
               </li>
               <li>
+                <Link
+                  href="/guide/stability/"
+                  className="hover:text-primary transition-colors text-emerald-600 dark:text-emerald-400 font-medium flex items-center gap-1"
+                >
+                  <span>国内稳定使用与 IP 检测自检指南</span>
+                  <span className="text-[9px] px-1 py-0.2 rounded bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 font-mono">
+                    避坑
+                  </span>
+                </Link>
+              </li>
+              <li>
                 <a
                   href="#compare"
                   className="hover:text-primary transition-colors text-secondary"
@@ -119,6 +130,14 @@ export default function Footer({ onOpenDocs, onOpenContact }: FooterProps) {
               商务与采购支持
             </h4>
             <ul className="space-y-2.5">
+              <li>
+                <Link
+                  href="/guide/stability/"
+                  className="hover:text-primary transition-colors text-left text-emerald-600 dark:text-emerald-400 font-medium block"
+                >
+                  《ChatGPT & Codex 稳定使用与网络自检指南》
+                </Link>
+              </li>
               <li>
                 <Link
                   href="/docs/proposal"

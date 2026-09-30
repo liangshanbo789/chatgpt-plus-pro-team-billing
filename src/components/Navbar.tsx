@@ -12,6 +12,7 @@ import {
   Building2,
   BookOpen,
   ArrowRight,
+  Compass,
 } from "lucide-react";
 import BrandLogo from "./BrandLogo";
 import ThemeToggle from "./ThemeToggle";
@@ -184,6 +185,30 @@ export default function Navbar({ onOpenContact, onOpenDocs }: NavbarProps) {
                     </div>
                   </Link>
 
+                  {/* 稳定使用与 IP 检测指南 */}
+                  <Link
+                    href="/guide/stability/"
+                    onClick={() => setSolutionsOpen(false)}
+                    className="flex items-start gap-3 p-2.5 rounded-lg hover:bg-surface-elevated transition-colors group"
+                  >
+                    <div className="w-8 h-8 rounded-lg bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center shrink-0 mt-0.5 group-hover:bg-emerald-500/15">
+                      <Compass className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />
+                    </div>
+                    <div className="flex-1 min-w-0">
+                      <div className="flex items-center gap-1.5 mb-0.5">
+                        <span className="font-semibold text-xs text-primary group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors">
+                          稳定使用与 IP 检测指南
+                        </span>
+                        <span className="text-[10px] px-1.5 py-0.2 rounded bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 font-mono border border-emerald-500/20">
+                          避坑
+                        </span>
+                      </div>
+                      <p className="text-[11px] text-secondary leading-relaxed line-clamp-2">
+                        IP 纯净度核验 · TUN 模式 · 终端代理 · 避坑十诫
+                      </p>
+                    </div>
+                  </Link>
+
                   {/* 下拉底部文档入口 */}
                   <div className="border-t border-theme-subtle pt-1 mt-1">
                     <Link
@@ -202,6 +227,17 @@ export default function Navbar({ onOpenContact, onOpenDocs }: NavbarProps) {
               </div>
             )}
           </div>
+
+          {/* 稳定使用指南 */}
+          <Link
+            href="/guide/stability/"
+            className="px-2.5 py-1.5 rounded-md hover:text-emerald-600 dark:hover:text-emerald-400 hover:bg-emerald-500/5 transition-colors inline-flex items-center gap-1 whitespace-nowrap text-secondary font-medium"
+          >
+            <span>稳定指南</span>
+            <span className="text-[9px] px-1 py-0.2 rounded bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 font-mono border border-emerald-500/20">
+              IP自检
+            </span>
+          </Link>
 
           {/* 锚点导航项 */}
           <a
@@ -322,6 +358,27 @@ export default function Navbar({ onOpenContact, onOpenDocs }: NavbarProps) {
                   <div>
                     <div className="text-xs font-medium text-primary">企业 GPT 官方集采</div>
                     <div className="text-[10px] text-secondary">阶梯批量 · 阳光对公</div>
+                  </div>
+                </div>
+                <ArrowRight className="w-3.5 h-3.5 text-tertiary" />
+              </Link>
+
+              <Link
+                href="/guide/stability/"
+                onClick={() => setMobileMenuOpen(false)}
+                className="flex items-center justify-between p-2.5 rounded-lg bg-surface border border-theme-subtle hover:border-emerald-500/40 transition-colors"
+              >
+                <div className="flex items-center gap-2.5">
+                  <div className="w-7 h-7 rounded-md bg-emerald-500/10 flex items-center justify-center">
+                    <Compass className="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400" />
+                  </div>
+                  <div>
+                    <div className="text-xs font-medium text-primary">
+                      稳定使用与 IP 检测指南
+                    </div>
+                    <div className="text-[10px] text-secondary">
+                      IP 欺诈度 · TUN 模式 · 避坑十诫
+                    </div>
                   </div>
                 </div>
                 <ArrowRight className="w-3.5 h-3.5 text-tertiary" />

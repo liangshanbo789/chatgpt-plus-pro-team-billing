@@ -243,9 +243,16 @@ export default function DocsVault({
 
         {/* Footer Actions */}
         <div className="p-4 border-t border-theme-subtle bg-surface-elevated flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-secondary">
-          <span>
-            如需 Word / PDF 盖章原件或定制特殊开票需求，请联系专属客户经理
-          </span>
+          <div className="flex flex-col sm:flex-row items-start sm:items-center gap-1 sm:gap-2">
+            <span>如需 Word / PDF 盖章原件请联系客户经理。</span>
+            <a
+              href="/guide/stability/"
+              target="_blank"
+              className="text-emerald-600 dark:text-emerald-400 font-medium hover:underline inline-flex items-center gap-1"
+            >
+              <span>👉 查看稳定使用与 IP 检测指南</span>
+            </a>
+          </div>
           <button
             onClick={() => {
               onClose();
