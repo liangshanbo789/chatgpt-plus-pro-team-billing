@@ -74,6 +74,41 @@ export default function Footer({ onOpenDocs, onOpenContact }: FooterProps) {
                 </Link>
               </li>
               <li>
+                <Link
+                  href="/help/"
+                  className="hover:text-primary transition-colors text-amber-600 dark:text-amber-400 font-medium flex items-center gap-1"
+                >
+                  <span>OpenAI & Codex 问题中心 (排障FAQ)</span>
+                  <span className="text-[9px] px-1 py-0.2 rounded bg-amber-500/10 text-amber-600 dark:text-amber-400 font-mono">
+                    自救
+                  </span>
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/help/codex-chatgpt-degraded/"
+                  className="hover:text-primary transition-colors text-secondary"
+                >
+                  • ChatGPT / Codex 降智判定与恢复
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/help/codex-rate-limit-429/"
+                  className="hover:text-primary transition-colors text-secondary"
+                >
+                  • 429 Too Many Requests 限流突破
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/help/payment-card-declined/"
+                  className="hover:text-primary transition-colors text-secondary"
+                >
+                  • Your card has been declined 绑卡被拒
+                </Link>
+              </li>
+              <li>
                 <a
                   href="#compare"
                   className="hover:text-primary transition-colors text-secondary"

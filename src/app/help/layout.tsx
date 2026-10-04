@@ -11,42 +11,49 @@ import {
   Calculator,
   Compass,
   HelpCircle,
+  Zap,
 } from "lucide-react";
 
-const GUIDE_NAV = [
-  {
-    href: "/guide/stability/",
-    label: "稳定使用与网络自检指南",
-    icon: Compass,
-    badge: "必读",
-  },
+const HELP_NAV = [
   {
     href: "/help/",
-    label: "问题中心与排错FAQ",
+    label: "问题中心首页",
     icon: HelpCircle,
-    badge: "自救",
+    badge: "汇总",
   },
   {
-    href: "/solutions/codex-procurement/",
-    label: "Codex 研发代采方案",
+    href: "/help/codex-chatgpt-degraded/",
+    label: "降智排查与拯救",
+    icon: Zap,
+    badge: "热搜",
+  },
+  {
+    href: "/help/codex-rate-limit-429/",
+    label: "429 限流与配额",
     icon: Code2,
-    badge: "效能",
+    badge: "高发",
   },
   {
-    href: "/solutions/gpt-bulk-procurement/",
-    label: "企业 GPT 官方集采",
+    href: "/help/payment-card-declined/",
+    label: "支付被拒与代充",
     icon: Building2,
-    badge: "对公",
+    badge: "合规",
+  },
+  {
+    href: "/guide/stability/",
+    label: "网络自检与十诫",
+    icon: Compass,
+    badge: "底座",
   },
   {
     href: "/docs/pricing/",
-    label: "2026 最新代采阶梯报价单",
+    label: "2026 最新报价单",
     icon: BookOpen,
     badge: "手册",
   },
 ];
 
-export default function GuideLayout({
+export default function HelpLayout({
   children,
 }: {
   children: React.ReactNode;
@@ -68,7 +75,7 @@ export default function GuideLayout({
 
             <div className="h-4 w-px bg-theme-subtle" />
 
-            <Link href="/" className="flex items-center gap-2.5">
+            <Link href="/help/" className="flex items-center gap-2.5">
               <div className="w-7 h-7 rounded-lg bg-surface-elevated border border-theme-subtle flex items-center justify-center shadow-xs">
                 <BrandLogo size={16} variant="emerald" />
               </div>
@@ -77,7 +84,7 @@ export default function GuideLayout({
                   AI 代采
                 </span>
                 <span className="text-[11px] font-mono text-emerald-600 dark:text-emerald-400 bg-emerald-500/10 px-1.5 py-0.5 rounded border border-emerald-500/20">
-                  技术避坑指南
+                  问题中心与排障
                 </span>
               </div>
             </Link>
@@ -104,11 +111,11 @@ export default function GuideLayout({
 
         {/* 二级场景切换导航条 */}
         <div className="border-t border-theme-subtle bg-surface-elevated/60 overflow-x-auto scrollbar-none">
-          <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center gap-3 py-2">
+          <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center gap-2.5 py-2">
             <span className="text-[11px] font-mono text-tertiary mr-1 shrink-0">
-              知识库专区:
+              快速直达:
             </span>
-            {GUIDE_NAV.map((item) => {
+            {HELP_NAV.map((item) => {
               const Icon = item.icon;
               return (
                 <Link
@@ -129,7 +136,7 @@ export default function GuideLayout({
       </header>
 
       {/* 正文主体 */}
-      <main className="flex-1 max-w-6xl mx-auto w-full px-4 sm:px-6 lg:px-8 py-10">
+      <main className="flex-1 max-w-6xl mx-auto w-full px-4 sm:px-6 lg:px-8 py-8 sm:py-10">
         {children}
       </main>
 
@@ -148,39 +155,39 @@ export default function GuideLayout({
             </div>
             <div>
               <div className="font-semibold text-primary mb-2 text-sm">
-                实用资源与方案
+                热门故障排查与指南
               </div>
               <ul className="space-y-1.5 text-xs">
                 <li>
                   <Link
-                    href="/guide/stability/"
+                    href="/help/codex-chatgpt-degraded/"
                     className="hover:text-primary transition-colors text-emerald-600 dark:text-emerald-400 font-medium"
                   >
-                    • 国内稳定使用 ChatGPT & Codex 全景指南
+                    • ChatGPT & Codex 降智判定与 PoW 恢复指南
                   </Link>
                 </li>
                 <li>
                   <Link
-                    href="/solutions/codex-procurement/"
+                    href="/help/codex-rate-limit-429/"
                     className="hover:text-primary transition-colors"
                   >
-                    • 研发团队 OpenAI Codex / 代码助手企业代采
+                    • 429 Too Many Requests 限流与配额用尽破解
                   </Link>
                 </li>
                 <li>
                   <Link
-                    href="/solutions/gpt-bulk-procurement/"
+                    href="/help/payment-card-declined/"
                     className="hover:text-primary transition-colors"
                   >
-                    • 企业 GPT 官方集中采购 (集采) 方案
+                    • 订阅被拒 Your card has been declined 原因与正规代充
                   </Link>
                 </li>
                 <li>
                   <Link
-                    href="/docs/pricing/"
+                    href="/guide/stability/"
                     className="hover:text-primary transition-colors"
                   >
-                    • 2026 最新官方代采阶梯报价单手册
+                    • 国内稳定使用 ChatGPT & Codex IP自检与十诫
                   </Link>
                 </li>
               </ul>

@@ -1,10 +1,26 @@
 import type { MetadataRoute } from "next";
+import { HELP_ARTICLES } from "@/config/helpArticles";
 
 export const dynamic = "force-static";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = "https://gongsi.one";
   const lastModified = new Date();
+
+  const helpRoutes: MetadataRoute.Sitemap = [
+    {
+      url: `${baseUrl}/help/`,
+      lastModified,
+      changeFrequency: "weekly",
+      priority: 0.9,
+    },
+    ...HELP_ARTICLES.map((article) => ({
+      url: `${baseUrl}/help/${article.slug}/`,
+      lastModified,
+      changeFrequency: "weekly" as const,
+      priority: 0.85,
+    })),
+  ];
 
   return [
     {
@@ -31,6 +47,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "weekly",
       priority: 0.9,
     },
+    ...helpRoutes,
     {
       url: `${baseUrl}/docs/proposal/`,
       lastModified,

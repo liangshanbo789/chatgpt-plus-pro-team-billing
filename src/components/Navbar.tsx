@@ -13,6 +13,7 @@ import {
   BookOpen,
   ArrowRight,
   Compass,
+  HelpCircle,
 } from "lucide-react";
 import BrandLogo from "./BrandLogo";
 import ThemeToggle from "./ThemeToggle";
@@ -209,6 +210,30 @@ export default function Navbar({ onOpenContact, onOpenDocs }: NavbarProps) {
                     </div>
                   </Link>
 
+                  {/* 问题中心与技术自救 */}
+                  <Link
+                    href="/help/"
+                    onClick={() => setSolutionsOpen(false)}
+                    className="flex items-start gap-3 p-2.5 rounded-lg hover:bg-surface-elevated transition-colors group"
+                  >
+                    <div className="w-8 h-8 rounded-lg bg-amber-500/10 border border-amber-500/20 flex items-center justify-center shrink-0 mt-0.5 group-hover:bg-amber-500/15">
+                      <HelpCircle className="w-4 h-4 text-amber-600 dark:text-amber-400" />
+                    </div>
+                    <div className="flex-1 min-w-0">
+                      <div className="flex items-center gap-1.5 mb-0.5">
+                        <span className="font-semibold text-xs text-primary group-hover:text-amber-600 dark:group-hover:text-amber-400 transition-colors">
+                          问题中心与技术自救
+                        </span>
+                        <span className="text-[10px] px-1.5 py-0.2 rounded bg-amber-500/10 text-amber-600 dark:text-amber-400 font-mono border border-amber-500/20">
+                          排错
+                        </span>
+                      </div>
+                      <p className="text-[11px] text-secondary leading-relaxed line-clamp-2">
+                        模型降智 · 429限流 · 403阻断 · 绑卡被拒
+                      </p>
+                    </div>
+                  </Link>
+
                   {/* 下拉底部文档入口 */}
                   <div className="border-t border-theme-subtle pt-1 mt-1">
                     <Link
@@ -236,6 +261,17 @@ export default function Navbar({ onOpenContact, onOpenDocs }: NavbarProps) {
             <span>稳定指南</span>
             <span className="text-[9px] px-1 py-0.2 rounded bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 font-mono border border-emerald-500/20">
               IP自检
+            </span>
+          </Link>
+
+          {/* 问题中心 */}
+          <Link
+            href="/help/"
+            className="px-2.5 py-1.5 rounded-md hover:text-amber-600 dark:hover:text-amber-400 hover:bg-amber-500/5 transition-colors inline-flex items-center gap-1 whitespace-nowrap text-secondary font-medium"
+          >
+            <span>问题中心</span>
+            <span className="text-[9px] px-1 py-0.2 rounded bg-amber-500/10 text-amber-600 dark:text-amber-400 font-mono border border-amber-500/20">
+              排错FAQ
             </span>
           </Link>
 
@@ -378,6 +414,27 @@ export default function Navbar({ onOpenContact, onOpenDocs }: NavbarProps) {
                     </div>
                     <div className="text-[10px] text-secondary">
                       IP 欺诈度 · TUN 模式 · 避坑十诫
+                    </div>
+                  </div>
+                </div>
+                <ArrowRight className="w-3.5 h-3.5 text-tertiary" />
+              </Link>
+
+              <Link
+                href="/help/"
+                onClick={() => setMobileMenuOpen(false)}
+                className="flex items-center justify-between p-2.5 rounded-lg bg-surface border border-theme-subtle hover:border-amber-500/40 transition-colors"
+              >
+                <div className="flex items-center gap-2.5">
+                  <div className="w-7 h-7 rounded-md bg-amber-500/10 flex items-center justify-center">
+                    <HelpCircle className="w-3.5 h-3.5 text-amber-600 dark:text-amber-400" />
+                  </div>
+                  <div>
+                    <div className="text-xs font-medium text-primary">
+                      问题中心与技术排错
+                    </div>
+                    <div className="text-[10px] text-secondary">
+                      降智 · 429限流 · 403阻断 · 绑卡被拒
                     </div>
                   </div>
                 </div>
