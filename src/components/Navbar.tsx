@@ -78,7 +78,7 @@ export default function Navbar({ onOpenContact, onOpenDocs }: NavbarProps) {
 
   return (
     <header className="sticky top-0 z-50 w-full border-b border-theme-subtle bg-[var(--bg-canvas)]/90 backdrop-blur-xl transition-colors duration-200">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between gap-4">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between gap-2 xl:gap-4">
         {/* Brand Logo */}
         <Link
           href="/"
@@ -97,34 +97,34 @@ export default function Navbar({ onOpenContact, onOpenDocs }: NavbarProps) {
                 代采
               </span>
             </div>
-            <span className="text-[10px] text-tertiary tracking-wide font-normal leading-tight mt-0.5 whitespace-nowrap">
+            <span className="text-[10px] text-tertiary tracking-wide font-normal leading-tight mt-0.5 whitespace-nowrap hidden 2xl:block">
               企业级海外 AI 采购服务商
             </span>
           </div>
         </Link>
 
         {/* Desktop Nav Links */}
-        <nav className="hidden lg:flex items-center gap-1 xl:gap-2 text-xs font-medium text-secondary">
+        <nav className="hidden lg:flex items-center gap-0.5 xl:gap-1 2xl:gap-1.5 text-xs font-medium text-secondary shrink-0">
           {/* 解决方案 Dropdown */}
           <div
             ref={dropdownRef}
-            className="relative"
+            className="relative shrink-0"
             onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}
           >
             <button
               type="button"
               onClick={() => setSolutionsOpen(!solutionsOpen)}
-              className={`flex items-center gap-1 px-3 py-1.5 rounded-md transition-all cursor-pointer ${
+              className={`flex items-center gap-1 px-2 xl:px-2.5 py-1.5 rounded-md transition-all cursor-pointer whitespace-nowrap shrink-0 ${
                 solutionsOpen
                   ? "text-primary bg-surface-elevated"
                   : "text-secondary hover:text-primary hover:bg-surface-elevated/70"
               }`}
               aria-expanded={solutionsOpen}
             >
-              <span>方案中心</span>
+              <span className="whitespace-nowrap">方案中心</span>
               <ChevronDown
-                className={`w-3.5 h-3.5 transition-transform duration-200 ${
+                className={`w-3.5 h-3.5 shrink-0 transition-transform duration-200 ${
                   solutionsOpen ? "rotate-180 text-emerald-500" : "text-tertiary"
                 }`}
               />
@@ -256,10 +256,10 @@ export default function Navbar({ onOpenContact, onOpenDocs }: NavbarProps) {
           {/* 稳定使用指南 */}
           <Link
             href="/guide/stability/"
-            className="px-2.5 py-1.5 rounded-md hover:text-emerald-600 dark:hover:text-emerald-400 hover:bg-emerald-500/5 transition-colors inline-flex items-center gap-1 whitespace-nowrap text-secondary font-medium"
+            className="px-2 xl:px-2.5 py-1.5 rounded-md hover:text-emerald-600 dark:hover:text-emerald-400 hover:bg-emerald-500/5 transition-colors inline-flex items-center gap-1 whitespace-nowrap shrink-0 text-secondary font-medium"
           >
             <span>稳定指南</span>
-            <span className="text-[9px] px-1 py-0.2 rounded bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 font-mono border border-emerald-500/20">
+            <span className="text-[9px] px-1 py-0.2 rounded bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 font-mono border border-emerald-500/20 hidden xl:inline-block">
               IP自检
             </span>
           </Link>
@@ -267,10 +267,10 @@ export default function Navbar({ onOpenContact, onOpenDocs }: NavbarProps) {
           {/* 问题中心 */}
           <Link
             href="/help/"
-            className="px-2.5 py-1.5 rounded-md hover:text-amber-600 dark:hover:text-amber-400 hover:bg-amber-500/5 transition-colors inline-flex items-center gap-1 whitespace-nowrap text-secondary font-medium"
+            className="px-2 xl:px-2.5 py-1.5 rounded-md hover:text-amber-600 dark:hover:text-amber-400 hover:bg-amber-500/5 transition-colors inline-flex items-center gap-1 whitespace-nowrap shrink-0 text-secondary font-medium"
           >
             <span>问题中心</span>
-            <span className="text-[9px] px-1 py-0.2 rounded bg-amber-500/10 text-amber-600 dark:text-amber-400 font-mono border border-amber-500/20">
+            <span className="text-[9px] px-1 py-0.2 rounded bg-amber-500/10 text-amber-600 dark:text-amber-400 font-mono border border-amber-500/20 hidden xl:inline-block">
               排错FAQ
             </span>
           </Link>
@@ -278,37 +278,37 @@ export default function Navbar({ onOpenContact, onOpenDocs }: NavbarProps) {
           {/* 锚点导航项 */}
           <a
             href="#compare"
-            className="px-2.5 py-1.5 rounded-md hover:text-primary hover:bg-surface-elevated/70 transition-colors whitespace-nowrap"
+            className="px-2 xl:px-2.5 py-1.5 rounded-md hover:text-primary hover:bg-surface-elevated/70 transition-colors whitespace-nowrap shrink-0"
           >
             选型对比
           </a>
           <a
             href="#products"
-            className="px-2.5 py-1.5 rounded-md hover:text-primary hover:bg-surface-elevated/70 transition-colors whitespace-nowrap"
+            className="px-2 xl:px-2.5 py-1.5 rounded-md hover:text-primary hover:bg-surface-elevated/70 transition-colors whitespace-nowrap shrink-0"
           >
             代采矩阵
           </a>
           <a
             href="#workflow"
-            className="px-2.5 py-1.5 rounded-md hover:text-primary hover:bg-surface-elevated/70 transition-colors whitespace-nowrap"
+            className="px-2 xl:px-2.5 py-1.5 rounded-md hover:text-primary hover:bg-surface-elevated/70 transition-colors whitespace-nowrap shrink-0 hidden xl:inline-block"
           >
             交付闭环
           </a>
           <a
             href="#compliance"
-            className="px-2.5 py-1.5 rounded-md hover:text-primary hover:bg-surface-elevated/70 transition-colors whitespace-nowrap hidden xl:inline-block"
+            className="px-2 xl:px-2.5 py-1.5 rounded-md hover:text-primary hover:bg-surface-elevated/70 transition-colors whitespace-nowrap shrink-0 hidden 2xl:inline-block"
           >
             对公样张
           </a>
           <a
             href="#calculator"
-            className="px-2.5 py-1.5 rounded-md hover:text-primary hover:bg-surface-elevated/70 transition-colors whitespace-nowrap"
+            className="px-2 xl:px-2.5 py-1.5 rounded-md hover:text-primary hover:bg-surface-elevated/70 transition-colors whitespace-nowrap shrink-0"
           >
             预算测算
           </a>
           <a
             href="#perks"
-            className="px-2.5 py-1.5 rounded-md hover:text-amber-500 dark:hover:text-amber-300 hover:bg-amber-500/5 transition-colors inline-flex items-center gap-1.5 text-amber-600 dark:text-amber-400 font-medium whitespace-nowrap"
+            className="px-2 xl:px-2.5 py-1.5 rounded-md hover:text-amber-500 dark:hover:text-amber-300 hover:bg-amber-500/5 transition-colors inline-flex items-center gap-1 text-amber-600 dark:text-amber-400 font-medium whitespace-nowrap shrink-0"
           >
             <span>集采礼遇</span>
             <span className="w-1.5 h-1.5 rounded-full bg-amber-500 dark:bg-amber-400 animate-pulse" />
@@ -316,11 +316,11 @@ export default function Navbar({ onOpenContact, onOpenDocs }: NavbarProps) {
         </nav>
 
         {/* CTA Buttons & Theme Toggle */}
-        <div className="hidden lg:flex items-center gap-2.5 shrink-0">
+        <div className="hidden lg:flex items-center gap-2 xl:gap-2.5 shrink-0">
           <ThemeToggle variant="icon" />
           <button
             onClick={onOpenDocs}
-            className="btn-openai-secondary text-xs !py-1.5 !px-3 cursor-pointer whitespace-nowrap hidden xl:inline-flex items-center gap-1.5"
+            className="btn-openai-secondary text-xs !py-1.5 !px-3 cursor-pointer whitespace-nowrap hidden 2xl:inline-flex items-center gap-1.5"
             title="查看企业立项报告模板与合作协议"
           >
             <FileText className="w-3.5 h-3.5 text-secondary" />
@@ -328,7 +328,7 @@ export default function Navbar({ onOpenContact, onOpenDocs }: NavbarProps) {
           </button>
           <button
             onClick={() => onOpenContact("navbar")}
-            className="btn-openai-white text-xs !py-1.5 !px-4 cursor-pointer flex items-center gap-1.5 shrink-0 whitespace-nowrap"
+            className="btn-openai-white text-xs !py-1.5 !px-3.5 cursor-pointer flex items-center gap-1.5 shrink-0 whitespace-nowrap shadow-xs"
           >
             <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
             <MessageCircle className="w-3.5 h-3.5" />
