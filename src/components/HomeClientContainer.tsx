@@ -20,7 +20,7 @@ export default function HomeClientContainer() {
   const [contactModalOpen, setContactModalOpen] = useState(false);
   const [contactSource, setContactSource] = useState<string>("general");
   const [docsVaultOpen, setDocsVaultOpen] = useState(false);
-  const [selectedProduct, setSelectedProduct] = useState<string>("pro20x");
+  const [selectedProduct, setSelectedProduct] = useState<string>("pro200");
 
   const handleOpenContact = (source: string = "general") => {
     setContactSource(source);
@@ -61,7 +61,7 @@ export default function HomeClientContainer() {
           onOpenDocs={() => setDocsVaultOpen(true)}
         />
 
-        {/* 产品目录 (Plus / Pro 5x / Pro 20x / Team) */}
+        {/* 产品目录 (Pro 100/200/500, Business Standard/Premium, Plus) */}
         <ProductCatalog
           onSelectProduct={handleSelectProduct}
           onOpenContact={handleOpenContact}

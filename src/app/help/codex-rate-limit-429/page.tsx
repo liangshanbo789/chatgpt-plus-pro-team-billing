@@ -186,10 +186,10 @@ print(result)`;
         </div>
       </section>
 
-      {/* 商业根治：Pro 20x 与 Team 空间 */}
+      {/* 商业根治：Pro 200/500 与 Business 空间 */}
       <section className="space-y-4">
         <h2 className="text-xl sm:text-2xl font-bold text-primary tracking-tight">
-          三、 彻底解决生产力瓶颈：升级 ChatGPT Pro 20x 算力版
+          三、 彻底解决生产力瓶颈：升级 ChatGPT Pro 200 / 500 算力版
         </h2>
         <p className="text-xs sm:text-sm text-secondary leading-relaxed">
           对于高强度的专业工程师与软件研发团队而言，代码思路被打断 3 小时的隐性时间成本远超过工具费用。
@@ -198,16 +198,16 @@ print(result)`;
         <div className="p-5 rounded-2xl bg-surface border-2 border-emerald-500/20 space-y-3 text-xs sm:text-sm">
           <div className="flex items-center gap-2 text-emerald-600 dark:text-emerald-400 font-bold">
             <Zap className="w-4 h-4" />
-            <span>ChatGPT Pro (20x 高算力版) 的核心优势</span>
+            <span>ChatGPT Pro 200 / 500 高算力版的核心优势</span>
           </div>
           <ul className="space-y-2 text-xs text-secondary">
             <li className="flex items-start gap-2">
               <CheckCircle2 className="w-3.5 h-3.5 text-emerald-500 mt-0.5 shrink-0" />
-              <span><strong>无限量/高配额访问 o1：</strong>彻底解除 3 小时限制，享有 20x 算力支持与无等待排队队列。</span>
+              <span><strong>高倍满血推理：</strong>Pro 200 享有 10x 高算力且免 5 小时常规限制；顶配 Pro 500 独占 <strong>Ultrafast 300 tps</strong> 极速生成，打破一切排队限制。</span>
             </li>
             <li className="flex items-start gap-2">
               <CheckCircle2 className="w-3.5 h-3.5 text-emerald-500 mt-0.5 shrink-0" />
-              <span><strong>独占高优先级计算通道：</strong>晚高峰期间免受全球算力动态限流压制。</span>
+              <span><strong>独占顶级优先计算队列：</strong>晚高峰期间免受全球算力动态限流压制，100 万长上下文从容理解复杂系统。</span>
             </li>
             <li className="flex items-start gap-2">
               <CheckCircle2 className="w-3.5 h-3.5 text-emerald-500 mt-0.5 shrink-0" />

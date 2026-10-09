@@ -304,7 +304,7 @@ export default function LiveStreamDashboard() {
               <header className={styles.positioning}>
                 <h1>专门服务企业</h1>
                 <p>
-                  ChatGPT Pro <strong>5x / 20x</strong> 集中采购
+                  ChatGPT Pro <strong>100 / 200 / 500</strong> 与 Business 集中采购
                 </p>
               </header>
               <div className={styles.chapterProgress} aria-label="当前讲解章节">

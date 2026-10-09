@@ -20,7 +20,7 @@ export const metadata: Metadata = {
     template: "%s | AI代采 gongsi.one",
   },
   description:
-    "国内领先的企业级 GPT 官方集中采购 (集采) 与 OpenAI Codex 研发代码助手代采服务平台。全系覆盖 ChatGPT Plus、Pro (5x/20x)、Team 空间及 GPT-6 Astra，支持银行对公转账、开具 6% 增值税专用发票、大客户阶梯让利降本与 72h 封号包赔兜底。官网：gongsi.one",
+    "国内领先的企业级 GPT 官方集中采购 (集采) 与 OpenAI Codex 研发代码助手代采服务平台。全系覆盖 ChatGPT Plus、Pro (100/200/500)、Business 空间及 GPT-6 Astra，支持银行对公转账、开具 6% 增值税专用发票、大客户阶梯让利降本与 72h 封号包赔兜底。官网：gongsi.one",
   keywords: [
     "codex采购",
     "OpenAI Codex采购",
@@ -39,7 +39,10 @@ export const metadata: Metadata = {
     "ChatGPT对公转账",
     "ChatGPT开专票",
     "ChatGPT发票报销",
-    "ChatGPT Pro 20x代采",
+    "ChatGPT Pro 200代采",
+    "ChatGPT Pro 100代采",
+    "ChatGPT Pro 500代采",
+    "ChatGPT Business空间代采",
     "GPT-6 Astra采购",
     "出海企业SaaS采购",
     "信息技术服务费专票",
@@ -137,7 +140,7 @@ const jsonLdData = [
         name: "软件公司与研发团队如何采购 OpenAI Codex 及代码大模型？支持对公和专票吗？",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "完全支持！我们专为软件互联网与研发技术团队提供 OpenAI Codex、ChatGPT Plus/Pro 20x 深度编程算力代采通道。彻底解决研发人员个人外币卡拒付、某宝代充被封、无票难报销的痛点。支持中国工商银行对公转账、开具国家税务 6% 增值税专用发票（信息技术服务费），提供官方原版 Invoice 与 72 小时封号退赔保障，支持研发费用合规列支。",
+          text: "完全支持！我们专为软件互联网与研发技术团队提供 OpenAI Codex、ChatGPT Plus/Pro 200/500 深度编程算力代采通道。彻底解决研发人员个人外币卡拒付、某宝代充被封、无票难报销的痛点。支持中国工商银行对公转账、开具国家税务 6% 增值税专用发票（信息技术服务费），提供官方原版 Invoice 与 72 小时封号退赔保障，支持研发费用合规列支。",
         },
       },
       {
@@ -177,7 +180,7 @@ const jsonLdData = [
         name: "官方最新发布的 GPT-6 Astra，企业代采账号是否能第一时间使用？",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "完全支持！我们提供 100% 官方正规代充与企业席位订阅，款到激活后账号直接接入 OpenAI 官方最新服务。最新发布的 GPT-6 Astra 旗舰模型及 GPT-5.6 家族已向 Plus、Pro (5x/20x) 和 Team 空间全量推送。",
+          text: "完全支持！我们提供 100% 官方正规代充与企业席位订阅，款到激活后账号直接接入 OpenAI 官方最新服务。最新发布的 GPT-6 Astra 旗舰模型及 GPT-5.6 家族已向 Plus、Pro (100/200/500) 和 Business 空间全量推送。",
         },
       },
       {

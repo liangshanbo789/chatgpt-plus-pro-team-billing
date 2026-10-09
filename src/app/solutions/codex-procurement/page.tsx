@@ -21,12 +21,13 @@ export const metadata: Metadata = {
   title:
     "研发团队 OpenAI Codex / 代码助手企业对公代采解决方案 | 支持 6% 专票与对公结算 - AI代采",
   description:
-    "专为软件互联网、出海技术架构与研发团队打造的 OpenAI Codex / ChatGPT Pro 20x 官方代采合规通道。解决研发个人外币卡拒付、某宝代充黑卡封号与发票报销难题。支持中国工商银行对公转账、国家税务 6% 增值税专用发票开具、72h 封号包赔兜底，研发费用合规列支。",
+    "专为软件互联网、出海技术架构与研发团队打造的 OpenAI Codex / ChatGPT Pro (100/200/500) 官方代采合规通道。解决研发个人外币卡拒付、某宝代充黑卡封号与发票报销难题。支持中国工商银行对公转账、国家税务 6% 增值税专用发票开具、72h 封号包赔兜底，研发费用合规列支。",
   keywords: [
     "codex采购",
     "OpenAI Codex采购",
     "Codex企业采购",
-    "Codex代采",
+    "ChatGPT Pro 200研发采购",
+    "ChatGPT Pro 500 Ultrafast",
     "代码大模型采购",
     "研发团队AI编程代采",
     "程序员AI工具采购",
@@ -80,7 +81,7 @@ const CODEX_SPECS = [
     highlight: false,
   },
   {
-    name: "ChatGPT Pro (5x 研发攻坚版)",
+    name: "ChatGPT Pro 100 (5x 研发攻坚版)",
     target: "资深后端 / 大数据工程师 / DevOps",
     icon: Zap,
     price: "¥ 650 ~ 790 / 月",
@@ -94,18 +95,32 @@ const CODEX_SPECS = [
     highlight: false,
   },
   {
-    name: "ChatGPT Pro 20x (架构极限旗舰版)",
+    name: "ChatGPT Pro 200 (10x 架构旗舰版)",
     target: "CTO / 首席架构师 / 算法专家 / AI攻坚组",
     icon: Cpu,
-    price: "¥ 1,280 ~ 1,580 / 月",
+    price: "¥ 1,260 ~ 1,490 / 月",
     features: [
-      "OpenAI $200 满血旗舰 GPT-6 Astra 极限算力",
-      "20 倍极速算力优先队列，超高并发不限频",
+      "OpenAI $200 满血旗舰 GPT-6 Astra 深度推理集群",
+      "10 倍高倍极速算力队列，免除 5 小时常规频次限制",
       "Computer Operator 智能体操控与多步全流程工程",
       "超大规模复杂分布式系统设计与全库代码审查",
       "附带大客户战略伙伴支持与专属技术群",
     ],
     highlight: true,
+  },
+  {
+    name: "ChatGPT Pro 500 (25x 顶配 · Ultrafast)",
+    target: "核心 AI 实验室 / 量化高频团队 / 极速产研",
+    icon: Cpu,
+    price: "¥ 3,180 ~ 3,880 / 月",
+    features: [
+      "独占 Ultrafast 极速模式（token 生成高达 300 tps）",
+      "25 倍于 Plus 的顶级极限算力与全量并发通道",
+      "彻底解除 5 小时限制，全天候高负荷密集计算",
+      "最高优先级队列，抢先体验最新前沿实验特性",
+      "大客户专属 VIP 绿色通道开通与专属 SLA",
+    ],
+    highlight: false,
   },
 ];
 
@@ -179,12 +194,12 @@ export default function CodexProcurementPage() {
     },
     areaServed: "CN",
     description:
-      "专为软件互联网与研发技术团队提供 OpenAI Codex、ChatGPT Plus/Pro 20x 算力代采通道。支持中国工商银行对公转账、6% 增值税专票与 72h 封号退赔保障。",
+      "专为软件互联网与研发技术团队提供 OpenAI Codex、ChatGPT Plus/Pro 200/500 算力代采通道。支持中国工商银行对公转账、6% 增值税专票与 72h 封号退赔保障。",
     offers: {
       "@type": "AggregateOffer",
       priceCurrency: "CNY",
       lowPrice: "135",
-      highPrice: "1580",
+      highPrice: "3880",
       url: "https://gongsi.one/solutions/codex-procurement/",
     },
   };

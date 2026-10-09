@@ -52,7 +52,7 @@ export const HELP_ARTICLES: HelpArticle[] = [
     badge: "热搜第一",
     seoTitle: "ChatGPT & Codex 降智排查自救指南 | PoW难度检测与恢复方案 - AI代采",
     seoDescription:
-      "详细解析 ChatGPT 和 OpenAI Codex 遭遇降智的表现（o1无思考过程、强制退回 4o-mini、无联网）、PoW 工作量难度自测方法与网络环境彻底恢复策略。了解企业独享 Pro 20x 算力与 Team 空间纯净解决方案。",
+      "详细解析 ChatGPT 和 OpenAI Codex 遭遇降智的表现（o1无思考过程、强制退回 4o-mini、无联网）、PoW 工作量难度自测方法与网络环境彻底恢复策略。了解企业独享 Pro 200 算力与 Business 空间纯净解决方案。",
     relatedSlugs: ["codex-rate-limit-429", "access-denied-403-cloudflare", "codex-cli-terminal-proxy"],
   },
   {
@@ -71,7 +71,8 @@ export const HELP_ARTICLES: HelpArticle[] = [
       "ChatGPT使用额度已满",
       "Codex rate limit exceeded",
       "ChatGPT频次限制怎么解",
-      "ChatGPT Pro 20x算力",
+      "ChatGPT Pro 200算力",
+      "ChatGPT Pro 500 Ultrafast",
     ],
     readingTime: "6 分钟",
     updateDate: "2026-03",
@@ -80,7 +81,7 @@ export const HELP_ARTICLES: HelpArticle[] = [
     badge: "高发问题",
     seoTitle: "Codex & ChatGPT 429 Too Many Requests 限流突破全解 - AI代采",
     seoDescription:
-      "解决 Codex CLI 与 ChatGPT 遭遇 429 Too Many Requests 限流、You've reached the current usage cap 额度用尽的完整技术方案。详解指数退避、Session 上下文瘦身与企业 Pro 20x 独享算力升级。",
+      "解决 Codex CLI 与 ChatGPT 遭遇 429 Too Many Requests 限流、You've reached the current usage cap 额度用尽的完整技术方案。详解指数退避、Session 上下文瘦身与企业 Pro 200/500 独享算力升级。",
     relatedSlugs: ["codex-chatgpt-degraded", "codex-cli-terminal-proxy", "team-workspace-setup"],
   },
   {
@@ -194,29 +195,30 @@ export const HELP_ARTICLES: HelpArticle[] = [
   },
   {
     slug: "team-workspace-setup",
-    title: "ChatGPT Team 团队企业空间搭建与多成员权限管理避坑手册：工作区隔离与开票报销全解",
-    shortTitle: "ChatGPT Team 团队空间配置指南",
+    title: "ChatGPT Business 企业工作空间搭建全解 (原Team全新升级)：Standard与Premium双席位选型、数据隔离与专票报销",
+    shortTitle: "ChatGPT Business (原Team) 空间配置指南",
     category: "account",
     categoryLabel: "企业管理",
     summary:
-      "团队 5-50 人如何用 ChatGPT？加入 Team 会被管理员看私人聊天记录吗？个人 Plus 怎么平滑迁移？一文理清 Team 工作区数据不参与训练的隐私优势、多席位分配及对公专票报销流程。",
+      "OpenAI Team 全新更名为 ChatGPT Business！Standard 与 Premium (5x算力) 怎么选？加入 Business 会被管理员看私人聊天吗？一文理清商业数据 100% 不入训、多席位分配及工行对公专票报销流程。",
     keywords: [
-      "ChatGPT Team空间怎么用",
+      "ChatGPT Business空间怎么用",
+      "ChatGPT Team更名Business",
+      "ChatGPT Business Standard和Premium区别",
       "ChatGPT团队版开票",
       "ChatGPT成员加入个人记录",
-      "ChatGPT Team工作区隔离",
+      "ChatGPT Business工作区隔离",
       "ChatGPT企业版升级",
       "ChatGPT对公专票报销",
-      "ChatGPT多账号管理",
     ],
     readingTime: "5 分钟",
     updateDate: "2026-03",
     urgency: "medium",
-    urgencyLabel: "团队协同",
+    urgencyLabel: "企业协同",
     badge: "企业必看",
-    seoTitle: "ChatGPT Team 团队企业空间搭建与多成员权限管理避坑手册 - AI代采",
+    seoTitle: "ChatGPT Business 企业空间搭建全解 (原Team升级) - AI代采",
     seoDescription:
-      "ChatGPT Team 团队空间搭建全流程指南：个人账号与团队工作区隔离机制、席位增减与费用核算、数据隐私合规。支持企业工行对公结算与 6% 增值税专用发票开具。",
+      "ChatGPT Business (原Team) 企业空间搭建全流程指南：Standard 与 Premium 席位混搭选型、个人与企业工作区隔离、数据隐私合规。支持企业工行对公结算与 6% 增值税专用发票开具。",
     relatedSlugs: ["payment-card-declined", "codex-rate-limit-429", "account-deactivated-appeal"],
   },
   {

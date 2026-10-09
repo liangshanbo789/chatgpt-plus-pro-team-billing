@@ -6,9 +6,23 @@ export interface TierPrice {
   yearly: number;
 }
 
+export type ProductId =
+  | "plus"
+  | "pro100"
+  | "pro200"
+  | "pro500"
+  | "business_std"
+  | "business_pre"
+  | "pro5x"
+  | "pro20x"
+  | "team";
+
 export interface ProductPricingConfig {
-  id: "plus" | "pro5x" | "pro20x" | "team";
+  id: string;
+  category: "individual" | "pro" | "business";
+  categoryLabel: string;
   name: string;
+  shortName: string;
   tagline: string;
   badge: string;
   badgeColor: string;
@@ -31,7 +45,10 @@ export interface ProductPricingConfig {
 export const PRODUCTS_CONFIG: Record<string, ProductPricingConfig> = {
   plus: {
     id: "plus",
+    category: "individual",
+    categoryLabel: "基础普及",
     name: "ChatGPT Plus",
+    shortName: "Plus",
     tagline: "个人账号转企业统一报销首选",
     badge: "高频普及款",
     badgeColor: "bg-surface-elevated text-secondary border-theme-subtle",
@@ -56,11 +73,14 @@ export const PRODUCTS_CONFIG: Record<string, ProductPricingConfig> = {
       enterprise: { monthly: 145, quarterly: 140, yearly: 135 },
     },
   },
-  pro5x: {
-    id: "pro5x",
-    name: "ChatGPT Pro (5x)",
-    tagline: "中度算力攻坚与百万 Token 长文本",
-    badge: "进阶生产力",
+  pro100: {
+    id: "pro100",
+    category: "pro",
+    categoryLabel: "高算力 Pro 系列",
+    name: "ChatGPT Pro 100",
+    shortName: "Pro 100 (5x)",
+    tagline: "5x 高倍算力攻坚与百万 Token 长文本",
+    badge: "5x 算力进阶",
     badgeColor: "bg-surface-elevated text-secondary border-theme-subtle",
     officialUsd: 100,
     officialPriceDisplay: "$100 / 月",
@@ -68,13 +88,13 @@ export const PRODUCTS_CONFIG: Record<string, ProductPricingConfig> = {
     baseMonthlyRmb: 790,
     lowestPriceRmb: 650,
     perkPerSeatMonth: 60,
-    description: "适合资深独立站运营、高级研发工程及需要超长大上下文并行研判的业务核心人员。",
+    description: "官方定价 $100/月，享有 5 倍于 Plus 的算力配额。适合资深独立站运营、高级研发工程及需要超长上下文研判的人员。",
     features: [
       "5 倍于 Plus 版本的 GPT-6 Astra 与 GPT-5.6 频次限额",
       "支持 GPT-6 Astra 深度思考推理与长程规划",
       "支持 100 万 (1M Token) 超长上下文记忆分析",
       "Deep Research 深度全网科研级调研能力",
-      "支持按月/按季灵活调整账号分配",
+      "支持按月/按季灵活调整账号分配，按需弹性增减",
     ],
     highlight: false,
     tiers: {
@@ -83,61 +103,132 @@ export const PRODUCTS_CONFIG: Record<string, ProductPricingConfig> = {
       enterprise: { monthly: 690, quarterly: 660, yearly: 650 },
     },
   },
-  pro20x: {
-    id: "pro20x",
-    name: "ChatGPT Pro (20x 旗舰版)",
-    tagline: "OpenAI $200 顶配 GPT-6 Astra 满血极限算力",
+  pro200: {
+    id: "pro200",
+    category: "pro",
+    categoryLabel: "高算力 Pro 系列",
+    name: "ChatGPT Pro 200",
+    shortName: "Pro 200 (10x 旗舰)",
+    tagline: "OpenAI $200 研发主力旗舰 · 10x 满血推理算力",
     badge: "研发与算法团队标配",
     badgeColor: "bg-amber-500/10 text-amber-600 dark:text-amber-300 border-amber-500/30",
     officialUsd: 200,
     officialPriceDisplay: "$200 / 月",
     minSeats: 1,
-    baseMonthlyRmb: 1580,
-    lowestPriceRmb: 1280,
+    baseMonthlyRmb: 1490,
+    lowestPriceRmb: 1260,
     perkPerSeatMonth: 120,
-    description: "专为算法科学家、系统架构师及攻坚团队打造。搭载最新 GPT-6 Astra 满血旗舰与顶级深度推理集群。",
+    description: "专为算法科学家、系统架构师及攻坚团队打造。搭载最新 GPT-6 Astra 满血深度推理，免除 5 小时常规频次上限。",
     features: [
-      "搭载 OpenAI 满血旗舰 GPT-6 Astra (代号 Astra)",
-      "20 倍海量配额 / 极限算力，最高优先级极速计算",
+      "搭载 OpenAI 满血旗舰 GPT-6 Astra 深度推理集群",
+      "10 倍高倍用量配额，免除 5 小时常规用量限制",
       "突破性 Computer Operator 智能体操控与多步工程",
       "满血 OpenAI Codex 代码生成、系统架构设计与审计",
       "专属高端商业卡段绑定，附带大客户战略集采礼包",
     ],
     highlight: true,
     tiers: {
-      individual: { monthly: 1580, quarterly: 1480, yearly: 1420 },
-      team: { monthly: 1480, quarterly: 1390, yearly: 1350 },
-      enterprise: { monthly: 1380, quarterly: 1330, yearly: 1280 },
+      individual: { monthly: 1490, quarterly: 1420, yearly: 1380 },
+      team: { monthly: 1420, quarterly: 1360, yearly: 1320 },
+      enterprise: { monthly: 1350, quarterly: 1300, yearly: 1260 },
     },
   },
-  team: {
-    id: "team",
-    name: "ChatGPT Team 空间",
-    tagline: "企业数据隔离与全员 GPT-6 权限中控",
-    badge: "数据不入训",
-    badgeColor: "bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border-emerald-500/20",
-    officialUsd: 30,
-    officialPriceDisplay: "$30 / 人 / 月",
-    minSeats: 2,
-    baseMonthlyRmb: 245,
-    lowestPriceRmb: 198,
-    perkPerSeatMonth: 25,
-    description: "适合 5 人以上研发及商业敏感型团队，统一掌控工作空间，数据严密隔离不参与训练。",
+  pro500: {
+    id: "pro500",
+    category: "pro",
+    categoryLabel: "高算力 Pro 系列",
+    name: "ChatGPT Pro 500",
+    shortName: "Pro 500 (25x 顶配)",
+    tagline: "25x 极限算力 · 独占 Ultrafast 300 tps 极速模式",
+    badge: "独占 Ultrafast 极速",
+    badgeColor: "bg-purple-500/10 text-purple-600 dark:text-purple-300 border-purple-500/30",
+    officialUsd: 500,
+    officialPriceDisplay: "$500 / 月",
+    minSeats: 1,
+    baseMonthlyRmb: 3880,
+    lowestPriceRmb: 3180,
+    perkPerSeatMonth: 300,
+    description: "OpenAI 顶配 Pro 订阅，25 倍海量算力。独占 Ultrafast 极速模式（token 生成高达 300 tps），无 5 小时上限，满足极限制程与量化模型攻坚。",
     features: [
-      "全员享有 GPT-6 Astra 与 GPT-5.6 前沿模型能力",
-      "企业内部商业数据与代码默认完全不参与模型训练",
-      "企业管理员后台（统一调配席位/一键回收离职账号）",
-      "共享团队内部专属企业 GPTs 知识库与工作区工作流",
-      "统一出具一张对公汇总发票与按月/按季账单",
+      "独占 Ultrafast 极速模式（生成速率高达 300 tokens/s）",
+      "25 倍于 Plus 的顶级极限算力与全量并发通道",
+      "解除 5 小时使用限制，超长不间断深度科研运算",
+      "顶级优先调度集群，零等待接入最新实验性特性",
+      "专属大客户 VIP 渠道开通，配备 7×24H 专人技术保障",
     ],
     highlight: false,
     tiers: {
-      individual: { monthly: 245, quarterly: 230, yearly: 218 },
-      team: { monthly: 230, quarterly: 218, yearly: 208 },
-      enterprise: { monthly: 215, quarterly: 208, yearly: 198 },
+      individual: { monthly: 3880, quarterly: 3680, yearly: 3480 },
+      team: { monthly: 3680, quarterly: 3450, yearly: 3300 },
+      enterprise: { monthly: 3450, quarterly: 3300, yearly: 3180 },
+    },
+  },
+  business_std: {
+    id: "business_std",
+    category: "business",
+    categoryLabel: "企业空间 Business",
+    name: "ChatGPT Business (Standard)",
+    shortName: "Business 标准版",
+    tagline: "原 Team 空间全新升级 · 商业数据 100% 隔离不入训",
+    badge: "企业协作标配",
+    badgeColor: "bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border-emerald-500/20",
+    officialUsd: 25,
+    officialPriceDisplay: "$25 / 人 / 月",
+    minSeats: 2,
+    baseMonthlyRmb: 225,
+    lowestPriceRmb: 175,
+    perkPerSeatMonth: 20,
+    description: "OpenAI Team 全新更名升级。适合 2 人以上协作团队，统一工作空间，商业数据与代码严格隔离、绝不参与模型训练。",
+    features: [
+      "企业内部商业数据与代码默认 100% 不参与模型训练",
+      "全员享有 GPT-6 Astra 与 GPT-5.6 前沿模型能力",
+      "集中管理后台（统一分配/回收席位，集中账单管理）",
+      "共享团队内部专属企业 GPTs 知识库与工作区工作流",
+      "最低 2 席起购，支持按月/按季灵活调整人员配额",
+    ],
+    highlight: false,
+    tiers: {
+      individual: { monthly: 225, quarterly: 210, yearly: 198 },
+      team: { monthly: 210, quarterly: 198, yearly: 185 },
+      enterprise: { monthly: 195, quarterly: 185, yearly: 175 },
+    },
+  },
+  business_pre: {
+    id: "business_pre",
+    category: "business",
+    categoryLabel: "企业空间 Business",
+    name: "ChatGPT Business (Premium)",
+    shortName: "Business 尊享版",
+    tagline: "企业尊享 5x 高算力席位 · 免 5 小时频次限制",
+    badge: "高算力空间",
+    badgeColor: "bg-blue-500/10 text-blue-600 dark:text-blue-300 border-blue-500/30",
+    officialUsd: 125,
+    officialPriceDisplay: "$125 / 人 / 月",
+    minSeats: 2,
+    baseMonthlyRmb: 1020,
+    lowestPriceRmb: 820,
+    perkPerSeatMonth: 80,
+    description: "为企业核心高强度用量团队打造。单席享有 5x 高倍用量配额，免除 5 小时用量封顶，全面支持 SAML SSO 与审计控制。",
+    features: [
+      "单席享有 5 倍于标准版的高倍算力与深度推理额度",
+      "免除 5 小时用量封顶，保障关键业务全天候高频调用",
+      "数据 100% 隔离不参与训练，支持企业 SAML SSO 单点登录",
+      "支持在同一 Workspace 内与 Standard 标准席按需混搭",
+      "出具统一企业 6% 专票，专享企业级合规财务平账与 SLA",
+    ],
+    highlight: false,
+    tiers: {
+      individual: { monthly: 1020, quarterly: 960, yearly: 910 },
+      team: { monthly: 960, quarterly: 900, yearly: 860 },
+      enterprise: { monthly: 890, quarterly: 850, yearly: 820 },
     },
   },
 };
+
+// 兼容别名映射 (向后兼容旧 ID 引用)
+PRODUCTS_CONFIG.pro5x = PRODUCTS_CONFIG.pro100;
+PRODUCTS_CONFIG.pro20x = PRODUCTS_CONFIG.pro200;
+PRODUCTS_CONFIG.team = PRODUCTS_CONFIG.business_std;
 
 export interface QuotationResult {
   product: ProductPricingConfig;
@@ -159,7 +250,7 @@ export function calculateQuotation(
   rawSeats: number,
   billingCycle: BillingCycle
 ): QuotationResult {
-  const product = PRODUCTS_CONFIG[productId] || PRODUCTS_CONFIG.pro20x;
+  const product = PRODUCTS_CONFIG[productId] || PRODUCTS_CONFIG.pro200;
   const seats = Math.max(rawSeats, product.minSeats);
 
   let tierType: "individual" | "team" | "enterprise" = "individual";
@@ -177,10 +268,10 @@ export function calculateQuotation(
   let cycleName = "按月结算";
   if (billingCycle === "quarterly") {
     cycleMonths = 3;
-    cycleName = "按季度结算 (推荐)";
+    cycleName = "按季度结算 (季付立减)";
   } else if (billingCycle === "yearly") {
     cycleMonths = 12;
-    cycleName = "按年度结算 (特惠)";
+    cycleName = "按年度结算 (推荐 · 折上折)";
   }
 
   const unitPrice = product.tiers[tierType][billingCycle];
@@ -204,3 +295,4 @@ export function calculateQuotation(
     totalPerksAmount,
   };
 }
+

@@ -107,8 +107,8 @@ const fullTextContent = `关于采购 OpenAI 高级企业生产力账号以提�
 • 售后兜底：法务盖章《SLA 售后协议》，72 小时封号包换，全周期按天折算退款。
 
 四、 预算与测算建议（参考案例）
-拟采购 10 个席位（包含 2 个 Pro 20x 旗舰版与 8 个 Plus 版），按季度采购享受团队阶梯优惠：
-• 2 个 ChatGPT Pro (20x 旗舰版)：季付折后单价 ¥ 1,390/月/席 × 2 席 × 3 个月 = ¥ 8,340 元
+拟采购 10 个席位（包含 2 个 Pro 200 旗舰版与 8 个 Plus 版），按季度采购享受团队阶梯优惠：
+• 2 个 ChatGPT Pro 200 (10x 旗舰版)：季付折后单价 ¥ 1,390/月/席 × 2 席 × 3 个月 = ¥ 8,340 元
 • 8 个 ChatGPT Plus 版：季付折后单价 ¥ 148/月/席 × 8 席 × 3 个月 = ¥ 3,552 元
 含税总计约 ¥ 11,892 元（含 6% 增值税专票，相较单买月付立省 ¥ 1,548 元，降本达 12%）。
 
@@ -283,12 +283,12 @@ export default function ProposalDocPage() {
           </h2>
           <div className="p-4 rounded-xl bg-surface-elevated border border-theme-subtle text-xs space-y-2">
             <p className="text-secondary">
-              以常规 10 席位研发团队为例（包含 2 个 Pro 20x 旗舰版与 8 个 Plus
+              以常规 10 席位研发团队为例（包含 2 个 Pro 200 旗舰版与 8 个 Plus
               版），按季度采购享受阶梯特惠：
             </p>
             <ul className="list-disc list-inside space-y-1 text-secondary font-mono">
               <li>
-                2 席 ChatGPT Pro 20x：¥ 1,390/月/席 × 2 席 × 3 个月 = ¥ 8,340 元
+                2 席 ChatGPT Pro 200 (10x 旗舰)：¥ 1,390/月/席 × 2 席 × 3 个月 = ¥ 8,340 元
               </li>
               <li>
                 8 席 ChatGPT Plus 版：¥ 148/月/席 × 8 席 × 3 个月 = ¥ 3,552 元

@@ -19,7 +19,7 @@ export const metadata: Metadata = {
   title:
     "大中型企业 GPT 官方集中采购 (集采) 方案与阶梯报价手册 | 统一对公与 6% 数电专票 - AI代采",
   description:
-    "专为采购部、行政与财务定制的大中型企业 GPT 官方集中采购 (集采) 解决方案。全系覆盖 ChatGPT Plus、Pro (5x/20x)、Team 空间。实行采购越多单价越低阶梯降本机制，单席最高直降 25%。一纸框架合同、工行对公转账、一张 6% 增值税专用发票统一平账，附带公章 SLA 72h 封号包赔兜底。",
+    "专为采购部、行政与财务定制的大中型企业 GPT 官方集中采购 (集采) 解决方案。全系覆盖 ChatGPT Plus、Pro (100/200/500)、Business 空间。实行采购越多单价越低阶梯降本机制，单席最高直降 25%。一纸框架合同、工行对公转账、一张 6% 增值税专用发票统一平账，附带公章 SLA 72h 封号包赔兜底。",
   keywords: [
     "GPT集采",
     "ChatGPT集采",
@@ -68,17 +68,19 @@ const BULK_TIERS = [
     desc: "适合部门小规模技术可行性验证、单项目先锋攻坚",
     discount: "标准官方对公基准价",
     plusPrice: "¥ 165 / 月",
-    pro20xPrice: "¥ 1,580 / 月",
+    pro200Price: "¥ 1,490 / 月",
+    businessPrice: "¥ 225 / 人 / 月",
     highlight: false,
-    perk: "零起订门槛，支持个人现有账号直接官方无缝直充",
+    perk: "零起订门槛，支持个人现有账号直接官方直充或开通企业 Business 空间",
   },
   {
     tier: "Tier 2: 团队集中采购",
     seats: "5 ~ 19 席",
     desc: "核心技术研发团队、出海业务全员日常提效标配",
     discount: "自动触发批量阶梯，单席立降 ~10%",
-    plusPrice: "¥ 145 ~ 155 / 月",
-    pro20xPrice: "¥ 1,390 ~ 1,480 / 月",
+    plusPrice: "¥ 148 ~ 155 / 月",
+    pro200Price: "¥ 1,360 ~ 1,420 / 月",
+    businessPrice: "¥ 198 ~ 210 / 人 / 月",
     highlight: false,
     perk: "赠送专属经办人商务关怀礼包 (等值 ¥15~20/席/月) 及 1v1 客服群",
   },
@@ -88,7 +90,8 @@ const BULK_TIERS = [
     desc: "中大型互联网公司、跨国制造业、集团级全面 AI 转型",
     discount: "解锁大客户战略集采底价，最高立减 25%",
     plusPrice: "低至 ¥ 135 / 月",
-    pro20xPrice: "低至 ¥ 1,280 / 月",
+    pro200Price: "低至 ¥ 1,260 / 月",
+    businessPrice: "低至 ¥ 175 / 人 / 月",
     highlight: true,
     perk: "附赠战略大客户尊享礼遇、定制化招采立项材料支持、专属大客户总监",
   },
@@ -169,7 +172,7 @@ export default function GptBulkProcurementPage() {
       "@type": "AggregateOffer",
       priceCurrency: "CNY",
       lowPrice: "135",
-      highPrice: "1580",
+      highPrice: "3880",
       url: "https://gongsi.one/solutions/gpt-bulk-procurement/",
     },
   };
@@ -219,7 +222,7 @@ export default function GptBulkProcurementPage() {
 
         <p className="text-base sm:text-lg text-secondary leading-relaxed max-w-3xl">
           专为企业采购部、行政负责人与财务主管定制的一站式海外 AI 集采通道。覆盖
-          ChatGPT Plus、Pro (5x/20x)、Team 空间及 GPT-6
+          ChatGPT Plus、Pro (100/200/500)、Business 空间及 GPT-6
           Astra。实行“采购越多单价越低”阶梯机制，单席最高直降
           25%，支持一纸框架合同、统一工行对公转账、一张 6%
           增值税专用发票合并报销及经办人专属战略集采礼遇。
@@ -352,15 +355,21 @@ export default function GptBulkProcurementPage() {
                     {tier.discount}
                   </div>
                   <div className="flex justify-between text-xs pt-1 border-t border-theme-subtle">
-                    <span className="text-secondary">ChatGPT Plus:</span>
+                    <span className="text-secondary">ChatGPT Pro 200:</span>
                     <span className="font-mono text-primary font-medium">
-                      {tier.plusPrice}
+                      {tier.pro200Price}
                     </span>
                   </div>
                   <div className="flex justify-between text-xs">
-                    <span className="text-secondary">ChatGPT Pro 20x:</span>
+                    <span className="text-secondary">Business 空间:</span>
                     <span className="font-mono text-primary font-medium">
-                      {tier.pro20xPrice}
+                      {tier.businessPrice}
+                    </span>
+                  </div>
+                  <div className="flex justify-between text-xs">
+                    <span className="text-secondary">ChatGPT Plus:</span>
+                    <span className="font-mono text-primary font-medium">
+                      {tier.plusPrice}
                     </span>
                   </div>
                 </div>

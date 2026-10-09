@@ -58,30 +58,30 @@ export default function TeamWorkspacePage() {
       {/* 团队诉求与背景 */}
       <section className="space-y-4">
         <h2 className="text-xl sm:text-2xl font-bold text-primary tracking-tight">
-          一、 研发与企业团队为什么需要 ChatGPT Team 空间？
+          一、 升级必读：ChatGPT Team 已全面更名为 ChatGPT Business
         </h2>
         <p className="text-secondary leading-relaxed">
-          当公司研发团队有 5 人以上需要日常使用 AI 代码助手时，传统让员工各自找渠道充值个人 Plus 存在三大致命痛点：<strong>员工海外卡拒付报销混乱、淘宝代充暴雷频发、以及公司核心代码面临数据泄露被训练的法律风险</strong>。ChatGPT Team 团队版应运而生。
+          OpenAI 在 2026 最新企业架构中，已将原先的 <strong>ChatGPT Team</strong> 正式升级更名为 <strong>ChatGPT Business</strong>。针对企业不同用量人员，官方推出了 <strong>Standard（标准席）</strong> 与 <strong>Premium（高算力尊享席）</strong> 两种席位，最低 2 席起订，且支持在同一个企业工作区内弹性混搭。
         </p>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-3.5 text-xs">
           <div className="p-4 rounded-xl bg-surface border border-theme-subtle space-y-1.5">
             <div className="flex items-center gap-1.5 font-bold text-emerald-600 dark:text-emerald-400">
               <Lock className="w-4 h-4" />
-              <span>数据绝不参与训练</span>
+              <span>数据 100% 隔离不入训</span>
             </div>
             <p className="text-secondary text-[11px] leading-relaxed">
-              官方服务条款明文承诺：Team 工作区内的所有提问、代码和业务数据默认<strong>不用于模型训练</strong>，符合企业安全合规要求。
+              官方服务条款明文承诺：Business 工作区内的所有提问、代码和业务数据默认<strong>不用于模型训练</strong>，符合企业安全合规要求。
             </p>
           </div>
 
           <div className="p-4 rounded-xl bg-surface border border-theme-subtle space-y-1.5">
             <div className="flex items-center gap-1.5 font-bold text-blue-600 dark:text-blue-400">
               <Users className="w-4 h-4" />
-              <span>配额大幅提升</span>
+              <span>Standard 与 Premium 双席位</span>
             </div>
             <p className="text-secondary text-[11px] leading-relaxed">
-              每个席位拥有相比个人 Plus 更高的 GPT-4o 及 o1 消息调用上限，团队成员各自享有独立计算通道，不再互相抢占资源。
+              Standard 适合常规职能协同；Premium 则享有 <strong>5x 高算力</strong> 且<strong>免除 5 小时常规用量封顶</strong>，满足研发与算法密集调度。
             </p>
           </div>
 
@@ -91,7 +91,7 @@ export default function TeamWorkspacePage() {
               <span>统一席位管理与工作区</span>
             </div>
             <p className="text-secondary text-[11px] leading-relaxed">
-              管理员后台可一键邀请新员工、回收离职员工席位，并支持团队内部共享自定义 GPTs 知识库与工作流。
+              管理员后台可一键邀请新员工、回收离职员工席位，支持 SAML SSO 单点登录，并支持共享企业自定义 GPTs 知识库与工作流。
             </p>
           </div>
         </div>

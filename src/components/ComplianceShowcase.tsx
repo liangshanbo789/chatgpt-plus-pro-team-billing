@@ -192,7 +192,7 @@ export default function ComplianceShowcase() {
                           <tr>
                             <td className="py-3 text-primary font-sans">
                               <div className="font-semibold">*信息技术服务* 软件技术服务费</div>
-                              <div className="text-[10px] text-tertiary font-mono">规格: ChatGPT Pro (20x) 官方代采对公年订</div>
+                              <div className="text-[10px] text-tertiary font-mono">规格: ChatGPT Pro 200 (10x) 官方代采对公年订</div>
                             </td>
                             <td className="py-3 text-center text-secondary">席位 / 10</td>
                             <td className="py-3 text-right font-mono text-primary">¥ 1,311.32</td>

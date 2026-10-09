@@ -1,7 +1,17 @@
 "use client";
 
-import React from "react";
-import { Check, Sparkles, Zap, Cpu, Users, ArrowRight } from "lucide-react";
+import React, { useState } from "react";
+import {
+  Check,
+  Sparkles,
+  Zap,
+  Cpu,
+  Users,
+  Flame,
+  Building2,
+  ArrowRight,
+  Layers,
+} from "lucide-react";
 import { PRODUCTS_CONFIG, ProductPricingConfig } from "@/config/pricing";
 
 interface ProductCatalogProps {
@@ -9,85 +19,158 @@ interface ProductCatalogProps {
   onOpenContact: (source?: string) => void;
 }
 
-const PRODUCT_ICONS: Record<string, { icon: React.ElementType; iconColor: string }> = {
+const PRODUCT_ICONS: Record<
+  string,
+  { icon: React.ElementType; iconColor: string }
+> = {
   plus: {
     icon: Sparkles,
     iconColor: "text-secondary",
   },
-  pro5x: {
+  pro100: {
     icon: Zap,
-    iconColor: "text-secondary",
+    iconColor: "text-blue-500 dark:text-blue-400",
   },
-  pro20x: {
+  pro200: {
     icon: Cpu,
     iconColor: "text-amber-500 dark:text-amber-400",
   },
-  team: {
+  pro500: {
+    icon: Flame,
+    iconColor: "text-purple-500 dark:text-purple-400",
+  },
+  business_std: {
     icon: Users,
     iconColor: "text-emerald-600 dark:text-emerald-400",
   },
+  business_pre: {
+    icon: Building2,
+    iconColor: "text-cyan-600 dark:text-cyan-400",
+  },
 };
 
-export default function ProductCatalog({ onSelectProduct, onOpenContact }: ProductCatalogProps) {
-  const products: ProductPricingConfig[] = [
+export default function ProductCatalog({
+  onSelectProduct,
+  onOpenContact,
+}: ProductCatalogProps) {
+  const [filterCategory, setFilterCategory] = useState<string>("all");
+
+  const allProducts: ProductPricingConfig[] = [
+    PRODUCTS_CONFIG.pro200,
+    PRODUCTS_CONFIG.business_std,
+    PRODUCTS_CONFIG.pro100,
+    PRODUCTS_CONFIG.pro500,
+    PRODUCTS_CONFIG.business_pre,
     PRODUCTS_CONFIG.plus,
-    PRODUCTS_CONFIG.pro5x,
-    PRODUCTS_CONFIG.pro20x,
-    PRODUCTS_CONFIG.team,
   ];
+
+  const filteredProducts =
+    filterCategory === "all"
+      ? allProducts
+      : allProducts.filter((p) => p.category === filterCategory);
 
   return (
     <section id="products" className="py-20 relative bg-canvas transition-colors">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center max-w-3xl mx-auto mb-16">
+        <div className="text-center max-w-3xl mx-auto mb-10">
           <div className="codex-pill mb-3">
             <Cpu className="w-3.5 h-3.5 text-[#10A37F]" />
-            <span>全版本官方代采 · 支持 OpenAI Codex 研发代采与 GPT 战略集采 · 7×24H 极速开通</span>
+            <span>全版本官方代采 · 2026 OpenAI 最新产品矩阵 · 7×24H 极速开通</span>
           </div>
           <h2 className="text-3xl sm:text-4xl font-semibold text-primary tracking-tight mb-4">
-            满足企业从日常应用到顶配研发的全部需求
+            满足企业从高算力研发到全员协同的全部需求
           </h2>
           <p className="text-sm sm:text-base text-secondary">
-            全系产品均全面支持研发团队 Codex 代采与企业阶梯批量集采：采购席位越多、结算周期越长，单席成本越低，最高可立减 25% 预算并赠大客户增值礼包。7×24 小时随时受理，出具 6% 增值税专用发票。
+            涵盖最新 <strong className="text-primary font-medium">ChatGPT Pro 100 / 200 / 500</strong> 算力系列与全新更名的 <strong className="text-primary font-medium">ChatGPT Business</strong> 企业协作空间。支持对公含税转账、6% 增值税专票与大宗采购阶梯立减。
           </p>
         </div>
 
-        {/* Product Cards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
-          {products.map((product) => {
-            const iconMeta = PRODUCT_ICONS[product.id] || { icon: Cpu, iconColor: "text-secondary" };
+        {/* 分类切换器 Filter Tabs */}
+        <div className="flex items-center justify-center gap-2 mb-10 flex-wrap">
+          {[
+            { id: "all", label: "全部版本 (6大规格)", icon: Layers },
+            { id: "pro", label: "高算力 Pro 系列 (100/200/500)", icon: Cpu },
+            { id: "business", label: "企业 Business 空间 (原Team升级)", icon: Users },
+            { id: "individual", label: "基础普及 (Plus)", icon: Sparkles },
+          ].map((tab) => {
+            const TabIcon = tab.icon;
+            const active = filterCategory === tab.id;
+            return (
+              <button
+                key={tab.id}
+                onClick={() => setFilterCategory(tab.id)}
+                className={`flex items-center gap-2 px-4 py-2 rounded-full text-xs sm:text-sm font-medium transition-all cursor-pointer ${
+                  active
+                    ? "bg-primary text-canvas shadow-xs font-semibold"
+                    : "bg-surface-elevated text-secondary border border-theme-subtle hover:text-primary hover:border-theme-hover"
+                }`}
+              >
+                <TabIcon className="w-3.5 h-3.5" />
+                <span>{tab.label}</span>
+              </button>
+            );
+          })}
+        </div>
+
+        {/* Product Cards Grid: 3-column layout */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {filteredProducts.map((product) => {
+            const iconMeta = PRODUCT_ICONS[product.id] || {
+              icon: Cpu,
+              iconColor: "text-secondary",
+            };
             const Icon = iconMeta.icon;
 
             return (
               <div
                 key={product.id}
-                className={`codex-panel-interactive flex flex-col justify-between p-6 relative ${
+                className={`codex-panel-interactive flex flex-col justify-between p-6 sm:p-7 relative rounded-2xl ${
                   product.highlight
-                    ? "border-amber-400/50 dark:border-amber-400/30 bg-gradient-to-b from-amber-500/[0.04] to-transparent dark:from-zinc-900 dark:to-[#121215]"
-                    : "border-theme-subtle"
+                    ? "border-amber-400/50 dark:border-amber-400/30 bg-gradient-to-b from-amber-500/[0.05] to-transparent dark:from-zinc-900 dark:to-[#121215] shadow-sm ring-1 ring-amber-400/20"
+                    : "border-theme-subtle bg-surface"
                 }`}
               >
                 {/* Top Badge */}
                 <div className="flex items-center justify-between mb-4">
-                  <div className={`p-2 rounded-lg bg-surface-elevated border border-theme-subtle ${iconMeta.iconColor}`}>
-                    <Icon className="w-5 h-5" />
+                  <div className="flex items-center gap-2.5">
+                    <div
+                      className={`p-2 rounded-lg bg-surface-elevated border border-theme-subtle ${iconMeta.iconColor}`}
+                    >
+                      <Icon className="w-5 h-5" />
+                    </div>
+                    <span className="text-[11px] font-mono text-tertiary px-2 py-0.5 rounded bg-surface border border-theme-subtle">
+                      {product.categoryLabel}
+                    </span>
                   </div>
-                  <span className={`text-[11px] font-medium px-2.5 py-0.5 rounded-full border ${product.badgeColor}`}>
+                  <span
+                    className={`text-[11px] font-medium px-2.5 py-0.5 rounded-full border ${product.badgeColor}`}
+                  >
                     {product.badge}
                   </span>
                 </div>
 
                 {/* Product Name & Tagline */}
                 <div>
-                  <h3 className="text-lg font-semibold text-primary mb-1">{product.name}</h3>
-                  <p className="text-xs text-secondary mb-4">{product.tagline}</p>
+                  <div className="flex items-baseline justify-between mb-1">
+                    <h3 className="text-xl font-semibold text-primary">
+                      {product.name}
+                    </h3>
+                    <span className="text-xs font-mono text-tertiary">
+                      {product.officialPriceDisplay}
+                    </span>
+                  </div>
+                  <p className="text-xs text-secondary mb-4 min-h-[32px] leading-relaxed">
+                    {product.tagline}
+                  </p>
 
                   {/* Pricing Box - Direct Bulk Tier Matrix Display */}
                   <div className="p-3.5 rounded-xl bg-surface-elevated border border-theme-subtle mb-5 shadow-xs">
                     <div className="flex items-center justify-between mb-1">
-                      <span className="text-[10px] font-medium text-secondary">单席对公基准价</span>
+                      <span className="text-[10px] font-medium text-secondary">
+                        单席对公基准价
+                      </span>
                       <span className="text-[10px] font-medium px-2 py-0.5 rounded-full bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/20 font-mono">
-                        多买立减 · 量大从优
+                        阶梯立减 · 量大从优
                       </span>
                     </div>
 
@@ -96,7 +179,9 @@ export default function ProductCatalog({ onSelectProduct, onOpenContact }: Produ
                         ¥ {product.baseMonthlyRmb.toLocaleString()}
                       </span>
                       <span className="text-xs text-secondary">
-                        {product.id === "team" ? "/人/月 (含税)" : "/月/席位 (含税)"}
+                        {product.category === "business"
+                          ? "/人/月 (含6%税)"
+                          : "/月/席 (含6%税)"}
                       </span>
                     </div>
 
@@ -105,35 +190,46 @@ export default function ProductCatalog({ onSelectProduct, onOpenContact }: Produ
                       <div className="flex justify-between items-center text-secondary">
                         <span className="flex items-center gap-1.5">
                           <span className="w-1.5 h-1.5 rounded-full bg-zinc-400 dark:bg-zinc-500" />
-                          <span>1~4 席 (月付基准)</span>
+                          <span>
+                            {product.minSeats > 1 ? `${product.minSeats}~4 席` : "1~4 席"} (月付基准)
+                          </span>
                         </span>
-                        <span className="font-mono text-primary">¥{product.tiers.individual.monthly}/月</span>
+                        <span className="font-mono text-primary">
+                          ¥{product.tiers.individual.monthly}/月
+                        </span>
                       </div>
                       <div className="flex justify-between items-center text-secondary">
                         <span className="flex items-center gap-1.5">
                           <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
-                          <span>5~19 席 (团队月付)</span>
+                          <span>5~19 席 (团队阶梯)</span>
                         </span>
-                        <span className="font-mono text-emerald-600 dark:text-emerald-400 font-medium">¥{product.tiers.team.monthly}/月 (立减)</span>
+                        <span className="font-mono text-emerald-600 dark:text-emerald-400 font-medium">
+                          ¥{product.tiers.team.monthly}/月
+                        </span>
                       </div>
                       <div className="flex justify-between items-center text-secondary">
                         <span className="flex items-center gap-1.5">
                           <span className="w-1.5 h-1.5 rounded-full bg-amber-500" />
-                          <span>20+ 席 (年采购)</span>
+                          <span>20+ 席 (年采低至)</span>
                         </span>
-                        <span className="font-mono text-amber-600 dark:text-amber-400 font-bold">¥{product.lowestPriceRmb}/月 (年采购特惠)</span>
+                        <span className="font-mono text-amber-600 dark:text-amber-400 font-bold">
+                          ¥{product.lowestPriceRmb}/月
+                        </span>
                       </div>
                     </div>
                   </div>
 
-                  <p className="text-xs text-secondary mb-5 leading-relaxed">
+                  <p className="text-xs text-secondary mb-4 leading-relaxed line-clamp-2">
                     {product.description}
                   </p>
 
                   {/* Feature Checklist */}
-                  <div className="space-y-2 mb-8">
-                    {product.features.map((feat, fidx) => (
-                      <div key={fidx} className="flex items-start gap-2 text-xs text-secondary">
+                  <div className="space-y-2 mb-6">
+                    {product.features.slice(0, 4).map((feat, fidx) => (
+                      <div
+                        key={fidx}
+                        className="flex items-start gap-2 text-xs text-secondary"
+                      >
                         <Check className="w-3.5 h-3.5 text-[#10A37F] shrink-0 mt-0.5" />
                         <span className="leading-snug">{feat}</span>
                       </div>
@@ -169,3 +265,4 @@ export default function ProductCatalog({ onSelectProduct, onOpenContact }: Produ
     </section>
   );
 }
+

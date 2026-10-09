@@ -14,17 +14,16 @@ import {
   CheckCircle2,
 } from "lucide-react";
 
-// 预设自动轮播演示序列
+// 预设自动轮播演示序列 (基于 2026 最新官方产品矩阵)
 const DEMO_STEPS: Array<{ productId: string; seats: number; cycle: BillingCycle }> = [
-  { productId: "plus", seats: 1, cycle: "quarterly" },
-  { productId: "plus", seats: 5, cycle: "quarterly" },
-  { productId: "plus", seats: 20, cycle: "yearly" },
-  { productId: "pro5x", seats: 3, cycle: "quarterly" },
-  { productId: "pro5x", seats: 10, cycle: "yearly" },
-  { productId: "pro20x", seats: 1, cycle: "quarterly" },
-  { productId: "pro20x", seats: 5, cycle: "yearly" },
-  { productId: "team", seats: 5, cycle: "yearly" },
-  { productId: "team", seats: 20, cycle: "yearly" },
+  { productId: "pro200", seats: 2, cycle: "monthly" },
+  { productId: "pro200", seats: 10, cycle: "yearly" },
+  { productId: "business_std", seats: 5, cycle: "quarterly" },
+  { productId: "pro100", seats: 3, cycle: "monthly" },
+  { productId: "pro500", seats: 2, cycle: "yearly" },
+  { productId: "business_pre", seats: 5, cycle: "yearly" },
+  { productId: "plus", seats: 10, cycle: "yearly" },
+  { productId: "business_std", seats: 20, cycle: "yearly" },
 ];
 
 export default function LiveAutoCalculator() {
@@ -35,7 +34,7 @@ export default function LiveAutoCalculator() {
   // 手动/自动状态
   const [selectedProduct, setSelectedProduct] = useState<string>("plus");
   const [seats, setSeats] = useState<number>(5);
-  const [billingCycle, setBillingCycle] = useState<BillingCycle>("quarterly");
+  const [billingCycle, setBillingCycle] = useState<BillingCycle>("monthly");
 
   const toggleAutoPlay = (active: boolean) => {
     setIsAutoPlay(active);
@@ -161,8 +160,15 @@ export default function LiveAutoCalculator() {
             <label className="text-xs text-zinc-400 block mb-2 font-medium">
               1. 选择采购规格版本 (官方原装直充)
             </label>
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
-              {Object.values(PRODUCTS_CONFIG).map((p) => {
+            <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
+              {[
+                PRODUCTS_CONFIG.pro200,
+                PRODUCTS_CONFIG.business_std,
+                PRODUCTS_CONFIG.pro100,
+                PRODUCTS_CONFIG.pro500,
+                PRODUCTS_CONFIG.business_pre,
+                PRODUCTS_CONFIG.plus,
+              ].map((p) => {
                 const isSelected = selectedProduct === p.id;
                 return (
                   <button
@@ -246,9 +252,9 @@ export default function LiveAutoCalculator() {
             </label>
             <div className="grid grid-cols-3 gap-2">
               {[
-                { id: "monthly", name: "月度采购 (1个月)", tag: "标准阶梯" },
-                { id: "quarterly", name: "季度采购 (3个月)", tag: "加赠立省 ¥" },
-                { id: "yearly", name: "年度战略 (12个月)", tag: "最低单价极客价" },
+                { id: "monthly", name: "月度采购 (1个月)", tag: "灵活月结" },
+                { id: "quarterly", name: "季度采购 (3个月)", tag: "团队立省 ¥" },
+                { id: "yearly", name: "年度战略 (12个月)", tag: "推荐 · 最低单价" },
               ].map((cycle) => {
                 const isSelected = billingCycle === cycle.id;
                 return (

@@ -141,7 +141,7 @@ export default function HelpCenterPage() {
               429 限流 / 额度耗尽
             </h3>
             <p className="text-[11px] text-secondary leading-relaxed line-clamp-2">
-              You&apos;ve reached the current usage cap。指数退避代码与 Pro 20x 算力。
+              You&apos;ve reached the current usage cap。指数退避代码与 Pro 200/500 算力。
             </p>
             <div className="text-[10px] text-emerald-600 dark:text-emerald-400 font-medium pt-1">
               查看配额突破方案 →

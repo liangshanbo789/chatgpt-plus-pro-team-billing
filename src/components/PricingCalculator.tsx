@@ -32,10 +32,10 @@ export default function PricingCalculator({
   onOpenContact,
 }: PricingCalculatorProps) {
   const [productType, setProductType] = useState<string>(
-    selectedProductId || "pro20x",
+    selectedProductId || "pro200",
   );
   const [seats, setSeats] = useState<number>(5);
-  const [billingCycle, setBillingCycle] = useState<BillingCycle>("quarterly");
+  const [billingCycle, setBillingCycle] = useState<BillingCycle>("monthly");
   const [copied, setCopied] = useState(false);
   const [showOfficialModal, setShowOfficialModal] = useState(false);
   const [copiedModalText, setCopiedModalText] = useState(false);
@@ -137,7 +137,7 @@ export default function PricingCalculator({
 采购版本：${product.name} (${product.officialPriceDisplay})
 采购席位数：${currentSeats} 个
 结算周期：${cycleName} (${cycleMonths} 个月)
-最终结算单价：¥ ${unitPrice} 元/月/席位 (含 6% 增值税专票)
+最终结算单价：¥ ${unitPrice} 元/${product.category === "business" ? "人" : "席位"}/月 (含 6% 增值税专票)
 合同含税总额：¥ ${totalAmount.toLocaleString()} 元 (${chineseTotalAmount})
 其中不含税金额：¥ ${taxExclusiveAmount.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })} 元
 增值税额 (6%)：¥ ${taxAmount.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })} 元
@@ -174,10 +174,42 @@ export default function PricingCalculator({
   };
 
   const productList = [
-    { id: "plus", label: "Plus", desc: "$20/月" },
-    { id: "pro5x", label: "Pro (5x)", desc: "$100/月" },
-    { id: "pro20x", label: "Pro (20x)", desc: "$200/月 旗舰" },
-    { id: "team", label: "Team 空间", desc: "$30/人/月" },
+    {
+      id: "pro200",
+      label: "Pro 200 (10x 旗舰)",
+      desc: "$200/月 · 研发主力",
+      badge: "最热门",
+    },
+    {
+      id: "pro100",
+      label: "Pro 100 (5x 算力)",
+      desc: "$100/月 · 进阶长文",
+      badge: "5x 算力",
+    },
+    {
+      id: "pro500",
+      label: "Pro 500 (25x 顶配)",
+      desc: "$500/月 · Ultrafast",
+      badge: "300 tps",
+    },
+    {
+      id: "business_std",
+      label: "Business 标准版",
+      desc: "$25/人/月 · 数据不入训",
+      badge: "原Team升级",
+    },
+    {
+      id: "business_pre",
+      label: "Business 尊享版",
+      desc: "$125/人/月 · 5x高算力",
+      badge: "免5小时限制",
+    },
+    {
+      id: "plus",
+      label: "ChatGPT Plus",
+      desc: "$20/月 · 个人代充报销",
+      badge: "基础普及",
+    },
   ];
 
   return (
@@ -207,10 +239,15 @@ export default function PricingCalculator({
           <div className="lg:col-span-7 codex-panel p-5 sm:p-8 space-y-6 border-theme-subtle bg-surface">
             {/* Step 1: Product Selection */}
             <div>
-              <label className="block text-xs font-semibold text-secondary uppercase tracking-wider mb-3">
-                1. 选择采购产品版本
-              </label>
-              <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 sm:gap-2.5">
+              <div className="flex items-center justify-between mb-3">
+                <label className="block text-xs font-semibold text-secondary uppercase tracking-wider">
+                  1. 选择采购产品版本 (共 6 款官方最新规格)
+                </label>
+                <span className="text-[11px] text-tertiary">
+                  当前已选：<strong className="text-primary">{product.name}</strong>
+                </span>
+              </div>
+              <div className="grid grid-cols-2 sm:grid-cols-3 gap-2 sm:gap-2.5">
                 {productList.map((item) => (
                   <button
                     key={item.id}
@@ -219,16 +256,21 @@ export default function PricingCalculator({
                       const targetMin = PRODUCTS_CONFIG[item.id]?.minSeats || 1;
                       setSeats((prev) => Math.max(prev, targetMin));
                     }}
-                    className={`p-2.5 sm:p-3 rounded-xl border text-left transition-all cursor-pointer ${
+                    className={`p-2.5 sm:p-3 rounded-xl border text-left transition-all cursor-pointer relative ${
                       productType === item.id
-                        ? "border-emerald-500/50 bg-surface-hover text-primary shadow-xs font-semibold ring-1 ring-emerald-500/30"
+                        ? "border-emerald-500/60 bg-surface-hover text-primary shadow-xs font-semibold ring-1 ring-emerald-500/30"
                         : "border-theme-subtle bg-surface-elevated text-secondary hover:border-theme-hover hover:text-primary"
                     }`}
                   >
-                    <div className="font-semibold text-xs sm:text-sm text-primary">
-                      {item.label}
+                    <div className="flex items-center justify-between mb-1">
+                      <span className="font-semibold text-xs text-primary truncate">
+                        {item.label}
+                      </span>
+                      <span className="text-[9px] font-mono px-1.5 py-0.2 rounded bg-surface border border-theme-subtle text-tertiary shrink-0">
+                        {item.badge}
+                      </span>
                     </div>
-                    <div className="text-[10px] text-secondary mt-0.5 font-mono">
+                    <div className="text-[10px] text-secondary font-mono">
                       {item.desc}
                     </div>
                   </button>
@@ -254,7 +296,7 @@ export default function PricingCalculator({
               <div className="grid grid-cols-3 gap-1.5 sm:gap-2.5 mb-3">
                 {[
                   {
-                    name: "1~4 席",
+                    name: product.minSeats > 1 ? `${product.minSeats}~4 席` : "1~4 席",
                     label: "标准起购",
                     price: currentIndivPrice,
                     active: currentSeats < 5,
@@ -439,18 +481,23 @@ export default function PricingCalculator({
               </label>
               <div className="grid grid-cols-3 gap-2 sm:gap-3">
                 {[
-                  { id: "monthly", title: "按月结算", note: "灵活月结" },
+                  {
+                    id: "monthly",
+                    title: "按月结算",
+                    note: "灵活月结 (大部分客户)",
+                    rec: false,
+                  },
                   {
                     id: "quarterly",
                     title: "按季度结算",
-                    note: "团队优选 (立减)",
-                    rec: true,
+                    note: "团队立减 (季结)",
+                    rec: false,
                   },
                   {
                     id: "yearly",
                     title: "按年度结算",
                     note: "低至底价 (折上折)",
-                    rec: false,
+                    rec: true,
                   },
                 ].map((cycle) => (
                   <button
@@ -552,7 +599,7 @@ export default function PricingCalculator({
                 <span className="font-bold text-primary font-mono">
                   ¥ {unitPrice}{" "}
                   <span className="text-[10px] text-secondary font-normal font-sans">
-                    /月/席位
+                    /{product.category === "business" ? "人" : "席位"}/月
                   </span>
                 </span>
               </div>

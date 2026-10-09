@@ -29,7 +29,7 @@ export default function FaqSection() {
     },
     {
       q: "官方最新发布的 GPT-6 Astra，企业代采账号是否能第一时间使用？",
-      a: "完全支持！我们提供 100% 官方正规代充与企业席位订阅，款到激活后账号直接接入 OpenAI 官方最新服务。最新发布的 GPT-6 Astra 旗舰模型及 GPT-5.6 家族已向 Plus、Pro (5x/20x) 和 Team 空间全量推送。其中 Pro 旗舰版不仅独享最高优先级的极速计算队列，更解锁 100 万 (1M Token) 超长大上下文与突破性的 Computer Operator 智能体操控能力。",
+      a: "完全支持！我们提供 100% 官方正规代充与企业席位订阅，款到激活后账号直接接入 OpenAI 官方最新服务。最新发布的 GPT-6 Astra 旗舰模型及 GPT-5.6 家族已向 Plus、Pro (100/200/500) 和 Business 空间全量推送。其中 Pro 旗舰版不仅独享最高优先级的极速计算队列，更解锁 100 万 (1M Token) 超长大上下文与突破性的 Computer Operator 智能体操控能力，顶配 Pro 500 更独占 Ultrafast 300 tps 极速推理模式。",
     },
     {
       q: "如果深夜、周末或法定节假日急需开通账号或突发故障，能及时响应吗？",

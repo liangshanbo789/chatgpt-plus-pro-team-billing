@@ -21,16 +21,16 @@ export default function HelpConversionCard({
       case "degrade":
         return {
           tag: "告别廉价共享节点连坐",
-          title: "遭遇模型降智？升级企业 Pro 20x 算力与纯净独享通道",
-          desc: "公开机场/廉价 VPS 邻居混杂，最易触发 OpenAI PoW 降级与静默分流。AI代采为企业提供 100% 正规海外商业实体卡直充通道与专属 Team 空间，保障研发团队随时享有顶配推理能力。",
+          title: "遭遇模型降智？升级企业 Pro 200 算力与纯净独享通道",
+          desc: "公开机场/廉价 VPS 邻居混杂，最易触发 OpenAI PoW 降级与静默分流。AI代采为企业提供 100% 正规海外商业实体卡直充通道与专属 Business 空间，保障研发团队随时享有顶配推理能力。",
           highlight: "独享企业级通道 · 无静默降级 · 72h 封号包赔",
         };
       case "limit":
         return {
           tag: "研发提效不中断",
-          title: "Plus 频次被卡？解锁 ChatGPT Pro 20x 与 Team 独立配额",
-          desc: "普通 Plus 每 3 小时限制严重阻断高强度 Coding 灵感。AI代采支持开通 Pro (20x 高算力版) 及企业 Team 空间，各席位额度独立不冲突，支持中国工商银行对公转账与 6% 增值税专用发票。",
-          highlight: "20倍算力配额 · 团队席位独立分配 · 对公专票全额抵扣",
+          title: "Plus 频次被卡？解锁 ChatGPT Pro 200/500 与 Business 独立配额",
+          desc: "普通 Plus 频次限制严重阻断高强度 Coding 灵感。AI代采支持开通 Pro 200 (10x 旗舰) / Pro 500 (25x 顶配) 及企业 Business 空间，各席位额度独立不冲突，支持中国工商银行对公转账与 6% 增值税专用发票。",
+          highlight: "高倍满血算力配额 · 免5小时限制 · 对公专票全额抵扣",
         };
       case "payment":
         return {
@@ -50,7 +50,7 @@ export default function HelpConversionCard({
         return {
           tag: "企业级海外 AI 官方代采",
           title: "专注核心研发业务，把环境合规与采购琐事交给我们",
-          desc: "AI代采（gongsi.one）专为中国技术团队提供 OpenAI Codex / ChatGPT Plus / Pro (5x/20x) / Team 企业级合规采购。支持中国工商银行网银对公转账与官方带卡号 Invoice 核验。",
+          desc: "AI代采（gongsi.one）专为中国技术团队提供 OpenAI Codex / ChatGPT Plus / Pro (100/200/500) / Business 企业级合规采购。支持中国工商银行网银对公转账与官方带卡号 Invoice 核验。",
           highlight: "对公打款 · 开具 6% 专票 · 官方原版收据 · 72h 封号包赔",
         };
     }

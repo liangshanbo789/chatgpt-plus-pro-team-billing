@@ -200,14 +200,14 @@ export default function DegradedModelPage() {
         </div>
       </section>
 
-      {/* 根治：升级企业级 Pro 20x 与 Team 空间 */}
+      {/* 根治：升级企业级 Pro 200/500 与 Business 空间 */}
       <section className="p-5 rounded-2xl bg-surface border-2 border-emerald-500/20 space-y-3 text-xs sm:text-sm">
         <div className="flex items-center gap-2 text-emerald-600 dark:text-emerald-400 font-bold">
           <Zap className="w-4 h-4" />
-          <span>终极根治手段：企业级 ChatGPT Pro 20x 与 Team 独立工作区</span>
+          <span>终极根治手段：企业级 ChatGPT Pro 200/500 与 Business 独立工作区</span>
         </div>
         <p className="text-secondary leading-relaxed text-xs">
-          个人 Plus 账号处于最广泛的公共限流池中，极易受环境波动影响；而 <strong>ChatGPT Pro（20x 算力旗舰版）</strong> 与 <strong>ChatGPT Team 企业空间</strong> 享有 OpenAI 后端分配的高优先级商业通道，具备专属独立计算配额与更高的网络信誉容忍度。
+          个人 Plus 账号处于最广泛的公共限流池中，极易受节点连坐降智影响；而 <strong>ChatGPT Pro 200（10x 旗舰版）/ Pro 500（25x Ultrafast 顶配版）</strong> 与 <strong>ChatGPT Business 企业工作区</strong> 享有 OpenAI 后端分配的高优先级商业通道，具备专属独立计算配额与更高的网络信誉容忍度。
         </p>
         <p className="text-secondary leading-relaxed text-xs">
           AI代采（gongsi.one）为企业提供正规海外商业银行卡直充开通，杜绝任何黑卡封号风险，工行对公结算并开具 6% 增值税专用发票，签署公章 SLA 72h 封号退赔保障。
