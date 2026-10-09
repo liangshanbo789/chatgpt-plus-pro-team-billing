@@ -14,6 +14,8 @@ import {
   ArrowRight,
   Compass,
   HelpCircle,
+  User,
+  Sparkles,
 } from "lucide-react";
 import BrandLogo from "./BrandLogo";
 import ThemeToggle from "./ThemeToggle";
@@ -26,20 +28,39 @@ interface NavbarProps {
 export default function Navbar({ onOpenContact, onOpenDocs }: NavbarProps) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [solutionsOpen, setSolutionsOpen] = useState(false);
-  const dropdownTimeoutRef = useRef<NodeJS.Timeout | null>(null);
-  const dropdownRef = useRef<HTMLDivElement>(null);
+  const [guideOpen, setGuideOpen] = useState(false);
 
-  // 下拉菜单防抖延时关闭，提升鼠标划入体验
-  const handleMouseEnter = () => {
-    if (dropdownTimeoutRef.current) {
-      clearTimeout(dropdownTimeoutRef.current);
-    }
+  const solutionsTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+  const solutionsRef = useRef<HTMLDivElement>(null);
+
+  const guideTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+  const guideRef = useRef<HTMLDivElement>(null);
+
+  // 方案下拉菜单防抖延时
+  const handleSolutionsEnter = () => {
+    if (solutionsTimeoutRef.current) clearTimeout(solutionsTimeoutRef.current);
+    if (guideTimeoutRef.current) clearTimeout(guideTimeoutRef.current);
+    setGuideOpen(false);
     setSolutionsOpen(true);
   };
 
-  const handleMouseLeave = () => {
-    dropdownTimeoutRef.current = setTimeout(() => {
+  const handleSolutionsLeave = () => {
+    solutionsTimeoutRef.current = setTimeout(() => {
       setSolutionsOpen(false);
+    }, 160);
+  };
+
+  // 指南下拉菜单防抖延时
+  const handleGuideEnter = () => {
+    if (guideTimeoutRef.current) clearTimeout(guideTimeoutRef.current);
+    if (solutionsTimeoutRef.current) clearTimeout(solutionsTimeoutRef.current);
+    setSolutionsOpen(false);
+    setGuideOpen(true);
+  };
+
+  const handleGuideLeave = () => {
+    guideTimeoutRef.current = setTimeout(() => {
+      setGuideOpen(false);
     }, 160);
   };
 
@@ -48,12 +69,16 @@ export default function Navbar({ onOpenContact, onOpenDocs }: NavbarProps) {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === "Escape") {
         setSolutionsOpen(false);
+        setGuideOpen(false);
       }
     };
 
     const handleClickOutside = (e: MouseEvent) => {
-      if (dropdownRef.current && !dropdownRef.current.contains(e.target as Node)) {
+      if (solutionsRef.current && !solutionsRef.current.contains(e.target as Node)) {
         setSolutionsOpen(false);
+      }
+      if (guideRef.current && !guideRef.current.contains(e.target as Node)) {
+        setGuideOpen(false);
       }
     };
 
@@ -105,16 +130,19 @@ export default function Navbar({ onOpenContact, onOpenDocs }: NavbarProps) {
 
         {/* Desktop Nav Links */}
         <nav className="hidden lg:flex items-center gap-0.5 xl:gap-1 2xl:gap-1.5 text-xs font-medium text-secondary shrink-0">
-          {/* 解决方案 Dropdown */}
+          {/* 方案中心 Dropdown */}
           <div
-            ref={dropdownRef}
+            ref={solutionsRef}
             className="relative shrink-0"
-            onMouseEnter={handleMouseEnter}
-            onMouseLeave={handleMouseLeave}
+            onMouseEnter={handleSolutionsEnter}
+            onMouseLeave={handleSolutionsLeave}
           >
             <button
               type="button"
-              onClick={() => setSolutionsOpen(!solutionsOpen)}
+              onClick={() => {
+                setGuideOpen(false);
+                setSolutionsOpen(!solutionsOpen);
+              }}
               className={`flex items-center gap-1 px-2 xl:px-2.5 py-1.5 rounded-md transition-all cursor-pointer whitespace-nowrap shrink-0 ${
                 solutionsOpen
                   ? "text-primary bg-surface-elevated"
@@ -130,7 +158,7 @@ export default function Navbar({ onOpenContact, onOpenDocs }: NavbarProps) {
               />
             </button>
 
-            {/* 下拉浮层卡片 (Stripe / OpenAI 风格) */}
+            {/* 方案中心下拉浮层 */}
             {solutionsOpen && (
               <div className="absolute top-full left-0 pt-2 w-80 z-50 animate-in fade-in slide-in-from-top-1 duration-150">
                 <div className="p-2 rounded-xl border border-theme-default bg-surface/98 backdrop-blur-xl shadow-xl space-y-1">
@@ -186,54 +214,6 @@ export default function Navbar({ onOpenContact, onOpenDocs }: NavbarProps) {
                     </div>
                   </Link>
 
-                  {/* 稳定使用与 IP 检测指南 */}
-                  <Link
-                    href="/guide/stability/"
-                    onClick={() => setSolutionsOpen(false)}
-                    className="flex items-start gap-3 p-2.5 rounded-lg hover:bg-surface-elevated transition-colors group"
-                  >
-                    <div className="w-8 h-8 rounded-lg bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center shrink-0 mt-0.5 group-hover:bg-emerald-500/15">
-                      <Compass className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />
-                    </div>
-                    <div className="flex-1 min-w-0">
-                      <div className="flex items-center gap-1.5 mb-0.5">
-                        <span className="font-semibold text-xs text-primary group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors">
-                          稳定使用与 IP 检测指南
-                        </span>
-                        <span className="text-[10px] px-1.5 py-0.2 rounded bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 font-mono border border-emerald-500/20">
-                          避坑
-                        </span>
-                      </div>
-                      <p className="text-[11px] text-secondary leading-relaxed line-clamp-2">
-                        IP 纯净度核验 · TUN 模式 · 终端代理 · 避坑十诫
-                      </p>
-                    </div>
-                  </Link>
-
-                  {/* 问题中心与技术自救 */}
-                  <Link
-                    href="/help/"
-                    onClick={() => setSolutionsOpen(false)}
-                    className="flex items-start gap-3 p-2.5 rounded-lg hover:bg-surface-elevated transition-colors group"
-                  >
-                    <div className="w-8 h-8 rounded-lg bg-amber-500/10 border border-amber-500/20 flex items-center justify-center shrink-0 mt-0.5 group-hover:bg-amber-500/15">
-                      <HelpCircle className="w-4 h-4 text-amber-600 dark:text-amber-400" />
-                    </div>
-                    <div className="flex-1 min-w-0">
-                      <div className="flex items-center gap-1.5 mb-0.5">
-                        <span className="font-semibold text-xs text-primary group-hover:text-amber-600 dark:group-hover:text-amber-400 transition-colors">
-                          问题中心与技术自救
-                        </span>
-                        <span className="text-[10px] px-1.5 py-0.2 rounded bg-amber-500/10 text-amber-600 dark:text-amber-400 font-mono border border-amber-500/20">
-                          排错
-                        </span>
-                      </div>
-                      <p className="text-[11px] text-secondary leading-relaxed line-clamp-2">
-                        模型降智 · 429限流 · 403阻断 · 绑卡被拒
-                      </p>
-                    </div>
-                  </Link>
-
                   {/* 下拉底部文档入口 */}
                   <div className="border-t border-theme-subtle pt-1 mt-1">
                     <Link
@@ -253,16 +233,132 @@ export default function Navbar({ onOpenContact, onOpenDocs }: NavbarProps) {
             )}
           </div>
 
-          {/* 稳定使用指南 */}
-          <Link
-            href="/guide/stability/"
-            className="px-2 xl:px-2.5 py-1.5 rounded-md hover:text-emerald-600 dark:hover:text-emerald-400 hover:bg-emerald-500/5 transition-colors inline-flex items-center gap-1 whitespace-nowrap shrink-0 text-secondary font-medium"
+          {/* 使用指南 Dropdown */}
+          <div
+            ref={guideRef}
+            className="relative shrink-0"
+            onMouseEnter={handleGuideEnter}
+            onMouseLeave={handleGuideLeave}
           >
-            <span>稳定指南</span>
-            <span className="text-[9px] px-1 py-0.2 rounded bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 font-mono border border-emerald-500/20 hidden xl:inline-block">
-              IP自检
-            </span>
-          </Link>
+            <button
+              type="button"
+              onClick={() => {
+                setSolutionsOpen(false);
+                setGuideOpen(!guideOpen);
+              }}
+              className={`flex items-center gap-1 px-2 xl:px-2.5 py-1.5 rounded-md transition-all cursor-pointer whitespace-nowrap shrink-0 ${
+                guideOpen
+                  ? "text-primary bg-surface-elevated"
+                  : "text-secondary hover:text-primary hover:bg-surface-elevated/70"
+              }`}
+              aria-expanded={guideOpen}
+            >
+              <span className="whitespace-nowrap">使用指南</span>
+              <ChevronDown
+                className={`w-3.5 h-3.5 shrink-0 transition-transform duration-200 ${
+                  guideOpen ? "rotate-180 text-emerald-500" : "text-tertiary"
+                }`}
+              />
+            </button>
+
+            {/* 使用指南下拉浮层 */}
+            {guideOpen && (
+              <div className="absolute top-full left-0 pt-2 w-84 z-50 animate-in fade-in slide-in-from-top-1 duration-150">
+                <div className="p-2 rounded-xl border border-theme-default bg-surface/98 backdrop-blur-xl shadow-xl space-y-1">
+                  <div className="px-2.5 py-1 text-[10px] font-semibold text-tertiary uppercase tracking-wider font-mono">
+                    全场景实操指南
+                  </div>
+
+                  {/* 个人上手指南 */}
+                  <Link
+                    href="/guide/personal/"
+                    onClick={() => setGuideOpen(false)}
+                    className="flex items-start gap-3 p-2.5 rounded-lg hover:bg-surface-elevated transition-colors group"
+                  >
+                    <div className="w-8 h-8 rounded-lg bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center shrink-0 mt-0.5 group-hover:bg-emerald-500/15">
+                      <User className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />
+                    </div>
+                    <div className="flex-1 min-w-0">
+                      <div className="flex items-center gap-1.5 mb-0.5">
+                        <span className="font-semibold text-xs text-primary group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors">
+                          个人客户上手指南
+                        </span>
+                        <span className="text-[10px] px-1.5 py-0.2 rounded bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 font-mono border border-emerald-500/20">
+                          个人
+                        </span>
+                      </div>
+                      <p className="text-[11px] text-secondary leading-relaxed line-clamp-2">
+                        macOS/Win/iOS正版下载 · 首登防封 · 2FA绑定 · 高效进阶
+                      </p>
+                    </div>
+                  </Link>
+
+                  {/* 企业部署手册 */}
+                  <Link
+                    href="/guide/business/"
+                    onClick={() => setGuideOpen(false)}
+                    className="flex items-start gap-3 p-2.5 rounded-lg hover:bg-surface-elevated transition-colors group"
+                  >
+                    <div className="w-8 h-8 rounded-lg bg-blue-500/10 border border-blue-500/20 flex items-center justify-center shrink-0 mt-0.5 group-hover:bg-blue-500/15">
+                      <Building2 className="w-4 h-4 text-blue-600 dark:text-blue-400" />
+                    </div>
+                    <div className="flex-1 min-w-0">
+                      <div className="flex items-center gap-1.5 mb-0.5">
+                        <span className="font-semibold text-xs text-primary group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
+                          企业 Business 部署手册
+                        </span>
+                        <span className="text-[10px] px-1.5 py-0.2 rounded bg-blue-500/10 text-blue-600 dark:text-blue-400 font-mono border border-blue-500/20">
+                          管理
+                        </span>
+                      </div>
+                      <p className="text-[11px] text-secondary leading-relaxed line-clamp-2">
+                        工作区激活 · 批量席位分配 · 零训练承诺 · 专票对账
+                      </p>
+                    </div>
+                  </Link>
+
+                  {/* 稳定使用与 IP 检测指南 */}
+                  <Link
+                    href="/guide/stability/"
+                    onClick={() => setGuideOpen(false)}
+                    className="flex items-start gap-3 p-2.5 rounded-lg hover:bg-surface-elevated transition-colors group"
+                  >
+                    <div className="w-8 h-8 rounded-lg bg-teal-500/10 border border-teal-500/20 flex items-center justify-center shrink-0 mt-0.5 group-hover:bg-teal-500/15">
+                      <Compass className="w-4 h-4 text-teal-600 dark:text-teal-400" />
+                    </div>
+                    <div className="flex-1 min-w-0">
+                      <div className="flex items-center gap-1.5 mb-0.5">
+                        <span className="font-semibold text-xs text-primary group-hover:text-teal-600 dark:group-hover:text-teal-400 transition-colors">
+                          稳定使用与 IP 检测指南
+                        </span>
+                        <span className="text-[10px] px-1.5 py-0.2 rounded bg-teal-500/10 text-teal-600 dark:text-teal-400 font-mono border border-teal-500/20">
+                          避坑
+                        </span>
+                      </div>
+                      <p className="text-[11px] text-secondary leading-relaxed line-clamp-2">
+                        IP 纯净度核验 · TUN 模式 · 终端代理 · 避坑十诫
+                      </p>
+                    </div>
+                  </Link>
+
+                  {/* 下拉底部总览入口 */}
+                  <div className="border-t border-theme-subtle pt-1 mt-1">
+                    <Link
+                      href="/guide/"
+                      onClick={() => setGuideOpen(false)}
+                      className="flex items-center justify-between px-2.5 py-2 rounded-lg text-[11px] text-secondary hover:text-primary hover:bg-surface-elevated transition-colors"
+                    >
+                      <span className="flex items-center gap-1.5">
+                        <Compass className="w-3.5 h-3.5 text-secondary" />
+                        <span>浏览使用指南与知识总览</span>
+                      </span>
+                      <ArrowRight className="w-3 h-3 text-tertiary" />
+                    </Link>
+                  </div>
+                </div>
+              </div>
+            )}
+          </div>
 
           {/* 问题中心 */}
           <Link
@@ -398,15 +494,64 @@ export default function Navbar({ onOpenContact, onOpenDocs }: NavbarProps) {
                 </div>
                 <ArrowRight className="w-3.5 h-3.5 text-tertiary" />
               </Link>
+            </div>
+          </div>
 
+          {/* 使用指南与知识库专区 */}
+          <div className="space-y-1.5 pt-1 border-t border-theme-subtle">
+            <div className="text-[11px] font-medium text-tertiary px-1 font-mono uppercase tracking-wider flex items-center justify-between">
+              <span>使用指南与知识库</span>
               <Link
-                href="/guide/stability/"
+                href="/guide/"
+                onClick={() => setMobileMenuOpen(false)}
+                className="text-[10px] text-emerald-600 dark:text-emerald-400 hover:underline"
+              >
+                总览 →
+              </Link>
+            </div>
+            <div className="grid grid-cols-1 gap-2">
+              <Link
+                href="/guide/personal/"
                 onClick={() => setMobileMenuOpen(false)}
                 className="flex items-center justify-between p-2.5 rounded-lg bg-surface border border-theme-subtle hover:border-emerald-500/40 transition-colors"
               >
                 <div className="flex items-center gap-2.5">
                   <div className="w-7 h-7 rounded-md bg-emerald-500/10 flex items-center justify-center">
-                    <Compass className="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400" />
+                    <User className="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400" />
+                  </div>
+                  <div>
+                    <div className="text-xs font-medium text-primary">个人客户上手指南</div>
+                    <div className="text-[10px] text-secondary">全平台正版下载 · 首登防封 · 2FA</div>
+                  </div>
+                </div>
+                <ArrowRight className="w-3.5 h-3.5 text-tertiary" />
+              </Link>
+
+              <Link
+                href="/guide/business/"
+                onClick={() => setMobileMenuOpen(false)}
+                className="flex items-center justify-between p-2.5 rounded-lg bg-surface border border-theme-subtle hover:border-blue-500/40 transition-colors"
+              >
+                <div className="flex items-center gap-2.5">
+                  <div className="w-7 h-7 rounded-md bg-blue-500/10 flex items-center justify-center">
+                    <Building2 className="w-3.5 h-3.5 text-blue-600 dark:text-blue-400" />
+                  </div>
+                  <div>
+                    <div className="text-xs font-medium text-primary">企业 Business 部署手册</div>
+                    <div className="text-[10px] text-secondary">工作区激活 · 席位分配 · 零训练合规</div>
+                  </div>
+                </div>
+                <ArrowRight className="w-3.5 h-3.5 text-tertiary" />
+              </Link>
+
+              <Link
+                href="/guide/stability/"
+                onClick={() => setMobileMenuOpen(false)}
+                className="flex items-center justify-between p-2.5 rounded-lg bg-surface border border-theme-subtle hover:border-teal-500/40 transition-colors"
+              >
+                <div className="flex items-center gap-2.5">
+                  <div className="w-7 h-7 rounded-md bg-teal-500/10 flex items-center justify-center">
+                    <Compass className="w-3.5 h-3.5 text-teal-600 dark:text-teal-400" />
                   </div>
                   <div>
                     <div className="text-xs font-medium text-primary">

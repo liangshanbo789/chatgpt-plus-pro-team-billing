@@ -64,11 +64,33 @@ export default function Footer({ onOpenDocs, onOpenContact }: FooterProps) {
               </li>
               <li>
                 <Link
-                  href="/guide/stability/"
+                  href="/guide/personal/"
                   className="hover:text-primary transition-colors text-emerald-600 dark:text-emerald-400 font-medium flex items-center gap-1"
                 >
-                  <span>国内稳定使用与 IP 检测自检指南</span>
+                  <span>个人 ChatGPT 极速上手指南</span>
                   <span className="text-[9px] px-1 py-0.2 rounded bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 font-mono">
+                    正版
+                  </span>
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/guide/business/"
+                  className="hover:text-primary transition-colors text-blue-600 dark:text-blue-400 font-medium flex items-center gap-1"
+                >
+                  <span>企业 Business / Team 部署手册</span>
+                  <span className="text-[9px] px-1 py-0.2 rounded bg-blue-500/10 text-blue-600 dark:text-blue-400 font-mono">
+                    管理
+                  </span>
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/guide/stability/"
+                  className="hover:text-primary transition-colors text-teal-600 dark:text-teal-400 font-medium flex items-center gap-1"
+                >
+                  <span>国内稳定使用与 IP 检测自检指南</span>
+                  <span className="text-[9px] px-1 py-0.2 rounded bg-teal-500/10 text-teal-600 dark:text-teal-400 font-mono">
                     避坑
                   </span>
                 </Link>
@@ -165,6 +187,14 @@ export default function Footer({ onOpenDocs, onOpenContact }: FooterProps) {
               商务与采购支持
             </h4>
             <ul className="space-y-2.5">
+              <li>
+                <Link
+                  href="/guide/business/"
+                  className="hover:text-primary transition-colors text-left text-blue-600 dark:text-blue-400 font-medium block"
+                >
+                  《企业 Business & Team 部署管理手册》
+                </Link>
+              </li>
               <li>
                 <Link
                   href="/guide/stability/"

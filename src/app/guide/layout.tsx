@@ -11,12 +11,32 @@ import {
   Calculator,
   Compass,
   HelpCircle,
+  User,
+  LayoutGrid,
 } from "lucide-react";
 
 const GUIDE_NAV = [
   {
+    href: "/guide/",
+    label: "指南总览",
+    icon: LayoutGrid,
+    badge: "Hub",
+  },
+  {
+    href: "/guide/personal/",
+    label: "个人上手指南",
+    icon: User,
+    badge: "个人",
+  },
+  {
+    href: "/guide/business/",
+    label: "企业部署手册",
+    icon: Building2,
+    badge: "企业",
+  },
+  {
     href: "/guide/stability/",
-    label: "稳定使用与网络自检指南",
+    label: "稳定使用与网络自检",
     icon: Compass,
     badge: "必读",
   },
@@ -28,21 +48,15 @@ const GUIDE_NAV = [
   },
   {
     href: "/solutions/codex-procurement/",
-    label: "Codex 研发代采方案",
+    label: "Codex 研发代采",
     icon: Code2,
     badge: "效能",
   },
   {
     href: "/solutions/gpt-bulk-procurement/",
-    label: "企业 GPT 官方集采",
+    label: "企业 GPT 集采",
     icon: Building2,
     badge: "对公",
-  },
-  {
-    href: "/docs/pricing/",
-    label: "2026 最新代采阶梯报价单",
-    icon: BookOpen,
-    badge: "手册",
   },
 ];
 
@@ -153,10 +167,26 @@ export default function GuideLayout({
               <ul className="space-y-1.5 text-xs">
                 <li>
                   <Link
-                    href="/guide/stability/"
+                    href="/guide/personal/"
                     className="hover:text-primary transition-colors text-emerald-600 dark:text-emerald-400 font-medium"
                   >
-                    • 国内稳定使用 ChatGPT & Codex 全景指南
+                    • 个人 ChatGPT & Codex 极速上手全景指南
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="/guide/business/"
+                    className="hover:text-primary transition-colors text-blue-600 dark:text-blue-400 font-medium"
+                  >
+                    • 企业 Business / Team 交付部署与管理手册
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="/guide/stability/"
+                    className="hover:text-primary transition-colors"
+                  >
+                    • 国内稳定使用与 IP 检测自检指南
                   </Link>
                 </li>
                 <li>
