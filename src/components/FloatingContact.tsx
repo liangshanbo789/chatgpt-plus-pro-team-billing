@@ -20,7 +20,7 @@ interface FloatingContactProps {
 
 export default function FloatingContact({ onOpenFullContact }: FloatingContactProps) {
   const [isOpen, setIsOpen] = useState(false);
-  const [activeTab, setActiveTab] = useState<"wechat" | "wework">("wechat");
+  const [activeTab, setActiveTab] = useState<"wechat" | "wework">("wework");
   const [copied, setCopied] = useState(false);
   const [hasManuallyClosed, setHasManuallyClosed] = useState(false);
 
@@ -153,23 +153,8 @@ export default function FloatingContact({ onOpenFullContact }: FloatingContactPr
               </span>
               <span className="text-[10px] font-mono opacity-80 shrink-0">10分钟发送</span>
             </div>
-            {/* Tab 切换: 个人微信 (前) vs 企业微信 (后) */}
+            {/* Tab 切换: 企业微信 (前/首选) vs 个人微信 (后) */}
             <div className="flex p-1 rounded-lg bg-surface-elevated border border-theme-subtle text-xs">
-              <button
-                type="button"
-                onClick={() => setActiveTab("wechat")}
-                className={`flex-1 py-1.5 px-2 rounded-md font-medium text-xs flex items-center justify-center gap-1.5 transition-all cursor-pointer ${
-                  activeTab === "wechat"
-                    ? "bg-surface text-primary shadow-xs font-semibold"
-                    : "text-secondary hover:text-primary"
-                }`}
-              >
-                <MessageCircle className="w-3.5 h-3.5 text-[#10A37F]" />
-                <span>个人微信</span>
-                <span className="text-[9px] px-1 py-0.2 rounded bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 font-mono">
-                  总监直通
-                </span>
-              </button>
               <button
                 type="button"
                 onClick={() => setActiveTab("wework")}
@@ -185,38 +170,55 @@ export default function FloatingContact({ onOpenFullContact }: FloatingContactPr
                   官方认证
                 </span>
               </button>
+              <button
+                type="button"
+                onClick={() => setActiveTab("wechat")}
+                className={`flex-1 py-1.5 px-2 rounded-md font-medium text-xs flex items-center justify-center gap-1.5 transition-all cursor-pointer ${
+                  activeTab === "wechat"
+                    ? "bg-surface text-primary shadow-xs font-semibold"
+                    : "text-secondary hover:text-primary"
+                }`}
+              >
+                <MessageCircle className="w-3.5 h-3.5 text-[#10A37F]" />
+                <span>个人微信</span>
+                <span className="text-[9px] px-1 py-0.2 rounded bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 font-mono">
+                  总监直通
+                </span>
+              </button>
             </div>
 
             {/* 二维码展示区（白底高对比度，确保扫码清晰） */}
             <div className="flex flex-col items-center justify-center pt-0.5">
               <div className="p-2.5 bg-white rounded-xl border border-theme-subtle shadow-xs flex items-center justify-center">
-                {activeTab === "wechat" ? (
-                  <img
-                    src="/images/微信二维码.webp"
-                    alt="业务经理微信二维码"
-                    className="w-36 h-36 sm:w-40 sm:h-40 object-contain rounded-lg block"
-                    loading="eager"
-                  />
-                ) : (
+                {activeTab === "wework" ? (
                   <img
                     src="/images/企业微信二维码.jpg"
                     alt="业务经理企业微信二维码"
                     className="w-36 h-36 sm:w-40 sm:h-40 object-contain rounded-lg block"
                     loading="eager"
                   />
+                ) : (
+                  <img
+                    src="/images/微信二维码.webp"
+                    alt="业务经理微信二维码"
+                    className="w-36 h-36 sm:w-40 sm:h-40 object-contain rounded-lg block"
+                    loading="eager"
+                  />
                 )}
               </div>
               <p className="mt-1.5 text-[10px] text-secondary text-center leading-snug">
-                {activeTab === "wechat"
-                  ? "手机端可长按保存二维码，或点击下方直接复制微信号添加"
-                  : "支持微信或企业微信长按识别 / 扫码添加官方专员"}
+                {activeTab === "wework"
+                  ? "支持微信或企业微信长按识别 / 扫码添加官方专员"
+                  : "手机端可长按保存二维码，或点击下方直接复制微信号添加"}
               </p>
             </div>
 
             {/* 微信号复制条 */}
             <div className="p-2.5 rounded-xl bg-surface-elevated border border-theme-subtle flex items-center justify-between text-xs">
               <div className="flex items-center gap-2">
-                <span className="text-secondary text-[11px]">微信号：</span>
+                <span className="text-secondary text-[11px]">
+                  {activeTab === "wework" ? "备用微信号：" : "微信号："}
+                </span>
                 <span className="font-mono font-bold text-primary select-all">
                   {weChatAccount}
                 </span>
