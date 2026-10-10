@@ -108,7 +108,7 @@ export default function Navbar({ onOpenContact, onOpenDocs }: NavbarProps) {
         <Link
           href="/"
           className="flex items-center gap-2.5 shrink-0 group py-1"
-          title="返回 AI 代采 首页"
+          title="返回 AI 集采 首页"
         >
           <div className="relative w-9 h-9 rounded-xl bg-gradient-to-br from-emerald-500 to-teal-700 flex items-center justify-center shadow-sm shadow-emerald-500/20 ring-1 ring-white/20 transition-all duration-300 group-hover:scale-105 group-hover:shadow-md group-hover:shadow-emerald-500/30">
             <BrandLogo size={20} variant="white" className="drop-shadow-xs" />
@@ -119,7 +119,7 @@ export default function Navbar({ onOpenContact, onOpenDocs }: NavbarProps) {
                 AI
               </span>
               <span className="font-bold text-[15px] tracking-tight text-primary">
-                代采
+                集采
               </span>
             </div>
             <span className="text-[10px] text-tertiary tracking-wide font-normal leading-tight mt-0.5 whitespace-nowrap hidden 2xl:block">

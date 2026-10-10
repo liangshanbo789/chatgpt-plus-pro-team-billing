@@ -50,7 +50,7 @@ export const HELP_ARTICLES: HelpArticle[] = [
     urgency: "critical",
     urgencyLabel: "高频痛点",
     badge: "热搜第一",
-    seoTitle: "ChatGPT & Codex 降智排查自救指南 | PoW难度检测与恢复方案 - AI代采",
+    seoTitle: "ChatGPT & Codex 降智排查自救指南 | PoW难度检测与恢复方案 - AI集采",
     seoDescription:
       "详细解析 ChatGPT 和 OpenAI Codex 遭遇降智的表现（o1无思考过程、强制退回 4o-mini、无联网）、PoW 工作量难度自测方法与网络环境彻底恢复策略。了解企业独享 Pro 200 算力与 Business 空间纯净解决方案。",
     relatedSlugs: ["codex-rate-limit-429", "access-denied-403-cloudflare", "codex-cli-terminal-proxy"],
@@ -79,7 +79,7 @@ export const HELP_ARTICLES: HelpArticle[] = [
     urgency: "high",
     urgencyLabel: "研发阻断",
     badge: "高发问题",
-    seoTitle: "Codex & ChatGPT 429 Too Many Requests 限流突破全解 - AI代采",
+    seoTitle: "Codex & ChatGPT 429 Too Many Requests 限流突破全解 - AI集采",
     seoDescription:
       "解决 Codex CLI 与 ChatGPT 遭遇 429 Too Many Requests 限流、You've reached the current usage cap 额度用尽的完整技术方案。详解指数退避、Session 上下文瘦身与企业 Pro 200/500 独享算力升级。",
     relatedSlugs: ["codex-chatgpt-degraded", "codex-cli-terminal-proxy", "team-workspace-setup"],
@@ -106,7 +106,7 @@ export const HELP_ARTICLES: HelpArticle[] = [
     urgency: "critical",
     urgencyLabel: "完全阻断",
     badge: "网络必读",
-    seoTitle: "彻底解决 ChatGPT 403 Access Denied 与 Cloudflare 验证码死循环 - AI代采",
+    seoTitle: "彻底解决 ChatGPT 403 Access Denied 与 Cloudflare 验证码死循环 - AI集采",
     seoDescription:
       "国内访问 OpenAI / Codex 遭遇 403 Access Denied 与 Cloudflare 人机验证死循环的根本原因剖析与 5 步排查清单。详解住宅 IP 筛选、DNS/WebRTC 防漏、TUN 虚拟网卡配置与合规企业代采服务。",
     relatedSlugs: ["codex-chatgpt-degraded", "login-loop-error", "payment-card-declined"],
@@ -134,7 +134,7 @@ export const HELP_ARTICLES: HelpArticle[] = [
     urgency: "high",
     urgencyLabel: "支付受阻",
     badge: "充值必备",
-    seoTitle: "ChatGPT 订阅被拒 Your card has been declined 解决办法与合规代充 - AI代采",
+    seoTitle: "ChatGPT 订阅被拒 Your card has been declined 解决办法与合规代充 - AI集采",
     seoDescription:
       "深度剖析升级 ChatGPT Plus / Pro 提示 Your card has been declined 的根本原因：Stripe 区域风控、AVS 地址校验与虚拟卡暴雷风险。提供正规企业商业卡代付、工行对公转账与 6% 专票合规方案。",
     relatedSlugs: ["account-deactivated-appeal", "team-workspace-setup", "codex-rate-limit-429"],
@@ -161,7 +161,7 @@ export const HELP_ARTICLES: HelpArticle[] = [
     urgency: "high",
     urgencyLabel: "研发报错",
     badge: "开发者常备",
-    seoTitle: "Codex CLI / VS Code / Cursor 终端代理报错 fetch failed 解决指南 - AI代采",
+    seoTitle: "Codex CLI / VS Code / Cursor 终端代理报错 fetch failed 解决指南 - AI集采",
     seoDescription:
       "解决 Codex 命令行、Cursor、VS Code 插件调用 OpenAI 报错 fetch failed、Connection refused 与 SSL 错误的权威指南。提供 Windows PowerShell、CMD、macOS/Linux 一键代理脚本与 TUN 配置。",
     relatedSlugs: ["codex-rate-limit-429", "codex-chatgpt-degraded", "access-denied-403-cloudflare"],
@@ -188,7 +188,7 @@ export const HELP_ARTICLES: HelpArticle[] = [
     urgency: "critical",
     urgencyLabel: "资产止损",
     badge: "防封避坑",
-    seoTitle: "ChatGPT 账号被停用 Your account was deactivated 申诉模板与防封指南 - AI代采",
+    seoTitle: "ChatGPT 账号被停用 Your account was deactivated 申诉模板与防封指南 - AI集采",
     seoDescription:
       "详解 ChatGPT / OpenAI 账号被封原因（黑卡连坐、跨洲瞬移、违规越狱），提供官方中英文申诉邮件范本与历史数据导出方法。介绍正规代采 72h 免费保换与全周期按天折算退款保障。",
     relatedSlugs: ["payment-card-declined", "access-denied-403-cloudflare", "team-workspace-setup"],
@@ -216,7 +216,7 @@ export const HELP_ARTICLES: HelpArticle[] = [
     urgency: "medium",
     urgencyLabel: "企业协同",
     badge: "企业必看",
-    seoTitle: "ChatGPT Business 企业空间搭建全解 (原Team升级) - AI代采",
+    seoTitle: "ChatGPT Business 企业空间搭建全解 (原Team升级) - AI集采",
     seoDescription:
       "ChatGPT Business (原Team) 企业空间搭建全流程指南：Standard 与 Premium 席位混搭选型、个人与企业工作区隔离、数据隐私合规。支持企业工行对公结算与 6% 增值税专用发票开具。",
     relatedSlugs: ["payment-card-declined", "codex-rate-limit-429", "account-deactivated-appeal"],
@@ -243,7 +243,7 @@ export const HELP_ARTICLES: HelpArticle[] = [
     urgency: "high",
     urgencyLabel: "登录受阻",
     badge: "速查急救",
-    seoTitle: "ChatGPT 登录死循环与 Oops We ran into an issue 排障手册 - AI代采",
+    seoTitle: "ChatGPT 登录死循环与 Oops We ran into an issue 排障手册 - AI集采",
     seoDescription:
       "解决访问 ChatGPT 出现的登录页面无限死循环跳转、Oops! We ran into an issue 报错与白屏不加载问题。详解 Auth0 域名分流补全、Service Worker 缓存清理与纯净 Profile 建议。",
     relatedSlugs: ["access-denied-403-cloudflare", "codex-chatgpt-degraded", "account-deactivated-appeal"],

@@ -1,4 +1,4 @@
-# AI代采 (gongsi.one / gongsi.one)
+# AI集采 (gongsi.one / gongsi.one)
 
 > 国内领先的企业级 OpenAI / ChatGPT 官方代采与 OpenAI Codex 研发工具合规采购平台。
 > 提供中国工商银行对公转账结算、国家税务 6% 增值税专用发票开具（信息技术服务费）、100% 海外商业信用卡正规直充与 72 小时封号退赔兜底保障。

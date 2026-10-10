@@ -25,7 +25,7 @@ export default function BrandLogo({
   size = "md",
   className = "",
   variant = "emerald",
-  ariaLabel = "AI代采 Logo",
+  ariaLabel = "AI集采 Logo",
 }: BrandLogoProps) {
   const pixelSize = typeof size === "number" ? size : sizeMap[size] || 22;
 

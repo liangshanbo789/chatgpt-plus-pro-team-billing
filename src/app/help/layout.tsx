@@ -81,7 +81,7 @@ export default function HelpLayout({
               </div>
               <div className="flex items-center gap-2">
                 <span className="font-semibold text-sm tracking-tight text-primary">
-                  AI 代采
+                  AI 集采
                 </span>
                 <span className="text-[11px] font-mono text-emerald-600 dark:text-emerald-400 bg-emerald-500/10 px-1.5 py-0.5 rounded border border-emerald-500/20">
                   问题中心与排障
@@ -146,7 +146,7 @@ export default function HelpLayout({
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-left border-b border-theme-subtle/60 pb-6">
             <div>
               <div className="font-semibold text-primary mb-2 text-sm">
-                AI 代采 · 官方企业服务
+                AI 集采 · 官方企业服务
               </div>
               <p className="text-secondary text-xs leading-relaxed">
                 国内领先的海外 AI 生产力与 OpenAI Codex 代码助手官方代采平台。
@@ -205,7 +205,7 @@ export default function HelpLayout({
             </div>
           </div>
           <div className="text-center text-[11px] text-tertiary font-mono">
-            © 2026 AI 代采 (gongsi.one) · 四川省成都市高新区AI创新中心 · 统一社会信用代码可查
+            © 2026 AI 集采 (gongsi.one) · 四川省成都市高新区AI创新中心 · 统一社会信用代码可查
           </div>
         </div>
       </footer>

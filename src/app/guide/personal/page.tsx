@@ -23,7 +23,7 @@ import {
 
 export const metadata: Metadata = {
   title:
-    "个人 ChatGPT & Codex 极速上手全景指南 | 官方正版下载·首登避坑·高效使用 - AI代采",
+    "个人 ChatGPT & Codex 极速上手全景指南 | 官方正版下载·首登避坑·高效使用 - AI集采",
   description:
     "专为国内个人开发者、科研学者与出海从业者打造的 ChatGPT (Plus/Pro) 与 Codex 上手实操指南。涵盖 macOS/Windows/iOS/Android 全平台正版下载验证、新号首次登录冷启动防封禁、2FA双重验证、核心功能进阶与常见报错自救。",
   keywords: [
@@ -35,17 +35,17 @@ export const metadata: Metadata = {
     "ChatGPT首次登录避坑",
     "ChatGPT防封号",
     "ChatGPT新手教程",
-    "AI代采个人指南",
+    "AI集采个人指南",
   ],
   alternates: {
     canonical: "https://gongsi.one/guide/personal/",
   },
   openGraph: {
-    title: "个人 ChatGPT & Codex 极速上手全景指南 | 官方正版下载与避坑 - AI代采",
+    title: "个人 ChatGPT & Codex 极速上手全景指南 | 官方正版下载与避坑 - AI集采",
     description:
       "全平台正版客户端下载验证、首登 24 小时冷启动守则、2FA 绑定与高效使用技巧，杜绝盗版与封号风险。",
     url: "https://gongsi.one/guide/personal/",
-    siteName: "AI代采 gongsi.one",
+    siteName: "AI集采 gongsi.one",
     locale: "zh_CN",
     type: "article",
     images: [

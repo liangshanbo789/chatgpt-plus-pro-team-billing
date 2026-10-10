@@ -11,7 +11,7 @@ import Link from "next/link";
 export const metadata: Metadata = {
   title: "【法务合同附件】SLA 官方服务等级保障与 72h 封号退赔兜底条款",
   description:
-    "AI 代采（gongsi.one）官方签署加盖企业公章之 SLA 服务等级保障。承诺 100% 正规商业信用卡代付、72小时内遇批量风控闪电补换、全周期按天折算极速原路退款，全面保障出海与研发业务连续性。",
+    "AI 集采（gongsi.one）官方签署加盖企业公章之 SLA 服务等级保障。承诺 100% 正规商业信用卡代付、72小时内遇批量风控闪电补换、全周期按天折算极速原路退款，全面保障出海与研发业务连续性。",
   keywords: [
     "ChatGPT封号退款",
     "ChatGPT封号包赔协议",
@@ -24,11 +24,11 @@ export const metadata: Metadata = {
     canonical: "https://gongsi.one/docs/sla/",
   },
   openGraph: {
-    title: "SLA 服务等级保障与 72h 封号退赔兜底条款 | AI代采 gongsi.one",
+    title: "SLA 服务等级保障与 72h 封号退赔兜底条款 | AI集采 gongsi.one",
     description:
       "加盖公章合规 SLA 条款：72h 闪电保换，全周期按天折算退款，100% 正规海外商业卡代充。",
     url: "https://gongsi.one/docs/sla/",
-    siteName: "AI代采 gongsi.one",
+    siteName: "AI集采 gongsi.one",
     locale: "zh_CN",
     type: "article",
     images: [
@@ -42,7 +42,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "SLA 服务等级保障与 72h 封号退赔兜底条款 | AI代采 gongsi.one",
+    title: "SLA 服务等级保障与 72h 封号退赔兜底条款 | AI集采 gongsi.one",
     description:
       "加盖公章合规 SLA 条款：72h 闪电保换，全周期按天折算退款，100% 正规海外商业卡代充。",
     images: ["/og-image.png"],
@@ -83,13 +83,13 @@ const jsonLd = {
       url: "https://gongsi.one/docs/sla/",
       author: {
         "@type": "Organization",
-        name: "AI代采",
+        name: "AI集采",
       },
     },
   ],
 };
 
-const slaDocText = `【AI 代采 gongsi.one】企业级海外 AI 账号服务 SLA 与风控兜底保障条款
+const slaDocText = `【AI 集采 gongsi.one】企业级海外 AI 账号服务 SLA 与风控兜底保障条款
 
 一、 核心服务指标 (SLA Commitments)
 1. 首单开通时效：对公款项确认后 ≤ 30 分钟内完成全员充值激活；

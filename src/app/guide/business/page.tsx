@@ -22,7 +22,7 @@ import {
 
 export const metadata: Metadata = {
   title:
-    "企业 ChatGPT Business / Team 交付与管理全景手册 | 工作区激活·席位分配·合规防训练 - AI代采",
+    "企业 ChatGPT Business / Team 交付与管理全景手册 | 工作区激活·席位分配·合规防训练 - AI集采",
   description:
     "专为企业 IT 负责人、CTO 与团队主管打造的 ChatGPT Business / Team 官方管理手册。涵盖企业工作区交付激活、批量邀请员工、席位权限与离职回收、员工个人号与企业空间无缝切换、数据隐私与禁止模型训练（Zero Training）、对公专票结算全流程。",
   keywords: [
@@ -34,17 +34,17 @@ export const metadata: Metadata = {
     "ChatGPT席位管理",
     "ChatGPT企业数据防投喂",
     "ChatGPT企业对公专票",
-    "AI代采企业指南",
+    "AI集采企业指南",
   ],
   alternates: {
     canonical: "https://gongsi.one/guide/business/",
   },
   openGraph: {
-    title: "企业 ChatGPT Business / Team 交付与管理全景手册 | AI代采",
+    title: "企业 ChatGPT Business / Team 交付与管理全景手册 | AI集采",
     description:
       "工作区开通激活、员工席位批量发放、个人/企业空间物理隔离、官方不训练商业数据承诺与对公报销全流程指南。",
     url: "https://gongsi.one/guide/business/",
-    siteName: "AI代采 gongsi.one",
+    siteName: "AI集采 gongsi.one",
     locale: "zh_CN",
     type: "article",
     images: [

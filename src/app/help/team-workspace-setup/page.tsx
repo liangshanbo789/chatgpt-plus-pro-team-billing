@@ -27,7 +27,7 @@ export const metadata: Metadata = {
     title: article.seoTitle,
     description: article.seoDescription,
     url: `https://gongsi.one/help/${article.slug}/`,
-    siteName: "AI代采 gongsi.one",
+    siteName: "AI集采 gongsi.one",
     locale: "zh_CN",
     type: "article",
     images: [{ url: "/og-image.png", width: 1200, height: 630 }],
@@ -42,7 +42,7 @@ export default function TeamWorkspacePage() {
     description: article.summary,
     author: {
       "@type": "Organization",
-      name: "AI代采技术团队",
+      name: "AI集采技术团队",
     },
     datePublished: "2026-03-01",
     dateModified: "2026-03-25",
@@ -137,7 +137,7 @@ export default function TeamWorkspacePage() {
         <div className="p-5 rounded-2xl bg-surface border border-theme-subtle space-y-3 text-xs sm:text-sm">
           <div className="font-bold text-primary flex items-center gap-2">
             <Receipt className="w-4 h-4 text-emerald-500" />
-            <span>AI代采的企业 GPT 集采交付闭环：</span>
+            <span>AI集采的企业 GPT 集采交付闭环：</span>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs text-secondary">
             <div className="p-3 rounded-lg bg-surface-elevated border border-theme-subtle space-y-1">

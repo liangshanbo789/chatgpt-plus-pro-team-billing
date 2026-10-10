@@ -16,8 +16,8 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://gongsi.one"),
   title: {
     default:
-      "AI代采 gongsi.one | 企业级 GPT 官方集采与 OpenAI Codex 研发代采合规平台",
-    template: "%s | AI代采 gongsi.one",
+      "AI集采 gongsi.one | 企业级 GPT 官方集采与 OpenAI Codex 研发代采合规平台",
+    template: "%s | AI集采 gongsi.one",
   },
   description:
     "国内领先的企业级 GPT 官方集中采购 (集采) 与 OpenAI Codex 研发代码助手代采服务平台。全系覆盖 ChatGPT Plus、Pro (100/200/500)、Business 空间及 GPT-6 Astra，支持银行对公转账、开具 6% 增值税专用发票、大客户阶梯让利降本与 72h 封号包赔兜底。官网：gongsi.one",
@@ -30,11 +30,11 @@ export const metadata: Metadata = {
     "ChatGPT集采",
     "企业GPT集采",
     "代码大模型采购",
-    "研发团队AI代采",
+    "研发团队AI集采",
     "ChatGPT批量采购",
-    "AI代采",
+    "AI集采",
     "gongsi.one",
-    "AI代采官网",
+    "AI集采官网",
     "ChatGPT企业代采",
     "ChatGPT对公转账",
     "ChatGPT开专票",
@@ -47,9 +47,9 @@ export const metadata: Metadata = {
     "出海企业SaaS采购",
     "信息技术服务费专票",
   ],
-  authors: [{ name: "AI代采", url: "https://gongsi.one" }],
-  creator: "AI代采",
-  publisher: "AI代采",
+  authors: [{ name: "AI集采", url: "https://gongsi.one" }],
+  creator: "AI集采",
+  publisher: "AI集采",
   formatDetection: {
     telephone: false,
   },
@@ -57,11 +57,11 @@ export const metadata: Metadata = {
     canonical: "https://gongsi.one/",
   },
   openGraph: {
-    title: "AI代采 | 企业级 GPT 官方集采与 OpenAI Codex 研发代采合规平台",
+    title: "AI集采 | 企业级 GPT 官方集采与 OpenAI Codex 研发代采合规平台",
     description:
       "国内领先的企业级 GPT 官方集中采购与 OpenAI Codex 研发代采平台。支持 6% 增值税专用发票、银行对公转账、100% 正规海外商业卡直充与 72 小时封号退赔保障。",
     url: "https://gongsi.one/",
-    siteName: "AI代采 gongsi.one",
+    siteName: "AI集采 gongsi.one",
     locale: "zh_CN",
     type: "website",
     images: [
@@ -69,14 +69,14 @@ export const metadata: Metadata = {
         url: "/og-image.png",
         width: 1200,
         height: 630,
-        alt: "AI代采 gongsi.one 企业级海外 AI 官方代采合规平台",
+        alt: "AI集采 gongsi.one 企业级海外 AI 官方代采合规平台",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
     title:
-      "AI代采 gongsi.one | 企业级 GPT 官方集采与 OpenAI Codex 研发代采合规平台",
+      "AI集采 gongsi.one | 企业级 GPT 官方集采与 OpenAI Codex 研发代采合规平台",
     description:
       "让中国企业合规、阳光采购全球顶尖 AI 生产力与 Codex 研发工具。支持 6% 增值税专票、银行对公转账与 72h 封号包赔。",
     images: ["/og-image.png"],
@@ -103,7 +103,7 @@ const jsonLdData = [
   {
     "@context": "https://schema.org",
     "@type": "Organization",
-    name: "AI代采 gongsi.one",
+    name: "AI集采 gongsi.one",
     alternateName: "AI Enterprise Hub",
     url: "https://gongsi.one",
     logo: "https://gongsi.one/logo.svg",
@@ -127,7 +127,7 @@ const jsonLdData = [
   {
     "@context": "https://schema.org",
     "@type": "WebSite",
-    name: "AI代采 gongsi.one",
+    name: "AI集采 gongsi.one",
     url: "https://gongsi.one",
     description: "企业级海外 AI 官方代采与 GPT 集中采购合规解决方案平台",
   },

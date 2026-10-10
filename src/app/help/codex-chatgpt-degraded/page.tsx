@@ -28,7 +28,7 @@ export const metadata: Metadata = {
     title: article.seoTitle,
     description: article.seoDescription,
     url: `https://gongsi.one/help/${article.slug}/`,
-    siteName: "AI代采 gongsi.one",
+    siteName: "AI集采 gongsi.one",
     locale: "zh_CN",
     type: "article",
     images: [{ url: "/og-image.png", width: 1200, height: 630 }],
@@ -43,7 +43,7 @@ export default function DegradedModelPage() {
     description: article.summary,
     author: {
       "@type": "Organization",
-      name: "AI代采技术团队",
+      name: "AI集采技术团队",
     },
     datePublished: "2026-03-01",
     dateModified: "2026-03-25",
@@ -210,7 +210,7 @@ export default function DegradedModelPage() {
           个人 Plus 账号处于最广泛的公共限流池中，极易受节点连坐降智影响；而 <strong>ChatGPT Pro 200（10x 旗舰版）/ Pro 500（25x Ultrafast 顶配版）</strong> 与 <strong>ChatGPT Business 企业工作区</strong> 享有 OpenAI 后端分配的高优先级商业通道，具备专属独立计算配额与更高的网络信誉容忍度。
         </p>
         <p className="text-secondary leading-relaxed text-xs">
-          AI代采（gongsi.one）为企业提供正规海外商业银行卡直充开通，杜绝任何黑卡封号风险，工行对公结算并开具 6% 增值税专用发票，签署公章 SLA 72h 封号退赔保障。
+          AI集采（gongsi.one）为企业提供正规海外商业银行卡直充开通，杜绝任何黑卡封号风险，工行对公结算并开具 6% 增值税专用发票，签署公章 SLA 72h 封号退赔保障。
         </p>
       </section>
     </HelpArticleLayout>

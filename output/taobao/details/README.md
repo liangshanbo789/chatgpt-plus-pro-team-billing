@@ -6,7 +6,7 @@
 
 ## 共同提示词
 
-Create one finished Taobao enterprise AI procurement detail-page infographic. Portrait 2:3 aspect ratio, high resolution. Consistent premium dark forest green and champagne gold, ivory readable Chinese text, clean bold sans-serif. Brand header 'AI代采'. Strong hierarchy, large readable Chinese, spacious safe margins, restrained glass cards, minimal ornamental lines. Only specified text, exact Chinese. No GPT ChatGPT OpenAI names or third-party logos, no QR or URL, no official endorsement, no invented prices, unlimited usage, speed claims or delivery deadlines. This is a polished ecommerce service explainer, not a mockup. 
+Create one finished Taobao enterprise AI procurement detail-page infographic. Portrait 2:3 aspect ratio, high resolution. Consistent premium dark forest green and champagne gold, ivory readable Chinese text, clean bold sans-serif. Brand header 'AI集采'. Strong hierarchy, large readable Chinese, spacious safe margins, restrained glass cards, minimal ornamental lines. Only specified text, exact Chinese. No GPT ChatGPT OpenAI names or third-party logos, no QR or URL, no official endorsement, no invented prices, unlimited usage, speed claims or delivery deadlines. This is a polished ecommerce service explainer, not a mockup. 
 
 ## 第 1 页
 
@@ -30,4 +30,4 @@ Page 5: headline '自己的账号，售后有对接' subtitle '一个月订阅 �
 
 ## 首屏校正提示词
 
-Edit this enterprise procurement detail-page image. Preserve entire design, all four service tiles, brand and main headline and three Plus / Pro 5x / Pro 20x cards. Remove the three unsupported descriptions on the pedestals completely: '满足基础办公需求', '适合团队高效协作', '满足企业规模化应用'. Leave those pedestal fronts clean dark green with only the short gold decorative rule. Also remove all small incidental English and Chinese promotional copy on walls and top right corner. Keep only AI代采 brand, main headline 企业 AI 订阅采购, subtitle 从套餐选择，到交付售后, tier labels, four benefit tiles, 自有账号 · 一个月订阅, and bottom footer 具体套餐与服务事项，采购前确认. Do not invent replacement copy. Same portrait dimensions.
+Edit this enterprise procurement detail-page image. Preserve entire design, all four service tiles, brand and main headline and three Plus / Pro 5x / Pro 20x cards. Remove the three unsupported descriptions on the pedestals completely: '满足基础办公需求', '适合团队高效协作', '满足企业规模化应用'. Leave those pedestal fronts clean dark green with only the short gold decorative rule. Also remove all small incidental English and Chinese promotional copy on walls and top right corner. Keep only AI集采 brand, main headline 企业 AI 订阅采购, subtitle 从套餐选择，到交付售后, tier labels, four benefit tiles, 自有账号 · 一个月订阅, and bottom footer 具体套餐与服务事项，采购前确认. Do not invent replacement copy. Same portrait dimensions.

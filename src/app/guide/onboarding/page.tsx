@@ -26,7 +26,7 @@ import OnboardingChecklist from "@/components/guide/OnboardingChecklist";
 
 export const metadata: Metadata = {
   title:
-    "新员工入职从 0 到 1 实操教程 | 从下载GPT、2FA绑定、加入工作区到使用Codex全流程 - AI代采",
+    "新员工入职从 0 到 1 实操教程 | 从下载GPT、2FA绑定、加入工作区到使用Codex全流程 - AI集采",
   description:
     "专为加入企业 ChatGPT / Codex 工作区的新员工打造的标准入职实操手册 (SOP)。涵盖官方全平台正版客户端下载验证、账号安全首登、强制 2FA 双重身份验证与恢复码备份、企业邀请邮件查收与工作空间切换 (Workspace Switcher)、Canvas 独立代码协同与 Codex 研发实战全流程。",
   keywords: [
@@ -39,17 +39,17 @@ export const metadata: Metadata = {
     "ChatGPT加入企业空间",
     "ChatGPT工作区切换",
     "Canvas代码协同",
-    "AI代采员工指南",
+    "AI集采员工指南",
   ],
   alternates: {
     canonical: "https://gongsi.one/guide/onboarding/",
   },
   openGraph: {
-    title: "新员工入职从 0 到 1 实操教程 | 从下载GPT到玩转Codex全流程 - AI代采",
+    title: "新员工入职从 0 到 1 实操教程 | 从下载GPT到玩转Codex全流程 - AI集采",
     description:
       "新员工零基础开箱指南：从下载正版客户端、设置 2FA、接受工作区邀请切换空间，到熟练使用 Codex / Canvas 辅助编程全流程标准化教学。",
     url: "https://gongsi.one/guide/onboarding/",
-    siteName: "AI代采 gongsi.one",
+    siteName: "AI集采 gongsi.one",
     locale: "zh_CN",
     type: "article",
     images: [
@@ -63,7 +63,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "新员工入职从 0 到 1 实操教程 | 从下载GPT到玩转Codex全流程 - AI代采",
+    title: "新员工入职从 0 到 1 实操教程 | 从下载GPT到玩转Codex全流程 - AI集采",
     description:
       "新员工零基础开箱指南：官方正版下载、2FA 双重验证、加入企业工作区与 Codex 代码实战。",
     images: ["/og-image.png"],

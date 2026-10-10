@@ -19,9 +19,9 @@ import {
 } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "使用指南与技术知识库总览 | 个人上手·企业部署·稳定自检 - AI代采",
+  title: "使用指南与技术知识库总览 | 个人上手·企业部署·稳定自检 - AI集采",
   description:
-    "AI代采官方使用指南与技术知识中心。专为国内个人用户与企业客户提供 ChatGPT & Codex 全生命周期实操指南：包括全平台官方正版下载验证、新号首登冷启动、企业 Business 工作区部署与席位管理、国内网络 IP 纯净度检测及避坑十诫。",
+    "AI集采官方使用指南与技术知识中心。专为国内个人用户与企业客户提供 ChatGPT & Codex 全生命周期实操指南：包括全平台官方正版下载验证、新号首登冷启动、企业 Business 工作区部署与席位管理、国内网络 IP 纯净度检测及避坑十诫。",
   keywords: [
     "ChatGPT使用指南",
     "ChatGPT教程",
@@ -29,17 +29,17 @@ export const metadata: Metadata = {
     "ChatGPT官方正版下载",
     "ChatGPT企业版教程",
     "ChatGPT稳定指南",
-    "AI代采知识库",
+    "AI集采知识库",
   ],
   alternates: {
     canonical: "https://gongsi.one/guide/",
   },
   openGraph: {
-    title: "使用指南与技术知识库总览 | AI代采",
+    title: "使用指南与技术知识库总览 | AI集采",
     description:
       "个人极速上手指南、企业 Business 交付部署手册、国内网络 IP 纯净度检测与稳定使用指南全景聚合。",
     url: "https://gongsi.one/guide/",
-    siteName: "AI代采 gongsi.one",
+    siteName: "AI集采 gongsi.one",
     locale: "zh_CN",
     type: "website",
     images: [
@@ -47,7 +47,7 @@ export const metadata: Metadata = {
         url: "/og-image.png",
         width: 1200,
         height: 630,
-        alt: "AI代采使用指南总览",
+        alt: "AI集采使用指南总览",
       },
     ],
   },
@@ -62,7 +62,7 @@ export default function GuideOverviewPage() {
         <div className="relative z-10 space-y-4 max-w-3xl">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-medium border border-emerald-500/30 bg-emerald-500/10 text-emerald-600 dark:text-emerald-400">
             <Sparkles className="w-3.5 h-3.5" />
-            <span>AI 代采 · 官方全场景使用指南与知识中枢</span>
+            <span>AI 集采 · 官方全场景使用指南与知识中枢</span>
           </div>
 
           <h1 className="text-2xl sm:text-4xl font-extrabold tracking-tight text-primary leading-tight">

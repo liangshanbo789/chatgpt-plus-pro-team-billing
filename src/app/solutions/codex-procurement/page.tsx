@@ -19,7 +19,7 @@ import {
 
 export const metadata: Metadata = {
   title:
-    "研发团队 OpenAI Codex / 代码助手企业对公代采解决方案 | 支持 6% 专票与对公结算 - AI代采",
+    "研发团队 OpenAI Codex / 代码助手企业对公代采解决方案 | 支持 6% 专票与对公结算 - AI集采",
   description:
     "专为软件互联网、出海技术架构与研发团队打造的 OpenAI Codex / ChatGPT Pro (100/200/500) 官方代采合规通道。解决研发个人外币卡拒付、某宝代充黑卡封号与发票报销难题。支持中国工商银行对公转账、国家税务 6% 增值税专用发票开具、72h 封号包赔兜底，研发费用合规列支。",
   keywords: [
@@ -34,17 +34,17 @@ export const metadata: Metadata = {
     "ChatGPT Codex购买",
     "Codex开专票",
     "信息技术服务费专票",
-    "AI代采",
+    "AI集采",
   ],
   alternates: {
     canonical: "https://gongsi.one/solutions/codex-procurement/",
   },
   openGraph: {
-    title: "研发团队 OpenAI Codex / 代码助手企业对公代采解决方案 | AI代采",
+    title: "研发团队 OpenAI Codex / 代码助手企业对公代采解决方案 | AI集采",
     description:
       "告别员工私人外币卡垫资与黑卡代充封号风险。支持中国工商银行对公转账，开具 6% 增值税专用发票，签署公章 SLA 72h 封号退赔保障。",
     url: "https://gongsi.one/solutions/codex-procurement/",
-    siteName: "AI代采 gongsi.one",
+    siteName: "AI集采 gongsi.one",
     locale: "zh_CN",
     type: "article",
     images: [
@@ -58,7 +58,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "研发团队 OpenAI Codex / 代码助手企业对公代采解决方案 | AI代采",
+    title: "研发团队 OpenAI Codex / 代码助手企业对公代采解决方案 | AI集采",
     description:
       "告别员工私人外币卡垫资与黑卡代充封号风险。支持中国工商银行对公转账，开具 6% 增值税专用发票，签署公章 SLA 72h 封号退赔保障。",
     images: ["/og-image.png"],
@@ -193,7 +193,7 @@ export default function CodexProcurementPage() {
     serviceType: "企业级海外 AI / OpenAI Codex 官方合规代采与对公技术服务",
     provider: {
       "@type": "Organization",
-      name: "AI代采",
+      name: "AI集采",
       url: "https://gongsi.one/",
     },
     areaServed: "CN",
@@ -288,7 +288,7 @@ export default function CodexProcurementPage() {
             PAIN POINTS & SOLUTIONS
           </div>
           <h2 className="text-2xl font-semibold text-primary tracking-tight">
-            传统个人垫资/代充 vs AI 代采企业合规通道
+            传统个人垫资/代充 vs AI 集采企业合规通道
           </h2>
         </div>
 
@@ -326,11 +326,11 @@ export default function CodexProcurementPage() {
             </ul>
           </div>
 
-          {/* AI代采解决方案 */}
+          {/* AI集采解决方案 */}
           <div className="p-6 rounded-2xl bg-surface border border-emerald-500/30 shadow-xs space-y-4 bg-gradient-to-b from-emerald-500/[0.02] to-transparent">
             <div className="flex items-center gap-2.5 text-[#10A37F] font-semibold text-base">
               <ShieldCheck className="w-5 h-5" />
-              <h3>AI 代采正规对公通道保障</h3>
+              <h3>AI 集采正规对公通道保障</h3>
             </div>
             <ul className="space-y-3 text-xs text-secondary leading-relaxed">
               <li className="flex items-start gap-2">

@@ -23,7 +23,7 @@ export default function Footer({ onOpenDocs, onOpenContact }: FooterProps) {
               </div>
               <div>
                 <span className="font-semibold text-base text-primary">
-                  AI 代采
+                  AI 集采
                 </span>
                 <span className="ml-2 text-[10px] font-mono text-secondary">
                   gongsi.one
@@ -36,7 +36,7 @@ export default function Footer({ onOpenDocs, onOpenContact }: FooterProps) {
               SLA 售后兜底。
             </p>
             <div className="pt-1 text-[11px] text-tertiary font-mono">
-              gongsi.one · AI代采平台 © 2026 版权所有
+              gongsi.one · AI集采平台 © 2026 版权所有
             </div>
           </div>
 
@@ -306,7 +306,7 @@ export default function Footer({ onOpenDocs, onOpenContact }: FooterProps) {
             OpenAI、ChatGPT、GPT-6 Astra、GPT-5.6、o1、o3 及其相关商标均为
             OpenAI, LLC 及其关联方的专有财产。
             <strong className="text-secondary font-medium">
-              AI 代采 (gongsi.one)
+              AI 集采 (gongsi.one)
             </strong>{" "}
             作为独立的企业级海外软件数字化采购与 SaaS
             解决方案服务商，严格依据国际商业贸易惯例为中国企业提供合规的外币清算、代理采购、企业对公结算开票与本地化技术支持服务，与

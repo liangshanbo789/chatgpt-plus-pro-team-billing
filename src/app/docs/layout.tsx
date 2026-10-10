@@ -73,7 +73,7 @@ export default function DocsLayout({
               </div>
               <div className="flex items-center gap-2">
                 <span className="font-semibold text-sm tracking-tight text-primary">
-                  AI 代采
+                  AI 集采
                 </span>
                 <span className="text-[11px] font-mono text-secondary">
                   文档知识库
@@ -141,7 +141,7 @@ export default function DocsLayout({
       <footer className="border-t border-theme-subtle bg-surface-elevated text-xs text-secondary py-8 mt-16 transition-colors">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-2">
           <p className="text-secondary">
-            AI 代采 (gongsi.one) · 企业级海外 AI 官方代采与对公合规解决方案
+            AI 集采 (gongsi.one) · 企业级海外 AI 官方代采与对公合规解决方案
           </p>
           <p className="text-[11px] text-tertiary font-mono">
             四川省成都市高新区AI创新中心 · 官方客服微信：yqtp01 ·

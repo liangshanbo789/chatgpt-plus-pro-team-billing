@@ -276,7 +276,7 @@ export default function LiveStreamDashboard() {
       {!isClean && (
         <header className={styles.studioHeader}>
           <Link href="/" className={styles.homeLink}>
-            AI 代采 <span>/ 直播工作台</span>
+            AI 集采 <span>/ 直播工作台</span>
           </Link>
           <span className={styles.formatLabel}>
             竖屏优先 <span>9:16</span>
@@ -297,7 +297,7 @@ export default function LiveStreamDashboard() {
             <div className={styles.canvasContent}>
               <div className={styles.brand}>
                 <span className={styles.brandName}>
-                  <span className={styles.brandMark}>AI</span>代采
+                  <span className={styles.brandMark}>AI</span>集采
                 </span>
                 <span className={styles.domain}>gongsi.one</span>
               </div>

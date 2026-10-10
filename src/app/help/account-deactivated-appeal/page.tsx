@@ -27,7 +27,7 @@ export const metadata: Metadata = {
     title: article.seoTitle,
     description: article.seoDescription,
     url: `https://gongsi.one/help/${article.slug}/`,
-    siteName: "AI代采 gongsi.one",
+    siteName: "AI集采 gongsi.one",
     locale: "zh_CN",
     type: "article",
     images: [{ url: "/og-image.png", width: 1200, height: 630 }],
@@ -42,7 +42,7 @@ export default function AccountDeactivatedPage() {
     description: article.summary,
     author: {
       "@type": "Organization",
-      name: "AI代采技术团队",
+      name: "AI集采技术团队",
     },
     datePublished: "2026-03-01",
     dateModified: "2026-03-25",
@@ -173,14 +173,14 @@ Registered Email: [Your Email Address]`;
         </div>
       </section>
 
-      {/* 避坑兜底：AI代采 SLA */}
+      {/* 避坑兜底：AI集采 SLA */}
       <section className="p-5 rounded-2xl bg-surface border-2 border-emerald-500/20 space-y-3 text-xs sm:text-sm">
         <div className="flex items-center gap-2 text-emerald-600 dark:text-emerald-400 font-bold">
           <ShieldCheck className="w-4 h-4" />
-          <span>彻底告别封号焦虑：AI代采公章《SLA 售后协议》</span>
+          <span>彻底告别封号焦虑：AI集采公章《SLA 售后协议》</span>
         </div>
         <p className="text-secondary leading-relaxed text-xs">
-          个人自行买号或找电商代充犹如走钢丝。AI代采为企业提供 100% 正规海外实体商业银行卡直充与席位订阅：
+          个人自行买号或找电商代充犹如走钢丝。AI集采为企业提供 100% 正规海外实体商业银行卡直充与席位订阅：
         </p>
         <ul className="space-y-1.5 text-xs text-secondary">
           <li>• <strong>72 小时闪电保换：</strong>开通 72 小时内若遭遇官方波动封号，2 小时内免费更换补全；</li>

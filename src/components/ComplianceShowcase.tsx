@@ -160,7 +160,7 @@ export default function ComplianceShowcase() {
                       <div><span className="text-tertiary">开户行及账号：</span>招商银行北京分行 6225 **** **** 1088</div>
                     </div>
                     <div className="space-y-1.5 bg-surface/60 p-3 rounded-lg border border-theme-subtle">
-                      <div className="text-[11px] font-semibold text-primary font-sans">销售方信息（AI代采）</div>
+                      <div className="text-[11px] font-semibold text-primary font-sans">销售方信息（AI集采）</div>
                       <div><span className="text-tertiary">名称：</span>成都游手科技有限公司</div>
                       <div><span className="text-tertiary">统一社会信用代码：</span>91110105MA88XXXXXX</div>
                       <div><span className="text-tertiary">地址/电话：</span>成都市高新区AI创新中心 028-8588XXXX</div>

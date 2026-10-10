@@ -22,11 +22,11 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title:
-      "企业级 OpenAI / ChatGPT 官方代采阶梯报价单 (2026版) | AI代采 gongsi.one",
+      "企业级 OpenAI / ChatGPT 官方代采阶梯报价单 (2026版) | AI集采 gongsi.one",
     description:
       "全面覆盖 Plus、Pro 100/200/500、Business 空间阶梯报价，支持企业对公转账与 6% 专票开具。",
     url: "https://gongsi.one/docs/pricing/",
-    siteName: "AI代采 gongsi.one",
+    siteName: "AI集采 gongsi.one",
     locale: "zh_CN",
     type: "article",
     images: [
@@ -41,7 +41,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title:
-      "企业级 OpenAI / ChatGPT 官方代采阶梯报价单 (2026版) | AI代采 gongsi.one",
+      "企业级 OpenAI / ChatGPT 官方代采阶梯报价单 (2026版) | AI集采 gongsi.one",
     description:
       "全面覆盖 Plus、Pro 100/200/500、Business 空间阶梯报价，支持企业对公转账与 6% 专票开具。",
     images: ["/og-image.png"],
@@ -81,7 +81,7 @@ const jsonLd = {
         "全面覆盖 ChatGPT Plus、Pro (100/200/500)、Business 空间对公含税阶梯价格，支持 6% 增值税专用发票开具与银行对公转账。",
       brand: {
         "@type": "Brand",
-        name: "AI代采",
+        name: "AI集采",
       },
       offers: {
         "@type": "AggregateOffer",
@@ -96,7 +96,7 @@ const jsonLd = {
   ],
 };
 
-const pricingDocText = `【AI代采 gongsi.one】企业级 OpenAI / ChatGPT 官方采购阶梯报价单 (2026 最新版)
+const pricingDocText = `【AI集采 gongsi.one】企业级 OpenAI / ChatGPT 官方采购阶梯报价单 (2026 最新版)
 
 一、 核心产品参数 (OpenAI 2026 官方矩阵)
 • ChatGPT Plus ($20/月)：优先接入最新 GPT-6 Astra 旗舰基石模型、GPT-5.6 高频日常调用、高级数据分析与多模态创作；

@@ -14,7 +14,7 @@ import ProxyScriptCopier from "@/components/guide/ProxyScriptCopier";
 
 export const metadata: Metadata = {
   title:
-    "国内稳定使用 ChatGPT & Codex 全景实操指南 | IP质量自检与避坑十诫 - AI代采",
+    "国内稳定使用 ChatGPT & Codex 全景实操指南 | IP质量自检与避坑十诫 - AI集采",
   description:
     "专为国内开发者与企业技术团队打造的 ChatGPT / OpenAI Codex 稳定使用极简指南。使用 ip.net.coffee/gpt/ 快速自测 IP 纯净度、客户端 TUN 模式防漏、终端代理一键配置与日常避坑十诫，彻底告别 403 Access Denied 与封号困扰。",
   keywords: [
@@ -26,17 +26,17 @@ export const metadata: Metadata = {
     "避坑十诫",
     "TUN模式设置",
     "Codex终端代理",
-    "AI代采",
+    "AI集采",
   ],
   alternates: {
     canonical: "https://gongsi.one/guide/stability/",
   },
   openGraph: {
-    title: "国内稳定使用 ChatGPT & Codex 全景实操指南 | AI代采",
+    title: "国内稳定使用 ChatGPT & Codex 全景实操指南 | AI集采",
     description:
       "直奔核心：IP 质量自测、客户端 3 件事、避坑十诫守则与 Codex 终端配置，保障业务稳定连续。",
     url: "https://gongsi.one/guide/stability/",
-    siteName: "AI代采 gongsi.one",
+    siteName: "AI集采 gongsi.one",
     locale: "zh_CN",
     type: "article",
     images: [
@@ -50,7 +50,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "国内稳定使用 ChatGPT & Codex 全景实操指南 | AI代采",
+    title: "国内稳定使用 ChatGPT & Codex 全景实操指南 | AI集采",
     description: "直奔核心：IP 质量自测、避坑十诫守则与 Codex 终端配置。",
     images: ["/og-image.png"],
   },
@@ -413,7 +413,7 @@ export default function StabilityGuidePage() {
               <span>Your account was deactivated (账号已停用)</span>
             </div>
             <p className="text-secondary leading-relaxed text-[11px]">
-              <strong>解法：</strong>若为 AI代采 官方代采账号，享受公章《SLA 售后协议》72小时闪电免费换新，全周期按天折算退款。
+              <strong>解法：</strong>若为 AI集采 官方代采账号，享受公章《SLA 售后协议》72小时闪电免费换新，全周期按天折算退款。
             </p>
           </div>
         </div>
@@ -431,7 +431,7 @@ export default function StabilityGuidePage() {
         </h3>
 
         <p className="text-xs sm:text-sm text-zinc-300 max-w-2xl mx-auto leading-relaxed">
-          AI 代采（gongsi.one）专为中国技术团队提供 OpenAI Codex / ChatGPT Plus / Pro (5x/20x) / Team 企业级合规采购。支持中国工商银行网银对公转账与官方带卡号 Invoice 核验。
+          AI 集采（gongsi.one）专为中国技术团队提供 OpenAI Codex / ChatGPT Plus / Pro (5x/20x) / Team 企业级合规采购。支持中国工商银行网银对公转账与官方带卡号 Invoice 核验。
         </p>
 
         <div className="flex flex-col sm:flex-row items-center justify-center gap-3 pt-2">

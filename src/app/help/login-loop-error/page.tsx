@@ -27,7 +27,7 @@ export const metadata: Metadata = {
     title: article.seoTitle,
     description: article.seoDescription,
     url: `https://gongsi.one/help/${article.slug}/`,
-    siteName: "AI代采 gongsi.one",
+    siteName: "AI集采 gongsi.one",
     locale: "zh_CN",
     type: "article",
     images: [{ url: "/og-image.png", width: 1200, height: 630 }],
@@ -42,7 +42,7 @@ export default function LoginLoopErrorPage() {
     description: article.summary,
     author: {
       "@type": "Organization",
-      name: "AI代采技术团队",
+      name: "AI集采技术团队",
     },
     datePublished: "2026-03-01",
     dateModified: "2026-03-25",

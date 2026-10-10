@@ -26,7 +26,7 @@ export const metadata: Metadata = {
     title: article.seoTitle,
     description: article.seoDescription,
     url: `https://gongsi.one/help/${article.slug}/`,
-    siteName: "AI代采 gongsi.one",
+    siteName: "AI集采 gongsi.one",
     locale: "zh_CN",
     type: "article",
     images: [{ url: "/og-image.png", width: 1200, height: 630 }],
@@ -41,7 +41,7 @@ export default function PaymentCardDeclinedPage() {
     description: article.summary,
     author: {
       "@type": "Organization",
-      name: "AI代采技术团队",
+      name: "AI集采技术团队",
     },
     datePublished: "2026-03-01",
     dateModified: "2026-03-25",
@@ -152,7 +152,7 @@ export default function PaymentCardDeclinedPage() {
       <section className="p-5 rounded-2xl bg-surface border-2 border-emerald-500/20 space-y-3 text-xs sm:text-sm">
         <div className="flex items-center gap-2 text-emerald-600 dark:text-emerald-400 font-bold">
           <ShieldCheck className="w-4 h-4" />
-          <span>正规企业代充标准：AI代采 (gongsi.one)</span>
+          <span>正规企业代充标准：AI集采 (gongsi.one)</span>
         </div>
         <p className="text-secondary leading-relaxed text-xs">
           与其折腾高风险虚拟卡或担惊受怕，技术团队与企业采购应选择阳光正规的专业服务：

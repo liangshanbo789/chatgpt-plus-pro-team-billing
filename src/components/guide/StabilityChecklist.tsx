@@ -96,7 +96,7 @@ const CHECKLIST_ITEMS: ChecklistItem[] = [
     category: "账号与日常",
     title: "正规海外商业银行卡渠道直充 (拒绝淘宝黑卡/共享车)",
     desc: "确保账号充值链路 100% 正规透明，具备带卡号尾数与税单的官方原版 Invoice，拒绝黑卡代充倒扣连坐。",
-    linkText: "查阅 AI代采 SLA 保障",
+    linkText: "查阅 AI集采 SLA 保障",
     linkUrl: "/docs/sla/",
     critical: true,
     guideTip:

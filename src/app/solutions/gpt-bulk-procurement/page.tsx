@@ -17,7 +17,7 @@ import {
 
 export const metadata: Metadata = {
   title:
-    "大中型企业 GPT 官方集中采购 (集采) 方案与阶梯报价手册 | 统一对公与 6% 数电专票 - AI代采",
+    "大中型企业 GPT 官方集中采购 (集采) 方案与阶梯报价手册 | 统一对公与 6% 数电专票 - AI集采",
   description:
     "专为采购部、行政与财务定制的大中型企业 GPT 官方集中采购 (集采) 解决方案。全系覆盖 ChatGPT Plus、Pro (100/200/500)、Business 空间。实行采购越多单价越低阶梯降本机制，单席最高直降 25%。一纸框架合同、工行对公转账、一张 6% 增值税专用发票统一平账，附带公章 SLA 72h 封号包赔兜底。",
   keywords: [
@@ -30,17 +30,17 @@ export const metadata: Metadata = {
     "大中型企业AI集采",
     "ChatGPT对公采购专票",
     "GPT年度框架采购",
-    "AI代采",
+    "AI集采",
   ],
   alternates: {
     canonical: "https://gongsi.one/solutions/gpt-bulk-procurement/",
   },
   openGraph: {
-    title: "大中型企业 GPT 官方集中采购 (集采) 方案与阶梯报价手册 | AI代采",
+    title: "大中型企业 GPT 官方集中采购 (集采) 方案与阶梯报价手册 | AI集采",
     description:
       "多买立减、量大从优。专为 5~100+ 席位企业打造的 GPT 官方集采通道。支持统一对公转账、一张 6% 专票统一入账与经办人战略集采礼遇。",
     url: "https://gongsi.one/solutions/gpt-bulk-procurement/",
-    siteName: "AI代采 gongsi.one",
+    siteName: "AI集采 gongsi.one",
     locale: "zh_CN",
     type: "article",
     images: [
@@ -54,7 +54,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "大中型企业 GPT 官方集中采购 (集采) 方案与阶梯报价手册 | AI代采",
+    title: "大中型企业 GPT 官方集中采购 (集采) 方案与阶梯报价手册 | AI集采",
     description:
       "多买立减、量大从优。专为 5~100+ 席位企业打造的 GPT 官方集采通道。支持统一对公转账、一张 6% 专票统一入账与经办人战略集采礼遇。",
     images: ["/og-image.png"],
@@ -162,7 +162,7 @@ export default function GptBulkProcurementPage() {
     serviceType: "大中型企业级海外 AI / OpenAI GPT 批量代采与框架采购服务",
     provider: {
       "@type": "Organization",
-      name: "AI代采",
+      name: "AI集采",
       url: "https://gongsi.one/",
     },
     areaServed: "CN",

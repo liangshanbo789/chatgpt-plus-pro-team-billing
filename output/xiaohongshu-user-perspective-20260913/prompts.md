@@ -6,5 +6,5 @@ main heading very large, three lines "想升 20X" / "结果暂停了？"
 sage highlighted subheading "现在还能怎么办"
 three handwritten checkbox lines "我的账号能不能办" / "多少钱 · 多久到" / "办不成怎么处理"
 a small paper sticky note overlapping photo "先问清楚，再决定"
-footer clearly readable "AI代采 · 服务推广｜私信「20X」咨询办理条件".
+footer clearly readable "AI集采 · 服务推广｜私信「20X」咨询办理条件".
 Make typography super legible and mobile-first, headline expressive black font, warm human notebook aesthetic, tasteful subtle paper cutouts and hand drawn underline. All content safely inset.

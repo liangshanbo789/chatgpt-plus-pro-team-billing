@@ -1,7 +1,7 @@
 Mode: built-in imagegen
 
-Use case: ads-marketing. Create ONE finished premium Xiaohongshu portrait poster 1024x1536 for Chinese enterprise AI procurement brand AI代采. Main selling point corporate invoice support for ChatGPT Pro 5X and 20X procurement. Sophisticated enterprise editorial design, ivory/offwhite background, very dark charcoal typography, deep emerald green, precise alignment, generous whitespace, large mobile-readable Chinese typography. Abstract three-dimensional folded ivory document sculpture and green folder in lower-middle, small generic receipt icon only, no actual invoice facsimile, no tax bureau logo, no government seal, no official OpenAI logo, no fake invoice number or company information. Main headline is the largest element, much larger than decorative artwork. All text exact:
-top brand "AI代采 · 企业采购"
+Use case: ads-marketing. Create ONE finished premium Xiaohongshu portrait poster 1024x1536 for Chinese enterprise AI procurement brand AI集采. Main selling point corporate invoice support for ChatGPT Pro 5X and 20X procurement. Sophisticated enterprise editorial design, ivory/offwhite background, very dark charcoal typography, deep emerald green, precise alignment, generous whitespace, large mobile-readable Chinese typography. Abstract three-dimensional folded ivory document sculpture and green folder in lower-middle, small generic receipt icon only, no actual invoice facsimile, no tax bureau logo, no government seal, no official OpenAI logo, no fake invoice number or company information. Main headline is the largest element, much larger than decorative artwork. All text exact:
+top brand "AI集采 · 企业采购"
 small category "ChatGPT Pro"
 huge black heading line "公司买 5X / 20X"
 huge emerald highlighted heading "可以开企业发票"

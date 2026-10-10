@@ -17,7 +17,7 @@ import HelpCenterSearch from "@/components/help/HelpCenterSearch";
 import { HELP_ARTICLES } from "@/config/helpArticles";
 
 export const metadata: Metadata = {
-  title: "OpenAI & Codex 问题中心与技术自救指南 | 降智·限流·403·代充避坑 - AI代采",
+  title: "OpenAI & Codex 问题中心与技术自救指南 | 降智·限流·403·代充避坑 - AI集采",
   description:
     "专为国内开发者与研发团队打造的 OpenAI Codex / ChatGPT 常见问题排查与技术自救中心。涵盖模型降智（PoW检测）、429限流突破、403 Access Denied、Stripe支付被拒（Your card has been declined）、终端代理配置与封号申诉，并提供官方正规企业代充与对公专票服务。",
   keywords: [
@@ -29,17 +29,17 @@ export const metadata: Metadata = {
     "Your card has been declined解决",
     "Codex终端代理",
     "ChatGPT代充避坑",
-    "AI代采帮助中心",
+    "AI集采帮助中心",
   ],
   alternates: {
     canonical: "https://gongsi.one/help/",
   },
   openGraph: {
-    title: "OpenAI & Codex 常见问题排查与技术自救中心 | AI代采",
+    title: "OpenAI & Codex 常见问题排查与技术自救中心 | AI集采",
     description:
       "一站式排查 ChatGPT / Codex 降智、429限流、403被拒与银行卡支付失败。掌握避坑自救技巧，提供正规企业代充保障。",
     url: "https://gongsi.one/help/",
-    siteName: "AI代采 gongsi.one",
+    siteName: "AI集采 gongsi.one",
     locale: "zh_CN",
     type: "website",
     images: [
@@ -194,7 +194,7 @@ export default function HelpCenterPage() {
         </div>
 
         <h2 className="text-xl sm:text-2xl font-bold tracking-tight">
-          AI 代采 · 官方正规企业代充服务 · 支持 6% 专票与 72h 封号包赔
+          AI 集采 · 官方正规企业代充服务 · 支持 6% 专票与 72h 封号包赔
         </h2>
 
         <p className="text-xs sm:text-sm text-zinc-300 max-w-2xl mx-auto leading-relaxed">
