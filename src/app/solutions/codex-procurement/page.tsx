@@ -98,7 +98,7 @@ const CODEX_SPECS = [
     name: "ChatGPT Pro 200 (10x 架构旗舰版)",
     target: "CTO / 首席架构师 / 算法专家 / AI攻坚组",
     icon: Cpu,
-    price: "¥ 1,260 ~ 1,490 / 月",
+    price: "¥ 1,360 ~ 1,490 / 月",
     features: [
       "OpenAI $200 满血旗舰 GPT-6 Astra 深度推理集群",
       "10 倍高倍极速算力队列，免除 5 小时常规频次限制",

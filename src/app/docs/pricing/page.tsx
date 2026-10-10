@@ -108,14 +108,14 @@ const pricingDocText = `【AI代采 gongsi.one】企业级 OpenAI / ChatGPT 官�
 
 二、 企业采购阶梯报价方案 (RMB / 含税对公 6% 专票)
 1. ChatGPT Pro 200 (10x 研发主力旗舰)：
-   - 1 ~ 4 席：¥ 1,490/月/席 (季付 ¥ 1,420，年付 ¥ 1,380)
-   - 5 ~ 19 席：¥ 1,420/月/席 (季付 ¥ 1,360，年付 ¥ 1,320)
-   - 20 席以上：¥ 1,350/月/席 (季付 ¥ 1,300，年付 ¥ 1,260)
+   - 1 ~ 4 席：¥ 1,490/月/席 (季付 ¥ 1,450，年付 ¥ 1,420)
+   - 5 ~ 19 席：¥ 1,460/月/席 (季付 ¥ 1,420，年付 ¥ 1,390)
+   - 20 席以上：¥ 1,430/月/席 (季付 ¥ 1,390，年付 ¥ 1,360)
 
 2. ChatGPT Business Standard (企业标准协作空间)：
-   - 2 ~ 4 席：¥ 225/人/月 (季付 ¥ 210，年付 ¥ 198)
-   - 5 ~ 19 席：¥ 210/人/月 (季付 ¥ 198，年付 ¥ 185)
-   - 20 席以上：¥ 195/人/月 (季付 ¥ 185，年付 ¥ 175)
+   - 2 ~ 4 席：¥ 225/人/月 (季付 ¥ 218，年付 ¥ 208)
+   - 5 ~ 19 席：¥ 218/人/月 (季付 ¥ 210，年付 ¥ 198)
+   - 20 席以上：¥ 210/人/月 (季付 ¥ 202，年付 ¥ 188)
 
 3. ChatGPT Pro 100 (5x 算力进阶)：
    - 1 ~ 4 席：¥ 790/月/席 (季付 ¥ 740，年付 ¥ 710)
@@ -246,25 +246,25 @@ export default function PricingDocPage() {
                   <td className="p-3">1 ~ 4 席</td>
                   <td className="p-3">¥ 1,490 / 月</td>
                   <td className="p-3 text-emerald-600 dark:text-emerald-400">
-                    ¥ 1,420 / 月
+                    ¥ 1,450 / 月
                   </td>
-                  <td className="p-3">¥ 1,380 / 月</td>
+                  <td className="p-3">¥ 1,420 / 月</td>
                 </tr>
                 <tr className="bg-surface-elevated/40">
                   <td className="p-3">5 ~ 19 席 (研发标配)</td>
-                  <td className="p-3">¥ 1,420 / 月</td>
+                  <td className="p-3">¥ 1,460 / 月</td>
                   <td className="p-3 text-emerald-600 dark:text-emerald-400 font-semibold">
-                    ¥ 1,360 / 月
+                    ¥ 1,420 / 月
                   </td>
-                  <td className="p-3">¥ 1,320 / 月</td>
+                  <td className="p-3">¥ 1,390 / 月</td>
                 </tr>
                 <tr className="bg-surface-elevated/40">
                   <td className="p-3">20 席及以上 (科研大客户)</td>
-                  <td className="p-3">¥ 1,350 / 月</td>
+                  <td className="p-3">¥ 1,430 / 月</td>
                   <td className="p-3 text-emerald-600 dark:text-emerald-400">
-                    ¥ 1,300 / 月
+                    ¥ 1,390 / 月
                   </td>
-                  <td className="p-3 font-bold text-primary">¥ 1,260 / 月</td>
+                  <td className="p-3 font-bold text-primary">¥ 1,360 / 月</td>
                 </tr>
                 <tr>
                   <td className="p-3 font-semibold text-primary" rowSpan={3}>
@@ -273,25 +273,25 @@ export default function PricingDocPage() {
                   <td className="p-3">2 ~ 4 席 (2席起)</td>
                   <td className="p-3">¥ 225 / 人 / 月</td>
                   <td className="p-3 text-emerald-600 dark:text-emerald-400">
+                    ¥ 218 / 人 / 月
+                  </td>
+                  <td className="p-3">¥ 208 / 人 / 月</td>
+                </tr>
+                <tr>
+                  <td className="p-3">5 ~ 19 席 (团队优选)</td>
+                  <td className="p-3">¥ 218 / 人 / 月</td>
+                  <td className="p-3 text-emerald-600 dark:text-emerald-400 font-semibold">
                     ¥ 210 / 人 / 月
                   </td>
                   <td className="p-3">¥ 198 / 人 / 月</td>
                 </tr>
                 <tr>
-                  <td className="p-3">5 ~ 19 席 (团队优选)</td>
-                  <td className="p-3">¥ 210 / 人 / 月</td>
-                  <td className="p-3 text-emerald-600 dark:text-emerald-400 font-semibold">
-                    ¥ 198 / 人 / 月
-                  </td>
-                  <td className="p-3">¥ 185 / 人 / 月</td>
-                </tr>
-                <tr>
                   <td className="p-3">20 席及以上 (企业全员)</td>
-                  <td className="p-3">¥ 195 / 人 / 月</td>
+                  <td className="p-3">¥ 210 / 人 / 月</td>
                   <td className="p-3 text-emerald-600 dark:text-emerald-400">
-                    ¥ 185 / 人 / 月
+                    ¥ 202 / 人 / 月
                   </td>
-                  <td className="p-3 font-bold text-primary">¥ 175 / 人 / 月</td>
+                  <td className="p-3 font-bold text-primary">¥ 188 / 人 / 月</td>
                 </tr>
                 <tr className="bg-surface-elevated/40">
                   <td className="p-3 font-semibold text-primary" rowSpan={3}>

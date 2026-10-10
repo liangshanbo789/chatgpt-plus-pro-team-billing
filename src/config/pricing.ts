@@ -116,7 +116,7 @@ export const PRODUCTS_CONFIG: Record<string, ProductPricingConfig> = {
     officialPriceDisplay: "$200 / 月",
     minSeats: 1,
     baseMonthlyRmb: 1490,
-    lowestPriceRmb: 1260,
+    lowestPriceRmb: 1360,
     perkPerSeatMonth: 120,
     description: "专为算法科学家、系统架构师及攻坚团队打造。搭载最新 GPT-6 Astra 满血深度推理，免除 5 小时常规频次上限。",
     features: [
@@ -128,9 +128,9 @@ export const PRODUCTS_CONFIG: Record<string, ProductPricingConfig> = {
     ],
     highlight: true,
     tiers: {
-      individual: { monthly: 1490, quarterly: 1420, yearly: 1380 },
-      team: { monthly: 1420, quarterly: 1360, yearly: 1320 },
-      enterprise: { monthly: 1350, quarterly: 1300, yearly: 1260 },
+      individual: { monthly: 1490, quarterly: 1450, yearly: 1420 },
+      team: { monthly: 1460, quarterly: 1420, yearly: 1390 },
+      enterprise: { monthly: 1430, quarterly: 1390, yearly: 1360 },
     },
   },
   pro500: {
@@ -176,7 +176,7 @@ export const PRODUCTS_CONFIG: Record<string, ProductPricingConfig> = {
     officialPriceDisplay: "$25 / 人 / 月",
     minSeats: 2,
     baseMonthlyRmb: 225,
-    lowestPriceRmb: 175,
+    lowestPriceRmb: 188,
     perkPerSeatMonth: 20,
     description: "OpenAI Team 全新更名升级。适合 2 人以上协作团队，统一工作空间，商业数据与代码严格隔离、绝不参与模型训练。",
     features: [
@@ -188,9 +188,9 @@ export const PRODUCTS_CONFIG: Record<string, ProductPricingConfig> = {
     ],
     highlight: false,
     tiers: {
-      individual: { monthly: 225, quarterly: 210, yearly: 198 },
-      team: { monthly: 210, quarterly: 198, yearly: 185 },
-      enterprise: { monthly: 195, quarterly: 185, yearly: 175 },
+      individual: { monthly: 225, quarterly: 218, yearly: 208 },
+      team: { monthly: 218, quarterly: 210, yearly: 198 },
+      enterprise: { monthly: 210, quarterly: 202, yearly: 188 },
     },
   },
   business_pre: {
@@ -206,7 +206,7 @@ export const PRODUCTS_CONFIG: Record<string, ProductPricingConfig> = {
     officialPriceDisplay: "$125 / 人 / 月",
     minSeats: 2,
     baseMonthlyRmb: 1020,
-    lowestPriceRmb: 820,
+    lowestPriceRmb: 920,
     perkPerSeatMonth: 80,
     description: "为企业核心高强度用量团队打造。单席享有 5x 高倍用量配额，免除 5 小时用量封顶，全面支持 SAML SSO 与审计控制。",
     features: [
@@ -218,9 +218,9 @@ export const PRODUCTS_CONFIG: Record<string, ProductPricingConfig> = {
     ],
     highlight: false,
     tiers: {
-      individual: { monthly: 1020, quarterly: 960, yearly: 910 },
-      team: { monthly: 960, quarterly: 900, yearly: 860 },
-      enterprise: { monthly: 890, quarterly: 850, yearly: 820 },
+      individual: { monthly: 1020, quarterly: 990, yearly: 960 },
+      team: { monthly: 995, quarterly: 965, yearly: 940 },
+      enterprise: { monthly: 970, quarterly: 940, yearly: 920 },
     },
   },
 };
@@ -258,7 +258,7 @@ export function calculateQuotation(
 
   if (seats >= 20) {
     tierType = "enterprise";
-    tierLabel = "🔥 已触发大客户集采阶梯 (最高立减 25%)";
+    tierLabel = "🔥 已触发大客户战略集采阶梯 (大宗专属底价)";
   } else if (seats >= 5) {
     tierType = "team";
     tierLabel = "👍 已触发团队优惠阶梯";
