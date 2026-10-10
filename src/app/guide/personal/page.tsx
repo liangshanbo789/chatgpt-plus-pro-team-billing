@@ -327,15 +327,70 @@ export default function PersonalGuidePage() {
           </div>
         </div>
 
-        {/* 2FA 双重认证警告 */}
-        <div className="rounded-2xl border-2 border-amber-500/30 bg-gradient-to-br from-amber-500/5 via-surface to-surface p-5 space-y-3 shadow-xs">
-          <div className="flex items-center gap-2 text-amber-600 dark:text-amber-400 font-bold text-sm">
-            <KeyRound className="w-4 h-4" />
-            <span>强烈建议：立即在账号设置中开启 2FA (双重身份验证)</span>
+        {/* 2FA 双重认证警告与工具箱 */}
+        <div className="rounded-2xl border-2 border-amber-500/30 bg-gradient-to-br from-amber-500/5 via-surface to-surface p-5 space-y-3.5 shadow-xs">
+          <div className="flex items-center justify-between">
+            <div className="flex items-center gap-2 text-amber-600 dark:text-amber-400 font-bold text-sm">
+              <KeyRound className="w-4 h-4" />
+              <span>强烈建议：立即在账号设置中开启 2FA (双重身份验证)</span>
+            </div>
+            <span className="text-[10px] px-2 py-0.5 rounded-full bg-amber-500/10 text-amber-600 dark:text-amber-400 font-mono border border-amber-500/20">
+              防盗防撞库
+            </span>
           </div>
+
           <p className="text-xs text-secondary leading-relaxed">
-            近年来黑产撞库严重，开启 2FA 可以彻底锁死账号资产。操作路径：点击左下角头像 → <strong>Settings</strong> → <strong>Security</strong> → 找到 <strong>Multi-factor authentication (MFA)</strong>，使用 Google Authenticator、1Password 或微软身份验证器扫码绑定。
+            近年来黑产撞库严重，开启 2FA 可以彻底锁死账号资产。操作路径：点击左下角头像 → <strong>Settings</strong> → <strong>Security & login</strong> → 找到 <strong>Multi-factor authentication (MFA)</strong> 并启用。
           </p>
+
+          <div className="pt-2 border-t border-theme-subtle space-y-2">
+            <div className="text-[11px] font-medium text-primary">
+              🛠 推荐便捷 2FA 工具与官方通道：
+            </div>
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-2 text-xs">
+              <a
+                href="https://2fa.fun/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="p-2.5 rounded-lg bg-surface border border-theme-subtle hover:border-emerald-500/40 transition-colors flex items-center justify-between group"
+              >
+                <div>
+                  <div className="font-semibold text-primary group-hover:text-emerald-600 dark:group-hover:text-emerald-400">2FA.fun 网页版</div>
+                  <div className="text-[10px] text-tertiary">免装App · 密钥直接换码</div>
+                </div>
+                <ExternalLink className="w-3 h-3 text-tertiary group-hover:text-primary" />
+              </a>
+
+              <a
+                href="https://authenticator.cc/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="p-2.5 rounded-lg bg-surface border border-theme-subtle hover:border-blue-500/40 transition-colors flex items-center justify-between group"
+              >
+                <div>
+                  <div className="font-semibold text-primary group-hover:text-blue-600 dark:group-hover:text-blue-400">Authenticator.cc</div>
+                  <div className="text-[10px] text-tertiary">Chrome/Edge 扩展插件</div>
+                </div>
+                <ExternalLink className="w-3 h-3 text-tertiary group-hover:text-primary" />
+              </a>
+
+              <a
+                href="https://www.microsoft.com/en-us/security/mobile-authenticator-app"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="p-2.5 rounded-lg bg-surface border border-theme-subtle hover:border-purple-500/40 transition-colors flex items-center justify-between group"
+              >
+                <div>
+                  <div className="font-semibold text-primary group-hover:text-purple-600 dark:group-hover:text-purple-400">微软验证器</div>
+                  <div className="text-[10px] text-tertiary">支持手机云备份防丢失</div>
+                </div>
+                <ExternalLink className="w-3 h-3 text-tertiary group-hover:text-primary" />
+              </a>
+            </div>
+            <div className="text-[11px] text-tertiary">
+              💡 扫码时点击「Can&apos;t scan QR code?」可获取 Secret Key 密钥，直接粘贴到 2FA.fun 或浏览器插件即可换取 6 位动态验证码。
+            </div>
+          </div>
         </div>
       </section>
 

@@ -442,28 +442,144 @@ export default function OnboardingGuidePage() {
               </span>
               <h4 className="font-bold text-primary">输入 6 位动态码激活</h4>
               <p className="text-secondary text-[11px] leading-relaxed">
-                输入手机 App 实时生成的 6 位数字，点击确认即可激活成功。
+                输入工具实时生成的 6 位数字，点击确认即可激活成功。
               </p>
             </div>
           </div>
 
-          <div className="pt-2 border-t border-theme-subtle text-xs text-secondary space-y-2">
-            <p className="font-medium text-primary">
-              📱 推荐的 Authenticator 身份验证器软件：
-            </p>
-            <div className="flex flex-wrap items-center gap-2 text-[11px] font-mono">
-              <span className="px-2.5 py-1 rounded-md bg-surface-elevated border border-theme-subtle">
-                Microsoft Authenticator (微软验证器 · 推荐，支持云备份)
+          {/* 2FA 丰富工具矩阵：网页免装 / 浏览器插件 / 手机原生 App */}
+          <div className="pt-3 border-t border-theme-subtle space-y-3">
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1">
+              <h4 className="font-bold text-xs sm:text-sm text-primary flex items-center gap-2">
+                <KeyRound className="w-4 h-4 text-emerald-500" />
+                <span>2FA 身份验证多渠道工具箱（按您的使用习惯自由选择）：</span>
+              </h4>
+              <span className="text-[11px] text-tertiary font-mono">
+                支持网页免装 · 插件常驻 · 原生手机 App
               </span>
-              <span className="px-2.5 py-1 rounded-md bg-surface-elevated border border-theme-subtle">
-                Google Authenticator (谷歌验证器)
-              </span>
-              <span className="px-2.5 py-1 rounded-md bg-surface-elevated border border-theme-subtle">
-                iOS 系统自带密码钥匙串 (验证码自动填充)
-              </span>
-              <span className="px-2.5 py-1 rounded-md bg-surface-elevated border border-theme-subtle">
-                1Password / Bitwarden 企业密码库
-              </span>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-3 text-xs">
+              {/* 工具一：2fa.fun 在线网页换码 */}
+              <div className="p-3.5 rounded-xl bg-surface-elevated/70 border border-theme-subtle hover:border-emerald-500/40 transition-colors flex flex-col justify-between space-y-3">
+                <div className="space-y-1.5">
+                  <div className="flex items-center justify-between">
+                    <span className="font-semibold text-primary flex items-center gap-1.5">
+                      <span className="w-2 h-2 rounded-full bg-emerald-500" />
+                      <span>2FA.fun 在线网页生成</span>
+                    </span>
+                    <span className="text-[10px] px-1.5 py-0.2 rounded bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 font-mono border border-emerald-500/20">
+                      免装即用
+                    </span>
+                  </div>
+                  <p className="text-secondary text-[11px] leading-relaxed">
+                    身边没有手机或临时换机？直接在网页输入 OpenAI 给出的 Secret Key 密钥，即时计算输出 6 位 TOTP 动态码。
+                  </p>
+                </div>
+                <a
+                  href="https://2fa.fun/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn-openai-white text-[11px] py-1.5 w-full flex items-center justify-center gap-1 shadow-xs"
+                >
+                  <span>访问 2FA.fun 网页版</span>
+                  <ExternalLink className="w-3 h-3" />
+                </a>
+              </div>
+
+              {/* 工具二：Authenticator.cc 浏览器插件 */}
+              <div className="p-3.5 rounded-xl bg-surface-elevated/70 border border-theme-subtle hover:border-blue-500/40 transition-colors flex flex-col justify-between space-y-3">
+                <div className="space-y-1.5">
+                  <div className="flex items-center justify-between">
+                    <span className="font-semibold text-primary flex items-center gap-1.5">
+                      <span className="w-2 h-2 rounded-full bg-blue-500" />
+                      <span>Authenticator 浏览器插件</span>
+                    </span>
+                    <span className="text-[10px] px-1.5 py-0.2 rounded bg-blue-500/10 text-blue-600 dark:text-blue-400 font-mono border border-blue-500/20">
+                      电脑办公首推
+                    </span>
+                  </div>
+                  <p className="text-secondary text-[11px] leading-relaxed">
+                    适配 Chrome / Edge / Firefox。常驻浏览器工具栏，无需掏出手机扫码，点击扩展图标即可秒级生成与一键填码。
+                  </p>
+                </div>
+                <a
+                  href="https://authenticator.cc/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn-openai-secondary text-[11px] py-1.5 w-full flex items-center justify-center gap-1"
+                >
+                  <span>获取 Authenticator.cc 插件</span>
+                  <ExternalLink className="w-3 h-3" />
+                </a>
+              </div>
+
+              {/* 工具三：手机原生 App 官方正版渠道 */}
+              <div className="p-3.5 rounded-xl bg-surface-elevated/70 border border-theme-subtle hover:border-purple-500/40 transition-colors flex flex-col justify-between space-y-3">
+                <div className="space-y-1.5">
+                  <div className="flex items-center justify-between">
+                    <span className="font-semibold text-primary flex items-center gap-1.5">
+                      <span className="w-2 h-2 rounded-full bg-purple-500" />
+                      <span>主流手机端原生 App</span>
+                    </span>
+                    <span className="text-[10px] px-1.5 py-0.2 rounded bg-purple-500/10 text-purple-600 dark:text-purple-400 font-mono border border-purple-500/20">
+                      权威生态
+                    </span>
+                  </div>
+                  <p className="text-secondary text-[11px] leading-relaxed">
+                    支持云备份防丢失。微软 Authenticator 支持企业级同步；谷歌验证器极简；苹果 iOS 自带钥匙串自动填充。
+                  </p>
+                </div>
+                <div className="grid grid-cols-2 gap-1.5 pt-1">
+                  <a
+                    href="https://www.microsoft.com/en-us/security/mobile-authenticator-app"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="p-1 rounded bg-surface border border-theme-subtle text-[10px] text-center hover:border-primary transition-colors truncate"
+                    title="Microsoft Authenticator 官网下载"
+                  >
+                    微软验证器 ↗
+                  </a>
+                  <a
+                    href="https://support.google.com/accounts/answer/1066447"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="p-1 rounded bg-surface border border-theme-subtle text-[10px] text-center hover:border-primary transition-colors truncate"
+                    title="Google Authenticator 官方指引"
+                  >
+                    谷歌验证器 ↗
+                  </a>
+                  <a
+                    href="https://support.apple.com/zh-cn/102637"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="p-1 rounded bg-surface border border-theme-subtle text-[10px] text-center hover:border-primary transition-colors truncate"
+                    title="Apple iOS / Mac 钥匙串自动验证码"
+                  >
+                    iOS 自带钥匙串 ↗
+                  </a>
+                  <a
+                    href="https://bitwarden.com/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="p-1 rounded bg-surface border border-theme-subtle text-[10px] text-center hover:border-primary transition-colors truncate"
+                    title="Bitwarden 密码管理器"
+                  >
+                    Bitwarden ↗
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            {/* 贴心教学：如何获取明文 Secret Key */}
+            <div className="p-3 rounded-xl bg-surface border border-theme-subtle text-[11px] text-secondary space-y-1">
+              <div className="font-semibold text-primary flex items-center gap-1.5">
+                <Sparkles className="w-3.5 h-3.5 text-emerald-500" />
+                <span>没有手机摄像头或扫码失败？如何使用 Secret Key 密钥快速绑定：</span>
+              </div>
+              <p className="leading-relaxed text-tertiary">
+                在 OpenAI 屏幕展示二维码的下方，点击灰色小字 <strong>「Can&apos;t scan QR code?」</strong> 或 <strong>「Manual Entry (手动输入)」</strong>，屏幕将显示由字母数字组成的明文密钥（Secret Key）。将其复制并粘贴到 <a href="https://2fa.fun/" target="_blank" rel="noopener noreferrer" className="text-emerald-600 dark:text-emerald-400 underline font-mono">2FA.fun</a> 或 <a href="https://authenticator.cc/" target="_blank" rel="noopener noreferrer" className="text-emerald-600 dark:text-emerald-400 underline font-mono">Authenticator 浏览器插件</a> 中，即可无需摄像头直接获取 6 位有效验证码！
+              </p>
             </div>
           </div>
         </div>
