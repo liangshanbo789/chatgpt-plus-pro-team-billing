@@ -27,6 +27,35 @@ export const HELP_CATEGORIES = [
 
 export const HELP_ARTICLES: HelpArticle[] = [
   {
+    slug: "codex-model-at-capacity",
+    title: "Codex 提示 Selected model is at capacity？2026 年 4 类原因深度诊断与 3 套恢复实操全解",
+    shortTitle: "Selected model is at capacity 解决指南",
+    category: "limit",
+    categoryLabel: "算力容量",
+    summary:
+      "任务执行中断提示「Selected model is at capacity. Please try a different model」？剖析官方算力挤兑、高峰期区域容量、单会话卡死与账号隐性降权 4 大根因；掌握现场保全指令、官方 4 步应急路径与账号降权 3 套实操恢复方案。",
+    keywords: [
+      "Selected model is at capacity",
+      "Please try a different model",
+      "Codex提示Selected model is at capacity",
+      "Codex模型容量已满",
+      "ChatGPT模型算力不足",
+      "Codex任务中断",
+      "OpenAI账号降权恢复",
+      "Codex账号静置48小时",
+      "OpenAI status",
+    ],
+    readingTime: "6 分钟",
+    updateDate: "2026-03",
+    urgency: "critical",
+    urgencyLabel: "高频突发",
+    badge: "热点急救",
+    seoTitle: "Codex 提示 Selected model is at capacity 解决方案与 4 类原因诊断 - AI集采",
+    seoDescription:
+      "Codex / ChatGPT 频繁提示 Selected model is at capacity. Please try a different model？详解并非封号或用量耗尽，剖析官方容量与账号隐性降权 4 大根因，提供现场保全、官方应急切换与 3 套账号恢复实操方案。",
+    relatedSlugs: ["codex-rate-limit-429", "codex-chatgpt-degraded", "codex-cli-terminal-proxy"],
+  },
+  {
     slug: "codex-chatgpt-degraded",
     title: "ChatGPT & Codex 严重“降智”排查指南：PoW 难度检测、o1 思考缺失与模型回退终极拯救",
     shortTitle: "ChatGPT / Codex 降智自救指南",
@@ -53,7 +82,7 @@ export const HELP_ARTICLES: HelpArticle[] = [
     seoTitle: "ChatGPT & Codex 降智排查自救指南 | PoW难度检测与恢复方案 - AI集采",
     seoDescription:
       "详细解析 ChatGPT 和 OpenAI Codex 遭遇降智的表现（o1无思考过程、强制退回 4o-mini、无联网）、PoW 工作量难度自测方法与网络环境彻底恢复策略。了解企业独享 Pro 200 算力与 Business 空间纯净解决方案。",
-    relatedSlugs: ["codex-rate-limit-429", "access-denied-403-cloudflare", "codex-cli-terminal-proxy"],
+    relatedSlugs: ["codex-model-at-capacity", "codex-rate-limit-429", "access-denied-403-cloudflare"],
   },
   {
     slug: "codex-rate-limit-429",
@@ -82,7 +111,7 @@ export const HELP_ARTICLES: HelpArticle[] = [
     seoTitle: "Codex & ChatGPT 429 Too Many Requests 限流突破全解 - AI集采",
     seoDescription:
       "解决 Codex CLI 与 ChatGPT 遭遇 429 Too Many Requests 限流、You've reached the current usage cap 额度用尽的完整技术方案。详解指数退避、Session 上下文瘦身与企业 Pro 200/500 独享算力升级。",
-    relatedSlugs: ["codex-chatgpt-degraded", "codex-cli-terminal-proxy", "team-workspace-setup"],
+    relatedSlugs: ["codex-model-at-capacity", "codex-chatgpt-degraded", "codex-cli-terminal-proxy"],
   },
   {
     slug: "access-denied-403-cloudflare",

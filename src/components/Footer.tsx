@@ -108,6 +108,14 @@ export default function Footer({ onOpenDocs, onOpenContact }: FooterProps) {
               </li>
               <li>
                 <Link
+                  href="/help/codex-model-at-capacity/"
+                  className="hover:text-primary transition-colors text-secondary"
+                >
+                  • Selected model is at capacity 解决
+                </Link>
+              </li>
+              <li>
+                <Link
                   href="/help/codex-chatgpt-degraded/"
                   className="hover:text-primary transition-colors text-secondary"
                 >

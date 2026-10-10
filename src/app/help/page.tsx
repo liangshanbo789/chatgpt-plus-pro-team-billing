@@ -19,10 +19,12 @@ import { HELP_ARTICLES } from "@/config/helpArticles";
 export const metadata: Metadata = {
   title: "OpenAI & Codex 问题中心与技术自救指南 | 降智·限流·403·代充避坑 - AI集采",
   description:
-    "专为国内开发者与研发团队打造的 OpenAI Codex / ChatGPT 常见问题排查与技术自救中心。涵盖模型降智（PoW检测）、429限流突破、403 Access Denied、Stripe支付被拒（Your card has been declined）、终端代理配置与封号申诉，并提供官方正规企业代充与对公专票服务。",
+    "专为国内开发者与研发团队打造的 OpenAI Codex / ChatGPT 常见问题排查与技术自救中心。涵盖 Selected model is at capacity 算力挤兑、模型降智（PoW检测）、429限流突破、403 Access Denied、Stripe支付被拒（Your card has been declined）、终端代理配置与封号申诉，并提供官方正规企业代充与对公专票服务。",
   keywords: [
+    "Selected model is at capacity",
     "Codex常见问题",
     "ChatGPT问题中心",
+    "Codex模型容量已满",
     "ChatGPT降智排查",
     "Codex 429限流",
     "ChatGPT 403被拒",
@@ -37,7 +39,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "OpenAI & Codex 常见问题排查与技术自救中心 | AI集采",
     description:
-      "一站式排查 ChatGPT / Codex 降智、429限流、403被拒与银行卡支付失败。掌握避坑自救技巧，提供正规企业代充保障。",
+      "一站式排查 ChatGPT / Codex Selected model is at capacity、降智、429限流、403被拒与银行卡支付失败。掌握避坑自救技巧，提供正规企业代充保障。",
     url: "https://gongsi.one/help/",
     siteName: "AI集采 gongsi.one",
     locale: "zh_CN",
@@ -111,13 +113,32 @@ export default function HelpCenterPage() {
           <span className="text-xs text-tertiary">点击直达专属解决方案</span>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3.5">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3.5">
+          <Link
+            href="/help/codex-model-at-capacity/"
+            className="p-4 rounded-xl bg-surface border border-theme-subtle hover:border-emerald-500/40 hover:bg-surface-elevated transition-all space-y-2 group"
+          >
+            <div className="w-8 h-8 rounded-lg bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 flex items-center justify-center font-bold text-sm">
+              <Zap className="w-4 h-4" />
+            </div>
+            <h3 className="text-sm font-bold text-primary group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors flex items-center gap-1.5">
+              <span>Model at capacity 算力挤兑</span>
+              <span className="text-[10px] font-mono px-1.5 py-0.2 rounded bg-amber-500/15 text-amber-600 dark:text-amber-400">热点</span>
+            </h3>
+            <p className="text-[11px] text-secondary leading-relaxed line-clamp-2">
+              Selected model is at capacity. 任务中断、现场代码保全、官方4步应急与账号降权恢复。
+            </p>
+            <div className="text-[10px] text-emerald-600 dark:text-emerald-400 font-medium pt-1">
+              查看算力恢复全解 →
+            </div>
+          </Link>
+
           <Link
             href="/help/codex-chatgpt-degraded/"
             className="p-4 rounded-xl bg-surface border border-theme-subtle hover:border-emerald-500/40 hover:bg-surface-elevated transition-all space-y-2 group"
           >
             <div className="w-8 h-8 rounded-lg bg-amber-500/10 text-amber-600 dark:text-amber-400 flex items-center justify-center font-bold text-sm">
-              <Zap className="w-4 h-4" />
+              <Sparkles className="w-4 h-4" />
             </div>
             <h3 className="text-sm font-bold text-primary group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors">
               模型变傻 / 严重降智
@@ -181,6 +202,24 @@ export default function HelpCenterPage() {
             </p>
             <div className="text-[10px] text-emerald-600 dark:text-emerald-400 font-medium pt-1">
               查看合规代充指南 →
+            </div>
+          </Link>
+
+          <Link
+            href="/help/codex-cli-terminal-proxy/"
+            className="p-4 rounded-xl bg-surface border border-theme-subtle hover:border-emerald-500/40 hover:bg-surface-elevated transition-all space-y-2 group"
+          >
+            <div className="w-8 h-8 rounded-lg bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 flex items-center justify-center font-bold text-sm">
+              <Code2 className="w-4 h-4" />
+            </div>
+            <h3 className="text-sm font-bold text-primary group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors">
+              终端与编辑器 fetch failed
+            </h3>
+            <p className="text-[11px] text-secondary leading-relaxed line-clamp-2">
+              Codex CLI、Cursor 与 VS Code 代理配置，Windows / Mac 环境变量注入。
+            </p>
+            <div className="text-[10px] text-emerald-600 dark:text-emerald-400 font-medium pt-1">
+              查看终端代理教程 →
             </div>
           </Link>
         </div>

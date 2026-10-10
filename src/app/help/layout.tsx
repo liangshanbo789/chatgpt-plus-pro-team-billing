@@ -22,6 +22,12 @@ const HELP_NAV = [
     badge: "汇总",
   },
   {
+    href: "/help/codex-model-at-capacity/",
+    label: "算力容量与模型挤兑",
+    icon: Zap,
+    badge: "热点",
+  },
+  {
     href: "/help/codex-chatgpt-degraded/",
     label: "降智排查与拯救",
     icon: Zap,
@@ -158,6 +164,14 @@ export default function HelpLayout({
                 热门故障排查与指南
               </div>
               <ul className="space-y-1.5 text-xs">
+                <li>
+                  <Link
+                    href="/help/codex-model-at-capacity/"
+                    className="hover:text-primary transition-colors text-amber-600 dark:text-amber-400 font-medium"
+                  >
+                    • Selected model is at capacity 原因与恢复方案
+                  </Link>
+                </li>
                 <li>
                   <Link
                     href="/help/codex-chatgpt-degraded/"

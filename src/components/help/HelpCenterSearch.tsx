@@ -71,6 +71,7 @@ export default function HelpCenterSearch() {
             大家都在搜:
           </span>
           {[
+            "Model at capacity",
             "降智",
             "429限流",
             "403被拒",
