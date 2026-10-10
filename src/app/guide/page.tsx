@@ -87,8 +87,58 @@ export default function GuideOverviewPage() {
           <span className="text-xs text-tertiary font-mono">持续保持最新 2026 规范</span>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
-          {/* 卡片一：个人极速上手指南 */}
+        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-5">
+          {/* 卡片一：新员工从0到1入职与 Codex 实操指南 (新增) */}
+          <div className="rounded-2xl border-2 border-emerald-500/40 bg-gradient-to-b from-emerald-500/10 via-surface to-surface p-6 flex flex-col justify-between space-y-5 hover:border-emerald-500/60 hover:shadow-md transition-all group relative">
+            <div className="space-y-3.5">
+              <div className="flex items-center justify-between">
+                <div className="w-10 h-10 rounded-xl bg-emerald-500/15 border border-emerald-500/30 flex items-center justify-center text-emerald-600 dark:text-emerald-400">
+                  <Code2 className="w-5 h-5" />
+                </div>
+                <span className="text-[10px] px-2 py-0.5 rounded-full bg-emerald-500/15 text-emerald-600 dark:text-emerald-400 font-mono font-bold border border-emerald-500/30">
+                  新员工必读 SOP
+                </span>
+              </div>
+
+              <div>
+                <h3 className="font-bold text-base text-primary group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors">
+                  员工入职与 Codex 实操
+                </h3>
+                <p className="text-xs text-secondary mt-1 leading-relaxed">
+                  从下载GPT、2FA绑定到进入工作区玩转 Codex。
+                </p>
+              </div>
+
+              <ul className="space-y-2 text-xs text-secondary border-t border-theme-subtle pt-3">
+                <li className="flex items-center gap-2">
+                  <Download className="w-3.5 h-3.5 text-emerald-500 shrink-0" />
+                  <span>正版客户端下载与安全首登冷启动</span>
+                </li>
+                <li className="flex items-center gap-2">
+                  <KeyRound className="w-3.5 h-3.5 text-emerald-500 shrink-0" />
+                  <span>强制开启 2FA 与抄写 16 位恢复码</span>
+                </li>
+                <li className="flex items-center gap-2">
+                  <Users className="w-3.5 h-3.5 text-emerald-500 shrink-0" />
+                  <span>接受企业邀请与工作区 (Workspace) 切换</span>
+                </li>
+                <li className="flex items-center gap-2">
+                  <Sparkles className="w-3.5 h-3.5 text-emerald-500 shrink-0" />
+                  <span>Canvas 协同编辑、Python 沙箱与排错</span>
+                </li>
+              </ul>
+            </div>
+
+            <Link
+              href="/guide/onboarding/"
+              className="btn-openai-white text-xs w-full py-2.5 flex items-center justify-center gap-2 shadow-xs group-hover:bg-emerald-600 group-hover:text-white transition-colors"
+            >
+              <span>阅读员工入职指南</span>
+              <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+            </Link>
+          </div>
+
+          {/* 卡片二：个人极速上手指南 */}
           <div className="rounded-2xl border-2 border-emerald-500/30 bg-gradient-to-b from-emerald-500/5 via-surface to-surface p-6 flex flex-col justify-between space-y-5 hover:border-emerald-500/50 hover:shadow-md transition-all group">
             <div className="space-y-3.5">
               <div className="flex items-center justify-between">

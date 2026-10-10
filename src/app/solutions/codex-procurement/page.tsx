@@ -141,6 +141,10 @@ const CODEX_FAQS = [
     q: "如果研发使用过程中遇到官方误封或者网络风控，如何处理？",
     a: "我们在合同中附带公章法律效力的《SLA 服务等级保障协议》：① 72 小时闪电保换：激活 72 小时内若遇厂商系统性封控，2 小时内免费更换补齐；② 剩余天数按天折算极速对公退款：使用中途若非违规被封，按【月单价 ÷ 30 × 剩余天数】公对公原路退回，研发零预算损失风险。",
   },
+  {
+    q: "如果研发团队入职新员工，完全不了解 Codex 与工作区如何使用怎么办？",
+    a: "我们为企业客户提供标准化配套的《新员工从 0 到 1 Codex 上手实操指南》（涵盖全平台正版下载、首登 24h 防封、强制 2FA 绑定、接受管理员邀请、工作空间切换 Workspace Switcher、Canvas 独立代码协同与 Python 沙箱实操）。管理员或技术主管可直接将该在线知识库链接一键转发给新员工，员工照着打卡清单 10 分钟即可自主完成配置并进入高效研发状态，零企业内部培训成本。",
+  },
 ];
 
 export default function CodexProcurementPage() {
@@ -490,6 +494,26 @@ export default function CodexProcurementPage() {
               Invoice，专票发至财务邮箱。
             </div>
           </div>
+        </div>
+
+        {/* 配套新员工实操手册交付保障 */}
+        <div className="p-4 rounded-xl bg-surface-elevated border border-emerald-500/30 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 text-xs">
+          <div className="space-y-0.5">
+            <div className="font-bold text-primary flex items-center gap-1.5">
+              <Sparkles className="w-3.5 h-3.5 text-[#10A37F]" />
+              <span>随单附赠知识库：企业《新员工从 0 到 1 Codex 上手实操手册》</span>
+            </div>
+            <p className="text-secondary text-[11px]">
+              开箱即用，支持技术主管一键转发入职工程师。涵盖客户端下载、2FA 双重身份验证、工作区切换与 Canvas 协同。
+            </p>
+          </div>
+          <Link
+            href="/guide/onboarding/"
+            className="btn-openai-white text-xs px-3.5 py-1.5 shrink-0 inline-flex items-center gap-1.5 shadow-xs"
+          >
+            <span>预览员工实操手册</span>
+            <ArrowRight className="w-3.5 h-3.5" />
+          </Link>
         </div>
       </section>
 

@@ -100,6 +100,18 @@ export default function PersonalGuidePage() {
               ④ 解锁高阶效能
             </span>
           </div>
+
+          <div className="pt-2 text-xs text-secondary flex items-center gap-1.5">
+            <span className="text-emerald-500 font-bold">🏢 团队/企业员工提示:</span>
+            <span>若是公司采购分配给您的席位，请查阅专门的</span>
+            <Link
+              href="/guide/onboarding/"
+              className="text-emerald-600 dark:text-emerald-400 font-medium hover:underline inline-flex items-center gap-0.5"
+            >
+              <span>《新员工从 0 到 1 Codex 上手实操指南》</span>
+              <ArrowRight className="w-3 h-3" />
+            </Link>
+          </div>
         </div>
       </section>
 

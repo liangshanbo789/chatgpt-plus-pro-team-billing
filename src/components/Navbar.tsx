@@ -233,7 +233,7 @@ export default function Navbar({ onOpenContact, onOpenDocs }: NavbarProps) {
             )}
           </div>
 
-          {/* 使用指南 Dropdown */}
+          {/* 帮助中心 Dropdown (整合实操指南与问题排错FAQ) */}
           <div
             ref={guideRef}
             className="relative shrink-0"
@@ -253,7 +253,10 @@ export default function Navbar({ onOpenContact, onOpenDocs }: NavbarProps) {
               }`}
               aria-expanded={guideOpen}
             >
-              <span className="whitespace-nowrap">使用指南</span>
+              <span className="whitespace-nowrap">帮助中心</span>
+              <span className="text-[9px] px-1 py-0.2 rounded bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 font-mono border border-emerald-500/20 hidden xl:inline-block">
+                SOP
+              </span>
               <ChevronDown
                 className={`w-3.5 h-3.5 shrink-0 transition-transform duration-200 ${
                   guideOpen ? "rotate-180 text-emerald-500" : "text-tertiary"
@@ -261,34 +264,35 @@ export default function Navbar({ onOpenContact, onOpenDocs }: NavbarProps) {
               />
             </button>
 
-            {/* 使用指南下拉浮层 */}
+            {/* 帮助中心下拉浮层 */}
             {guideOpen && (
-              <div className="absolute top-full left-0 pt-2 w-84 z-50 animate-in fade-in slide-in-from-top-1 duration-150">
+              <div className="absolute top-full left-0 pt-2 w-96 z-50 animate-in fade-in slide-in-from-top-1 duration-150">
                 <div className="p-2 rounded-xl border border-theme-default bg-surface/98 backdrop-blur-xl shadow-xl space-y-1">
-                  <div className="px-2.5 py-1 text-[10px] font-semibold text-tertiary uppercase tracking-wider font-mono">
-                    全场景实操指南
+                  <div className="px-2.5 py-1 text-[10px] font-semibold text-tertiary uppercase tracking-wider font-mono flex items-center justify-between">
+                    <span>知识中心 · 实操与自救</span>
+                    <span className="text-emerald-600 dark:text-emerald-400">2026 最新官方实操</span>
                   </div>
 
-                  {/* 个人上手指南 */}
+                  {/* 🌟 置顶：新员工 Codex 入职实操指南 */}
                   <Link
-                    href="/guide/personal/"
+                    href="/guide/onboarding/"
                     onClick={() => setGuideOpen(false)}
-                    className="flex items-start gap-3 p-2.5 rounded-lg hover:bg-surface-elevated transition-colors group"
+                    className="flex items-start gap-3 p-2.5 rounded-lg bg-emerald-500/5 hover:bg-emerald-500/10 border border-emerald-500/25 transition-all group"
                   >
-                    <div className="w-8 h-8 rounded-lg bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center shrink-0 mt-0.5 group-hover:bg-emerald-500/15">
-                      <User className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />
+                    <div className="w-8 h-8 rounded-lg bg-emerald-500/15 border border-emerald-500/30 flex items-center justify-center shrink-0 mt-0.5 group-hover:scale-105 transition-transform">
+                      <Code2 className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />
                     </div>
                     <div className="flex-1 min-w-0">
                       <div className="flex items-center gap-1.5 mb-0.5">
                         <span className="font-semibold text-xs text-primary group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors">
-                          个人客户上手指南
+                          新员工 Codex 入职实操
                         </span>
-                        <span className="text-[10px] px-1.5 py-0.2 rounded bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 font-mono border border-emerald-500/20">
-                          个人
+                        <span className="text-[10px] px-1.5 py-0.2 rounded bg-emerald-500/15 text-emerald-600 dark:text-emerald-400 font-mono font-bold border border-emerald-500/30">
+                          新员工必读
                         </span>
                       </div>
                       <p className="text-[11px] text-secondary leading-relaxed line-clamp-2">
-                        macOS/Win/iOS正版下载 · 首登防封 · 2FA绑定 · 高效进阶
+                        从下载GPT、2FA绑定到进入工作区玩转 Codex / Canvas 代码协同
                       </p>
                     </div>
                   </Link>
@@ -317,6 +321,30 @@ export default function Navbar({ onOpenContact, onOpenDocs }: NavbarProps) {
                     </div>
                   </Link>
 
+                  {/* 个人客户上手指南 */}
+                  <Link
+                    href="/guide/personal/"
+                    onClick={() => setGuideOpen(false)}
+                    className="flex items-start gap-3 p-2.5 rounded-lg hover:bg-surface-elevated transition-colors group"
+                  >
+                    <div className="w-8 h-8 rounded-lg bg-purple-500/10 border border-purple-500/20 flex items-center justify-center shrink-0 mt-0.5 group-hover:bg-purple-500/15">
+                      <User className="w-4 h-4 text-purple-600 dark:text-purple-400" />
+                    </div>
+                    <div className="flex-1 min-w-0">
+                      <div className="flex items-center gap-1.5 mb-0.5">
+                        <span className="font-semibold text-xs text-primary group-hover:text-purple-600 dark:group-hover:text-purple-400 transition-colors">
+                          个人客户上手指南
+                        </span>
+                        <span className="text-[10px] px-1.5 py-0.2 rounded bg-purple-500/10 text-purple-600 dark:text-purple-400 font-mono border border-purple-500/20">
+                          个人
+                        </span>
+                      </div>
+                      <p className="text-[11px] text-secondary leading-relaxed line-clamp-2">
+                        macOS/Win/iOS正版下载 · 首登防封 · 2FA绑定 · 高效进阶
+                      </p>
+                    </div>
+                  </Link>
+
                   {/* 稳定使用与 IP 检测指南 */}
                   <Link
                     href="/guide/stability/"
@@ -341,35 +369,52 @@ export default function Navbar({ onOpenContact, onOpenDocs }: NavbarProps) {
                     </div>
                   </Link>
 
+                  {/* 问题中心与技术自救 */}
+                  <Link
+                    href="/help/"
+                    onClick={() => setGuideOpen(false)}
+                    className="flex items-start gap-3 p-2.5 rounded-lg hover:bg-surface-elevated transition-colors group"
+                  >
+                    <div className="w-8 h-8 rounded-lg bg-amber-500/10 border border-amber-500/20 flex items-center justify-center shrink-0 mt-0.5 group-hover:bg-amber-500/15">
+                      <HelpCircle className="w-4 h-4 text-amber-600 dark:text-amber-400" />
+                    </div>
+                    <div className="flex-1 min-w-0">
+                      <div className="flex items-center gap-1.5 mb-0.5">
+                        <span className="font-semibold text-xs text-primary group-hover:text-amber-600 dark:group-hover:text-amber-400 transition-colors">
+                          问题中心与技术自救
+                        </span>
+                        <span className="text-[10px] px-1.5 py-0.2 rounded bg-amber-500/10 text-amber-600 dark:text-amber-400 font-mono border border-amber-500/20">
+                          排错FAQ
+                        </span>
+                      </div>
+                      <p className="text-[11px] text-secondary leading-relaxed line-clamp-2">
+                        403 阻断 · PoW 降智检测 · 429 超限 · 支付拒付排查
+                      </p>
+                    </div>
+                  </Link>
+
                   {/* 下拉底部总览入口 */}
-                  <div className="border-t border-theme-subtle pt-1 mt-1">
+                  <div className="border-t border-theme-subtle pt-1 mt-1 flex items-center justify-between px-1">
                     <Link
                       href="/guide/"
                       onClick={() => setGuideOpen(false)}
-                      className="flex items-center justify-between px-2.5 py-2 rounded-lg text-[11px] text-secondary hover:text-primary hover:bg-surface-elevated transition-colors"
+                      className="flex items-center gap-1.5 px-2 py-1.5 rounded-lg text-[11px] text-secondary hover:text-primary hover:bg-surface-elevated transition-colors"
                     >
-                      <span className="flex items-center gap-1.5">
-                        <Compass className="w-3.5 h-3.5 text-secondary" />
-                        <span>浏览使用指南与知识总览</span>
-                      </span>
-                      <ArrowRight className="w-3 h-3 text-tertiary" />
+                      <Compass className="w-3.5 h-3.5 text-secondary" />
+                      <span>指南知识库总览</span>
+                    </Link>
+                    <Link
+                      href="/docs/sla/"
+                      onClick={() => setGuideOpen(false)}
+                      className="flex items-center gap-1 px-2 py-1.5 rounded-lg text-[11px] text-emerald-600 dark:text-emerald-400 hover:bg-surface-elevated transition-colors font-mono"
+                    >
+                      <span>72h封号包赔协议 →</span>
                     </Link>
                   </div>
                 </div>
               </div>
             )}
           </div>
-
-          {/* 问题中心 */}
-          <Link
-            href="/help/"
-            className="px-2 xl:px-2.5 py-1.5 rounded-md hover:text-amber-600 dark:hover:text-amber-400 hover:bg-amber-500/5 transition-colors inline-flex items-center gap-1 whitespace-nowrap shrink-0 text-secondary font-medium"
-          >
-            <span>问题中心</span>
-            <span className="text-[9px] px-1 py-0.2 rounded bg-amber-500/10 text-amber-600 dark:text-amber-400 font-mono border border-amber-500/20 hidden xl:inline-block">
-              排错FAQ
-            </span>
-          </Link>
 
           {/* 锚点导航项 */}
           <a
@@ -497,19 +542,44 @@ export default function Navbar({ onOpenContact, onOpenDocs }: NavbarProps) {
             </div>
           </div>
 
-          {/* 使用指南与知识库专区 */}
+          {/* 帮助中心与实操 SOP 专区 */}
           <div className="space-y-1.5 pt-1 border-t border-theme-subtle">
             <div className="text-[11px] font-medium text-tertiary px-1 font-mono uppercase tracking-wider flex items-center justify-between">
-              <span>使用指南与知识库</span>
+              <span>帮助中心 · 实操与自救</span>
               <Link
                 href="/guide/"
                 onClick={() => setMobileMenuOpen(false)}
                 className="text-[10px] text-emerald-600 dark:text-emerald-400 hover:underline"
               >
-                总览 →
+                指南总览 →
               </Link>
             </div>
             <div className="grid grid-cols-1 gap-2">
+              {/* 🌟 置顶：新员工 Codex 入职实操 */}
+              <Link
+                href="/guide/onboarding/"
+                onClick={() => setMobileMenuOpen(false)}
+                className="flex items-center justify-between p-2.5 rounded-lg bg-emerald-500/5 border border-emerald-500/30 hover:border-emerald-500/60 transition-colors"
+              >
+                <div className="flex items-center gap-2.5">
+                  <div className="w-7 h-7 rounded-md bg-emerald-500/15 flex items-center justify-center">
+                    <Code2 className="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400" />
+                  </div>
+                  <div>
+                    <div className="flex items-center gap-1.5">
+                      <span className="text-xs font-semibold text-primary">新员工 Codex 入职实操</span>
+                      <span className="text-[9px] px-1.5 py-0.2 rounded bg-emerald-500/15 text-emerald-600 dark:text-emerald-400 font-mono font-bold border border-emerald-500/30">
+                        必读 SOP
+                      </span>
+                    </div>
+                    <div className="text-[10px] text-secondary">
+                      正版下载 · 2FA 绑定 · 工作区与 Codex 实战
+                    </div>
+                  </div>
+                </div>
+                <ArrowRight className="w-3.5 h-3.5 text-tertiary" />
+              </Link>
+
               <Link
                 href="/guide/personal/"
                 onClick={() => setMobileMenuOpen(false)}

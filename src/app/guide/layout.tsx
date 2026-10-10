@@ -23,6 +23,12 @@ const GUIDE_NAV = [
     badge: "Hub",
   },
   {
+    href: "/guide/onboarding/",
+    label: "员工入职与Codex",
+    icon: Code2,
+    badge: "实操",
+  },
+  {
     href: "/guide/personal/",
     label: "个人上手指南",
     icon: User,

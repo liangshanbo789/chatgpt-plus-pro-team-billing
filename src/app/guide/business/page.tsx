@@ -262,6 +262,26 @@ export default function BusinessGuidePage() {
               </p>
             </div>
           </div>
+
+          {/* 新员工入职教程直达转发盒子 */}
+          <div className="p-4 rounded-xl bg-surface-elevated border border-emerald-500/30 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 text-xs">
+            <div className="space-y-0.5">
+              <div className="font-bold text-primary flex items-center gap-1.5">
+                <Sparkles className="w-3.5 h-3.5 text-emerald-500" />
+                <span>新员工入职零培训：一键转发《新员工从 0 到 1 Codex 实操指南》</span>
+              </div>
+              <p className="text-secondary text-[11px]">
+                涵盖客户端正版下载、首登 24h 防封、强制 2FA 绑定、接受邀请与 Codex / Canvas 辅助编程全流程，配有打卡清单。
+              </p>
+            </div>
+            <Link
+              href="/guide/onboarding/"
+              className="btn-openai-white text-xs px-3.5 py-1.5 shrink-0 inline-flex items-center gap-1.5 shadow-xs"
+            >
+              <span>查看新员工实操手册</span>
+              <ArrowRight className="w-3.5 h-3.5" />
+            </Link>
+          </div>
         </div>
       </section>
 
