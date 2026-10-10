@@ -238,138 +238,140 @@ html.dark .gradient-text-gold {
 }
 
 /* OpenAI Signature Buttons */
-/* 1. Primary High Contrast Capsule (Dark mode: White pill; Light mode: Black pill) */
-.btn-openai-white {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  background-color: #09090B;
-  color: #FFFFFF;
-  font-weight: 600;
-  padding: 10px 20px;
-  border-radius: 9999px;
-  border: 1px solid #09090B;
-  cursor: pointer;
-  transition: all 0.2s ease;
-  text-decoration: none;
-  font-size: 13px;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12);
-}
+@layer components {
+  /* 1. Primary High Contrast Capsule (Dark mode: White pill; Light mode: Black pill) */
+  .btn-openai-white {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    background-color: #09090B;
+    color: #FFFFFF;
+    font-weight: 600;
+    padding: 10px 20px;
+    border-radius: 9999px;
+    border: 1px solid #09090B;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-decoration: none;
+    font-size: 13px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12);
+  }
 
-.btn-openai-white:hover {
-  background-color: #27272A;
-  border-color: #27272A;
-  transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-}
+  .btn-openai-white:hover {
+    background-color: #27272A;
+    border-color: #27272A;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  }
 
-html.dark .btn-openai-white {
-  background-color: #FFFFFF;
-  color: #09090B;
-  border-color: #FFFFFF;
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
-}
+  html.dark .btn-openai-white {
+    background-color: #FFFFFF;
+    color: #09090B;
+    border-color: #FFFFFF;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+  }
 
-html.dark .btn-openai-white:hover {
-  background-color: #F4F4F5;
-  border-color: #F4F4F5;
-  box-shadow: 0 4px 12px rgba(255, 255, 255, 0.15);
-}
+  html.dark .btn-openai-white:hover {
+    background-color: #F4F4F5;
+    border-color: #F4F4F5;
+    box-shadow: 0 4px 12px rgba(255, 255, 255, 0.15);
+  }
 
-/* 2. OpenAI Accent Green Button */
-.btn-openai-green {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  background-color: var(--openai-green);
-  color: #FFFFFF;
-  font-weight: 600;
-  padding: 10px 20px;
-  border-radius: 9999px;
-  border: 1px solid transparent;
-  cursor: pointer;
-  transition: all 0.2s ease;
-  text-decoration: none;
-  font-size: 13px;
-  box-shadow: 0 1px 3px rgba(16, 163, 127, 0.25);
-}
+  /* 2. OpenAI Accent Green Button */
+  .btn-openai-green {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    background-color: var(--openai-green);
+    color: #FFFFFF;
+    font-weight: 600;
+    padding: 10px 20px;
+    border-radius: 9999px;
+    border: 1px solid transparent;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-decoration: none;
+    font-size: 13px;
+    box-shadow: 0 1px 3px rgba(16, 163, 127, 0.25);
+  }
 
-.btn-openai-green:hover {
-  background-color: var(--openai-green-hover);
-  transform: translateY(-1px);
-  box-shadow: 0 4px 14px rgba(16, 163, 127, 0.35);
-}
+  .btn-openai-green:hover {
+    background-color: var(--openai-green-hover);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 14px rgba(16, 163, 127, 0.35);
+  }
 
-/* 3. Secondary Ghost / Outline Button */
-.btn-openai-secondary {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  background-color: rgba(0, 0, 0, 0.04);
-  color: var(--text-primary);
-  font-weight: 500;
-  padding: 10px 20px;
-  border-radius: 9999px;
-  border: 1px solid var(--border-subtle);
-  cursor: pointer;
-  transition: all 0.2s ease;
-  text-decoration: none;
-  font-size: 13px;
-  backdrop-filter: blur(8px);
-}
+  /* 3. Secondary Ghost / Outline Button */
+  .btn-openai-secondary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    background-color: rgba(0, 0, 0, 0.04);
+    color: var(--text-primary);
+    font-weight: 500;
+    padding: 10px 20px;
+    border-radius: 9999px;
+    border: 1px solid var(--border-subtle);
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-decoration: none;
+    font-size: 13px;
+    backdrop-filter: blur(8px);
+  }
 
-.btn-openai-secondary:hover {
-  background-color: rgba(0, 0, 0, 0.08);
-  border-color: var(--border-hover);
-  color: var(--text-primary);
-}
+  .btn-openai-secondary:hover {
+    background-color: rgba(0, 0, 0, 0.08);
+    border-color: var(--border-hover);
+    color: var(--text-primary);
+  }
 
-html.dark .btn-openai-secondary {
-  background-color: rgba(255, 255, 255, 0.04);
-}
+  html.dark .btn-openai-secondary {
+    background-color: rgba(255, 255, 255, 0.04);
+  }
 
-html.dark .btn-openai-secondary:hover {
-  background-color: rgba(255, 255, 255, 0.08);
-  border-color: var(--border-hover);
-  color: #FFFFFF;
-}
+  html.dark .btn-openai-secondary:hover {
+    background-color: rgba(255, 255, 255, 0.08);
+    border-color: var(--border-hover);
+    color: #FFFFFF;
+  }
 
-/* 4. Amber / Gold Perk Button */
-.btn-openai-gold {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  background-color: var(--perk-gold-subtle);
-  color: var(--perk-gold);
-  font-weight: 600;
-  padding: 10px 20px;
-  border-radius: 9999px;
-  border: 1px solid var(--perk-gold-border);
-  cursor: pointer;
-  transition: all 0.2s ease;
-  text-decoration: none;
-  font-size: 13px;
-}
+  /* 4. Amber / Gold Perk Button */
+  .btn-openai-gold {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    background-color: var(--perk-gold-subtle);
+    color: var(--perk-gold);
+    font-weight: 600;
+    padding: 10px 20px;
+    border-radius: 9999px;
+    border: 1px solid var(--perk-gold-border);
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-decoration: none;
+    font-size: 13px;
+  }
 
-.btn-openai-gold:hover {
-  background-color: rgba(217, 119, 6, 0.16);
-  border-color: var(--perk-gold);
-  transform: translateY(-1px);
-}
+  .btn-openai-gold:hover {
+    background-color: rgba(217, 119, 6, 0.16);
+    border-color: var(--perk-gold);
+    transform: translateY(-1px);
+  }
 
-html.dark .btn-openai-gold {
-  background-color: rgba(245, 158, 11, 0.15);
-  color: #FBBF24;
-  border-color: rgba(245, 158, 11, 0.35);
-}
+  html.dark .btn-openai-gold {
+    background-color: rgba(245, 158, 11, 0.15);
+    color: #FBBF24;
+    border-color: rgba(245, 158, 11, 0.35);
+  }
 
-html.dark .btn-openai-gold:hover {
-  background-color: rgba(245, 158, 11, 0.22);
-  border-color: rgba(245, 158, 11, 0.5);
+  html.dark .btn-openai-gold:hover {
+    background-color: rgba(245, 158, 11, 0.22);
+    border-color: rgba(245, 158, 11, 0.5);
+  }
 }
 
 /* OpenAI Pill Badge */

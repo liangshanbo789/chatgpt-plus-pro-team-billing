@@ -11,31 +11,64 @@
  * export BAIDU_PUSH_TOKEN="your_baidu_token" (Bash)
  */
 
+import fs from "node:fs";
+import path from "node:path";
+import { fileURLToPath } from "node:url";
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
 const HOST = "gongsi.one";
 const BASE_URL = `https://${HOST}`;
 const INDEXNOW_KEY = "18b3e34bca8f4e6988894178a9c2be0b";
 const KEY_LOCATION = `${BASE_URL}/${INDEXNOW_KEY}.txt`;
 
-// 全站核心规范 URL 列表 (严格与 sitemap.ts 和 trailingSlash 保持一致)
-const URLS = [
-  `${BASE_URL}/`,
-  `${BASE_URL}/solutions/codex-procurement/`,
-  `${BASE_URL}/solutions/gpt-bulk-procurement/`,
-  `${BASE_URL}/guide/stability/`,
-  `${BASE_URL}/help/`,
-  `${BASE_URL}/help/codex-chatgpt-degraded/`,
-  `${BASE_URL}/help/codex-rate-limit-429/`,
-  `${BASE_URL}/help/access-denied-403-cloudflare/`,
-  `${BASE_URL}/help/payment-card-declined/`,
-  `${BASE_URL}/help/codex-cli-terminal-proxy/`,
-  `${BASE_URL}/help/account-deactivated-appeal/`,
-  `${BASE_URL}/help/team-workspace-setup/`,
-  `${BASE_URL}/help/login-loop-error/`,
-  `${BASE_URL}/docs/proposal/`,
-  `${BASE_URL}/docs/pricing/`,
-  `${BASE_URL}/docs/sla/`,
-  `${BASE_URL}/docs/agreement/`,
+// 静态基础与核心栏目页面
+const STATIC_ROUTES = [
+  "", // 首页
+  "solutions/codex-procurement/",
+  "solutions/gpt-bulk-procurement/",
+  "guide/",
+  "guide/personal/",
+  "guide/business/",
+  "guide/stability/",
+  "guide/onboarding/", // 新员工入职实操手册 SOP
+  "help/",
+  "docs/proposal/",
+  "docs/pricing/",
+  "docs/sla/",
+  "docs/agreement/",
 ];
+
+// 动态读取 helpArticles.ts 中的所有文章 slugs
+function getHelpArticleSlugs() {
+  try {
+    const helpFile = path.resolve(__dirname, "../src/config/helpArticles.ts");
+    const content = fs.readFileSync(helpFile, "utf-8");
+    const matches = [...content.matchAll(/slug:\s*["']([^"']+)["']/g)].map((m) => m[1]);
+    return [...new Set(matches)];
+  } catch (err) {
+    console.warn("⚠️ 读取 helpArticles.ts 失败，使用兜底列表:", err.message);
+    return [
+      "codex-model-at-capacity",
+      "codex-chatgpt-degraded",
+      "codex-rate-limit-429",
+      "access-denied-403-cloudflare",
+      "payment-card-declined",
+      "codex-cli-terminal-proxy",
+      "account-deactivated-appeal",
+      "team-workspace-setup",
+      "login-loop-error",
+    ];
+  }
+}
+
+// 组合生成全站最新完整的规范 URL 列表
+const helpSlugs = getHelpArticleSlugs();
+const helpRoutes = helpSlugs.map((slug) => `help/${slug}/`);
+
+const ALL_PATHS = [...STATIC_ROUTES, ...helpRoutes];
+const URLS = ALL_PATHS.map((route) => `${BASE_URL}/${route}`);
 
 async function pushToIndexNow() {
   console.log("\n==========================================");
@@ -60,7 +93,7 @@ async function pushToIndexNow() {
 
     if (res.status === 200 || res.status === 202) {
       console.log(`✅ IndexNow 推送成功！HTTP 状态码: ${res.status}`);
-      console.log(`已将 ${URLS.length} 个核心页面通知 Bing / Yandex / Copilot 抓取。`);
+      console.log(`已将 ${URLS.length} 个核心页面通知 Bing / Yandex / Copilot 实时抓取。`);
     } else {
       const text = await res.text();
       console.warn(`⚠️ IndexNow 响应状态码: ${res.status}，响应内容: ${text}`);
@@ -108,8 +141,8 @@ async function pushToBaidu() {
 
 async function main() {
   console.log(`🚀 开始执行 SEO 主动推送，目标站点: ${BASE_URL}`);
-  console.log(`待推送的 URL 列表 (${URLS.length} 个):`);
-  URLS.forEach((u, i) => console.log(`  ${i + 1}. ${u}`));
+  console.log(`已自动聚合全站 ${URLS.length} 个规范 URL:`);
+  URLS.forEach((u, i) => console.log(`  ${String(i + 1).padStart(2, " ")}. ${u}`));
 
   await pushToIndexNow();
   await pushToBaidu();

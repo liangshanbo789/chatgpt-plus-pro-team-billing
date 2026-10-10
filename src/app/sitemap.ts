@@ -65,6 +65,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "weekly",
       priority: 0.9,
     },
+    {
+      url: `${baseUrl}/guide/onboarding/`,
+      lastModified,
+      changeFrequency: "weekly",
+      priority: 0.95,
+    },
     ...helpRoutes,
     {
       url: `${baseUrl}/docs/proposal/`,

@@ -71,8 +71,80 @@ export const metadata: Metadata = {
 };
 
 export default function OnboardingGuidePage() {
+  const howToJsonLd = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "BreadcrumbList",
+        itemListElement: [
+          {
+            "@type": "ListItem",
+            position: 1,
+            name: "首页",
+            item: "https://gongsi.one/",
+          },
+          {
+            "@type": "ListItem",
+            position: 2,
+            name: "配置指南",
+            item: "https://gongsi.one/guide/",
+          },
+          {
+            "@type": "ListItem",
+            position: 3,
+            name: "新员工入职从 0 到 1 实操教程",
+            item: "https://gongsi.one/guide/onboarding/",
+          },
+        ],
+      },
+      {
+        "@type": "HowTo",
+        name: "新员工入职从 0 到 1 实操教程：从下载GPT、2FA绑定到使用Codex全流程",
+        description:
+          "专为加入企业 ChatGPT / Codex 工作区的新员工打造的标准入职实操手册 (SOP)。涵盖客户端下载、账号首登、强制 2FA 绑定、接受企业邀请与 Codex 研发实战。",
+        totalTime: "PT15M",
+        step: [
+          {
+            "@type": "HowToStep",
+            name: "官方正版客户端下载与验签",
+            text: "仅通过 OpenAI 官方下载通道获取 Windows、macOS 或移动端安装包，严禁从第三方网盘或破解站下载，避免木马注入窃取企业代码与 Token。",
+            url: "https://gongsi.one/guide/onboarding/#step-1",
+          },
+          {
+            "@type": "HowToStep",
+            name: "账号注册首登与网络环境合规",
+            text: "使用公司分配的企业企业邮箱完成注册登录，避免在同一浏览器频繁切换节点，防止触发官方批量风控封锁。",
+            url: "https://gongsi.one/guide/onboarding/#step-2",
+          },
+          {
+            "@type": "HowToStep",
+            name: "强制开启 2FA 双重身份验证",
+            text: "在 ChatGPT 账号设置的安全中心开启 2FA，使用身份验证器扫描密钥二维码，并安全备份 16 位应急恢复代码 (Recovery Codes)。",
+            url: "https://gongsi.one/guide/onboarding/#step-3",
+          },
+          {
+            "@type": "HowToStep",
+            name: "查收邮件接受企业邀请与工作区切换",
+            text: "在企业邮箱查收 OpenAI 发送的 Join Workspace 邀请邮件，点击接受后，在客户端左下角 Workspace Switcher 切换至企业空间。",
+            url: "https://gongsi.one/guide/onboarding/#step-4",
+          },
+          {
+            "@type": "HowToStep",
+            name: "Codex 与 Canvas 代码助手研发提效实战",
+            text: "掌握 Canvas 窗口独立编辑模式、代码生成、重构审查、单元测试编写与终端 CLI 代理配置，实现研发效能数倍跃升。",
+            url: "https://gongsi.one/guide/onboarding/#step-5",
+          },
+        ],
+      },
+    ],
+  };
+
   return (
     <article className="space-y-12 sm:space-y-16 text-left">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(howToJsonLd) }}
+      />
       {/* 顶部 Hero 专区 */}
       <section className="relative overflow-hidden rounded-3xl border border-theme-default bg-surface/90 backdrop-blur-xl p-6 sm:p-10 shadow-sm">
         <div className="absolute top-0 right-0 -mt-10 -mr-10 w-80 h-80 bg-emerald-500/10 rounded-full blur-3xl pointer-events-none" />

@@ -97,6 +97,7 @@ export const metadata: Metadata = {
     shortcut: "/favicon.svg",
     apple: "/logo.svg",
   },
+  manifest: "/manifest.webmanifest",
 };
 
 const jsonLdData = [

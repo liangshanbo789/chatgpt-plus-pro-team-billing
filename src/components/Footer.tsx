@@ -75,6 +75,17 @@ export default function Footer({ onOpenDocs, onOpenContact }: FooterProps) {
               </li>
               <li>
                 <Link
+                  href="/guide/onboarding/"
+                  className="hover:text-primary transition-colors text-emerald-600 dark:text-emerald-400 font-medium flex items-center gap-1"
+                >
+                  <span>新员工 Codex 入职实操手册 (SOP)</span>
+                  <span className="text-[9px] px-1 py-0.2 rounded bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 font-mono font-bold">
+                    必读
+                  </span>
+                </Link>
+              </li>
+              <li>
+                <Link
                   href="/guide/business/"
                   className="hover:text-primary transition-colors text-blue-600 dark:text-blue-400 font-medium flex items-center gap-1"
                 >

@@ -59,8 +59,37 @@ export const metadata: Metadata = {
 };
 
 export default function BusinessGuidePage() {
+  const breadcrumbJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
+        name: "首页",
+        item: "https://gongsi.one/",
+      },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: "使用指南",
+        item: "https://gongsi.one/guide/",
+      },
+      {
+        "@type": "ListItem",
+        position: 3,
+        name: "企业 Business 部署手册",
+        item: "https://gongsi.one/guide/business/",
+      },
+    ],
+  };
+
   return (
     <article className="space-y-10 sm:space-y-12">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+      />
       {/* 顶部 Hero 专区 */}
       <section className="relative overflow-hidden rounded-3xl border border-theme-default bg-surface/90 backdrop-blur-xl p-6 sm:p-10 shadow-sm text-left">
         <div className="absolute top-0 right-0 -mt-10 -mr-10 w-80 h-80 bg-blue-500/10 rounded-full blur-3xl pointer-events-none" />

@@ -29,7 +29,7 @@ export default function ContactModal({ isOpen, onClose, source }: ContactModalPr
   const [copiedWeChat, setCopiedWeChat] = useState(false);
   const [copiedEmail, setCopiedEmail] = useState(false);
   const [copiedNote, setCopiedNote] = useState<string | null>(null);
-  const [mobileChannel, setMobileChannel] = useState<"personal" | "wework">("personal");
+  const [mobileChannel, setMobileChannel] = useState<"wework" | "personal">("wework");
 
   if (!isOpen) return null;
 
@@ -73,7 +73,7 @@ export default function ContactModal({ isOpen, onClose, source }: ContactModalPr
         <div className="p-3.5 sm:p-5 border-b border-theme-subtle bg-surface-elevated flex items-center justify-between shrink-0">
           <div className="flex items-center gap-2 sm:gap-2.5">
             <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-xl bg-surface border border-theme-subtle text-primary flex items-center justify-center shadow-xs shrink-0">
-              <MessageCircle className="w-4 h-4 text-[#10A37F]" />
+              <MessageCircle className="w-4 h-4 text-blue-500" />
             </div>
             <div>
               <div className="flex items-center gap-1.5 sm:gap-2 flex-wrap">
@@ -100,19 +100,19 @@ export default function ContactModal({ isOpen, onClose, source }: ContactModalPr
         {/* 2. Modal Body (Scrollable) */}
         <div className="p-4 sm:p-6 overflow-y-auto space-y-4 text-left">
           {/* 引子区域：加微即领 · 企业采买 3 重通关大礼包 (Lead Magnet Hook Bar) */}
-          <div className="rounded-xl p-3.5 sm:p-4 bg-gradient-to-r from-emerald-500/[0.08] via-surface-elevated to-blue-500/[0.08] border border-emerald-500/25 shadow-xs">
+          <div className="rounded-xl p-3.5 sm:p-4 bg-gradient-to-r from-blue-500/[0.08] via-surface-elevated to-emerald-500/[0.08] border border-blue-500/25 shadow-xs">
             <div className="flex items-center justify-between mb-2">
               <div className="flex items-center gap-1.5 text-xs font-semibold text-primary">
-                <Gift className="w-4 h-4 text-[#10A37F] animate-bounce" />
-                <span>加微信备注，免费获取【企业采买全套通关包】</span>
+                <Gift className="w-4 h-4 text-blue-500 animate-bounce" />
+                <span>扫码添加微信，免费获取【企业采买全套通关包】</span>
               </div>
-              <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-[#10A37F]/15 text-[#10A37F] font-medium hidden sm:inline-block">
+              <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-blue-500/15 text-blue-600 dark:text-blue-400 font-medium hidden sm:inline-block">
                 立项呈批免责神器
               </span>
             </div>
 
             <p className="text-[11px] text-secondary mb-3 leading-relaxed">
-              专为企业采购与行政专员打造，加任意微信备注对应关键词，总监 10 分钟内一对一发送原件：
+              专为企业采购与行政专员打造，优先推荐添加企业微信（或个人微信），总监 10 分钟内一对一发送原件：
             </p>
 
             {/* 3 个福利挂件标签 */}
@@ -120,11 +120,11 @@ export default function ContactModal({ isOpen, onClose, source }: ContactModalPr
               <button
                 type="button"
                 onClick={() => handleCopyWeChat("领立项报告模板")}
-                className="group p-2 rounded-lg bg-surface border border-theme-subtle hover:border-[#10A37F]/50 transition-all text-left flex items-start gap-2 cursor-pointer"
+                className="group p-2 rounded-lg bg-surface border border-theme-subtle hover:border-blue-500/50 transition-all text-left flex items-start gap-2 cursor-pointer"
               >
-                <FileText className="w-3.5 h-3.5 text-[#10A37F] shrink-0 mt-0.5" />
+                <FileText className="w-3.5 h-3.5 text-blue-500 shrink-0 mt-0.5" />
                 <div className="min-w-0">
-                  <div className="font-medium text-[11px] text-primary group-hover:text-[#10A37F] truncate">
+                  <div className="font-medium text-[11px] text-primary group-hover:text-blue-500 truncate">
                     1. 立项报告 Word 原件
                   </div>
                   <div className="text-[10px] text-tertiary">含3家规范比选表，改名即报</div>
@@ -134,7 +134,7 @@ export default function ContactModal({ isOpen, onClose, source }: ContactModalPr
               <button
                 type="button"
                 onClick={() => handleCopyWeChat("领官方阶梯底价表")}
-                className="group p-2 rounded-lg bg-surface border border-theme-subtle hover:border-[#10A37F]/50 transition-all text-left flex items-start gap-2 cursor-pointer"
+                className="group p-2 rounded-lg bg-surface border border-theme-subtle hover:border-blue-500/50 transition-all text-left flex items-start gap-2 cursor-pointer"
               >
                 <FileSpreadsheet className="w-3.5 h-3.5 text-blue-500 shrink-0 mt-0.5" />
                 <div className="min-w-0">
@@ -179,8 +179,23 @@ export default function ContactModal({ isOpen, onClose, source }: ContactModalPr
             </div>
           )}
 
-          {/* Mobile-Only Channel Switcher: 手机端快速切换通道，避免纵向滚屏过长 */}
+          {/* Mobile-Only Channel Switcher: 手机端快速切换通道，优先企业微信 */}
           <div className="flex sm:hidden p-1 rounded-xl bg-surface-elevated border border-theme-subtle text-xs">
+            <button
+              type="button"
+              onClick={() => setMobileChannel("wework")}
+              className={`flex-1 py-1.5 px-2 rounded-lg font-medium flex items-center justify-center gap-1.5 transition-all cursor-pointer ${
+                mobileChannel === "wework"
+                  ? "bg-surface text-primary shadow-xs font-semibold"
+                  : "text-secondary hover:text-primary"
+              }`}
+            >
+              <QrCode className="w-3.5 h-3.5 text-blue-500" />
+              <span>官方认证企业微信</span>
+              <span className="text-[9px] px-1 py-0.2 rounded bg-blue-500/10 text-blue-600 dark:text-blue-400 font-mono">
+                首选
+              </span>
+            </button>
             <button
               type="button"
               onClick={() => setMobileChannel("personal")}
@@ -196,31 +211,61 @@ export default function ContactModal({ isOpen, onClose, source }: ContactModalPr
                 直通
               </span>
             </button>
-            <button
-              type="button"
-              onClick={() => setMobileChannel("wework")}
-              className={`flex-1 py-1.5 px-2 rounded-lg font-medium flex items-center justify-center gap-1.5 transition-all cursor-pointer ${
-                mobileChannel === "wework"
-                  ? "bg-surface text-primary shadow-xs font-semibold"
-                  : "text-secondary hover:text-primary"
-              }`}
-            >
-              <QrCode className="w-3.5 h-3.5 text-blue-500" />
-              <span>官方认证企业微信</span>
-              <span className="text-[9px] px-1 py-0.2 rounded bg-blue-500/10 text-blue-600 dark:text-blue-400 font-mono">
-                认证
-              </span>
-            </button>
           </div>
 
-          {/* Quick Connect Cards (双微信分流：个人微信 vs 企业微信) */}
+          {/* Quick Connect Cards (优先展示：企业微信 vs 备用：个人微信) */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
-            {/* 1. 个人微信（主推：大客户总监直通 + 商务弹性与个性化方案） */}
-            <div className={`codex-panel p-4 border-[#10A37F]/30 bg-surface-elevated flex-col items-center text-center relative overflow-hidden ${
+            {/* 1. 企业微信（主推首选：官方实名认证 + 财务发票对公验真 + 合规首选） */}
+            <div className={`codex-panel p-4 border-blue-500/30 bg-surface-elevated flex-col items-center text-center relative overflow-hidden ${
+              mobileChannel === "wework" ? "flex" : "hidden sm:flex"
+            }`}>
+              <div className="absolute top-0 right-0 w-24 h-24 bg-blue-500/5 rounded-bl-full pointer-events-none" />
+
+              <div className="w-full flex items-center justify-between mb-3 pb-2 border-b border-theme-subtle">
+                <span className="text-xs font-semibold text-primary flex items-center gap-1.5">
+                  <QrCode className="w-3.5 h-3.5 text-blue-500" />
+                  <span>官方认证企业微信</span>
+                </span>
+                <span className="text-[10px] font-mono px-1.5 py-0.5 rounded bg-blue-500/10 text-blue-600 dark:text-blue-400 font-medium">
+                  推荐 · 企业实名认证
+                </span>
+              </div>
+
+              {/* 企业微信二维码 */}
+              <div className="p-2 bg-white rounded-xl border border-blue-500/20 shadow-xs mb-1 flex items-center justify-center">
+                <img
+                  src="/images/企业微信二维码.jpg"
+                  alt="官方认证企业微信二维码"
+                  className="w-32 h-32 object-contain rounded-lg block"
+                  loading="eager"
+                />
+              </div>
+              <div className="text-[10px] text-tertiary mb-2 sm:hidden">
+                手机端可长按图片保存或识别二维码
+              </div>
+
+              <div className="text-[11px] text-secondary mb-1">
+                认证主体：<strong className="text-primary font-sans">成都游手科技有限公司</strong>
+              </div>
+              <div className="text-[10px] text-blue-600 dark:text-blue-400 font-medium mb-3">
+                ★ 官方全流程备查留痕 · 10分钟出具公章正式报价单
+              </div>
+
+              <div className="w-full mt-auto space-y-1.5">
+                <div className="w-full py-1.5 px-2.5 rounded-lg bg-surface border border-theme-subtle text-[11px] text-secondary flex items-center justify-center gap-1.5">
+                  <ShieldCheck className="w-3.5 h-3.5 text-blue-500" />
+                  <span>网银公对公结算 · 6% 专票抵扣</span>
+                </div>
+                <div className="text-[10px] text-secondary text-center">
+                  微信或企微直接扫码添加，合规采购首选
+                </div>
+              </div>
+            </div>
+
+            {/* 2. 个人微信（备用专线：大客户总监直通 + 商务弹性与个性化方案） */}
+            <div className={`codex-panel p-4 border-theme-subtle bg-surface-elevated flex-col items-center text-center relative overflow-hidden ${
               mobileChannel === "personal" ? "flex" : "hidden sm:flex"
             }`}>
-              <div className="absolute top-0 right-0 w-24 h-24 bg-[#10A37F]/5 rounded-bl-full pointer-events-none" />
-
               <div className="w-full flex items-center justify-between mb-3 pb-2 border-b border-theme-subtle">
                 <span className="text-xs font-semibold text-primary flex items-center gap-1.5">
                   <MessageCircle className="w-3.5 h-3.5 text-[#10A37F]" />
@@ -265,51 +310,6 @@ export default function ContactModal({ isOpen, onClose, source }: ContactModalPr
                   <Copy className="w-3.5 h-3.5" />
                   <span>复制微信号并备注【领立项资料】</span>
                 </button>
-              </div>
-            </div>
-
-            {/* 2. 企业微信（主推：官方实名认证 + 财务发票对公验真） */}
-            <div className={`codex-panel p-4 border-theme-subtle bg-surface-elevated flex-col items-center text-center ${
-              mobileChannel === "wework" ? "flex" : "hidden sm:flex"
-            }`}>
-              <div className="w-full flex items-center justify-between mb-3 pb-2 border-b border-theme-subtle">
-                <span className="text-xs font-semibold text-primary flex items-center gap-1.5">
-                  <QrCode className="w-3.5 h-3.5 text-blue-500" />
-                  <span>官方认证企业微信</span>
-                </span>
-                <span className="text-[10px] font-mono px-1.5 py-0.5 rounded bg-blue-500/10 text-blue-600 dark:text-blue-400 font-medium">
-                  企业实名商户
-                </span>
-              </div>
-
-              {/* 企业微信二维码 */}
-              <div className="p-2 bg-white rounded-xl border border-theme-subtle shadow-xs mb-1 flex items-center justify-center">
-                <img
-                  src="/images/企业微信二维码.jpg"
-                  alt="官方认证企业微信二维码"
-                  className="w-32 h-32 object-contain rounded-lg block"
-                  loading="eager"
-                />
-              </div>
-              <div className="text-[10px] text-tertiary mb-2 sm:hidden">
-                手机端可长按图片保存或识别
-              </div>
-
-              <div className="text-[11px] text-secondary mb-1">
-                认证主体：<strong className="text-primary font-sans">成都游手科技有限公司</strong>
-              </div>
-              <div className="text-[10px] text-tertiary mb-3">
-                微信或企微扫一扫 · 官方全流程备查留痕
-              </div>
-
-              <div className="w-full mt-auto space-y-1.5">
-                <div className="w-full py-1.5 px-2.5 rounded-lg bg-surface border border-theme-subtle text-[11px] text-secondary flex items-center justify-center gap-1.5">
-                  <ShieldCheck className="w-3.5 h-3.5 text-[#10A37F]" />
-                  <span>网银公对公结算 · 6% 专票抵扣</span>
-                </div>
-                <div className="text-[10px] text-secondary text-center">
-                  支持 10 分钟内开具公章正式报价单
-                </div>
               </div>
             </div>
           </div>

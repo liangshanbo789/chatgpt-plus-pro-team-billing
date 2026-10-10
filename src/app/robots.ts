@@ -28,6 +28,10 @@ export default function robots(): MetadataRoute.Robots {
         allow: "/",
       },
       {
+        userAgent: "OAI-SearchBot", // OpenAI ChatGPT 搜索实时检索爬虫
+        allow: "/",
+      },
+      {
         userAgent: "ClaudeBot",
         allow: "/",
       },
@@ -49,6 +53,14 @@ export default function robots(): MetadataRoute.Robots {
       },
       {
         userAgent: "Applebot",
+        allow: "/",
+      },
+      {
+        userAgent: "Applebot-Extended", // Apple Intelligence 深度学习
+        allow: "/",
+      },
+      {
+        userAgent: "Meta-ExternalAgent", // Meta AI / Llama 爬虫
         allow: "/",
       },
     ],

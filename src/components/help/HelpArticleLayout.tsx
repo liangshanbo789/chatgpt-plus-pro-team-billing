@@ -30,8 +30,39 @@ export default function HelpArticleLayout({
     article.relatedSlugs.includes(item.slug)
   );
 
+  // 面包屑结构化数据 (SEO Rich Snippets)
+  const breadcrumbJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
+        name: "首页",
+        item: "https://gongsi.one/",
+      },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: "问题排障中心",
+        item: "https://gongsi.one/help/",
+      },
+      {
+        "@type": "ListItem",
+        position: 3,
+        name: article.shortTitle,
+        item: `https://gongsi.one/help/${article.slug}/`,
+      },
+    ],
+  };
+
   return (
     <article className="max-w-4xl mx-auto space-y-8 sm:space-y-10 text-left">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+      />
+
       {/* 顶部面包屑导航 */}
       <nav
         aria-label="Breadcrumb"

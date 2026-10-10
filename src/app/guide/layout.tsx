@@ -1,14 +1,10 @@
 import React from "react";
 import Link from "next/link";
-import BrandLogo from "@/components/BrandLogo";
-import ThemeToggle from "@/components/ThemeToggle";
+import SubpageHeader from "@/components/SubpageHeader";
 import {
-  ArrowLeft,
   ShieldCheck,
   Code2,
   Building2,
-  BookOpen,
-  Calculator,
   Compass,
   HelpCircle,
   User,
@@ -73,80 +69,24 @@ export default function GuideLayout({
 }) {
   return (
     <div className="min-h-screen flex flex-col bg-canvas text-primary transition-colors duration-200">
-      {/* 顶部简明导航 */}
-      <header className="sticky top-0 z-40 border-b border-theme-subtle bg-surface/90 backdrop-blur-md">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
-          <div className="flex items-center gap-5">
-            <Link
-              href="/"
-              className="flex items-center gap-2 group text-secondary hover:text-primary transition-colors"
-              title="返回官网首页"
-            >
-              <ArrowLeft className="w-4 h-4 transition-transform group-hover:-translate-x-1" />
-              <span className="text-xs font-medium">返回首页</span>
-            </Link>
-
-            <div className="h-4 w-px bg-theme-subtle" />
-
-            <Link href="/" className="flex items-center gap-2.5">
-              <div className="w-7 h-7 rounded-lg bg-surface-elevated border border-theme-subtle flex items-center justify-center shadow-xs">
-                <BrandLogo size={16} variant="emerald" />
-              </div>
-              <div className="flex items-center gap-2">
-                <span className="font-semibold text-sm tracking-tight text-primary">
-                  AI 集采
-                </span>
-                <span className="text-[11px] font-mono text-emerald-600 dark:text-emerald-400 bg-emerald-500/10 px-1.5 py-0.5 rounded border border-emerald-500/20">
-                  技术避坑指南
-                </span>
-              </div>
-            </Link>
-          </div>
-
-          <div className="flex items-center gap-3">
-            <Link
-              href="/docs/sla/"
-              className="text-xs text-secondary hover:text-primary transition-colors hidden md:inline-flex items-center gap-1"
-            >
-              <ShieldCheck className="w-3.5 h-3.5 text-emerald-500" />
-              <span>72h 封号包赔协议</span>
-            </Link>
-            <ThemeToggle />
-            <Link
-              href="/#calculator"
-              className="btn-openai-white text-xs px-3.5 py-1.5 hidden sm:inline-flex items-center gap-1.5"
-            >
-              <Calculator className="w-3.5 h-3.5" />
-              <span>测算集采预算</span>
-            </Link>
-          </div>
-        </div>
-
-        {/* 二级场景切换导航条 */}
-        <div className="border-t border-theme-subtle bg-surface-elevated/60 overflow-x-auto scrollbar-none">
-          <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center gap-3 py-2">
-            <span className="text-[11px] font-mono text-tertiary mr-1 shrink-0">
-              知识库专区:
-            </span>
-            {GUIDE_NAV.map((item) => {
-              const Icon = item.icon;
-              return (
-                <Link
-                  key={item.href}
-                  href={item.href}
-                  className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs text-secondary hover:text-primary hover:bg-surface border border-transparent hover:border-theme-subtle transition-all shrink-0"
-                >
-                  <Icon className="w-3.5 h-3.5 text-secondary" />
-                  <span className="font-medium">{item.label}</span>
-                  <span className="text-[10px] px-1.5 py-0.2 rounded-full bg-surface text-tertiary border border-theme-subtle font-mono">
-                    {item.badge}
-                  </span>
-                </Link>
-              );
-            })}
-          </div>
-        </div>
-      </header>
+      {/* 顶部自适应导航 */}
+      <SubpageHeader
+        categoryTitle="技术避坑指南"
+        categoryShortTitle="技术指南"
+        badgeVariant="emerald"
+        subnavLabel="知识库专区:"
+        navItems={GUIDE_NAV}
+        calculatorText="测算集采预算"
+        rightCustomLinks={
+          <Link
+            href="/docs/sla/"
+            className="text-xs text-secondary hover:text-primary transition-colors hidden md:inline-flex items-center gap-1 shrink-0 whitespace-nowrap"
+          >
+            <ShieldCheck className="w-3.5 h-3.5 text-emerald-500" />
+            <span>72h 封号包赔协议</span>
+          </Link>
+        }
+      />
 
       {/* 正文主体 */}
       <main className="flex-1 max-w-6xl mx-auto w-full px-4 sm:px-6 lg:px-8 py-10">

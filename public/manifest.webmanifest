@@ -1,0 +1,22 @@
+{
+  "name": "AI集采 - 企业级 GPT 官方集采与 Codex 代采平台",
+  "short_name": "AI集采",
+  "description": "国内领先的企业级 GPT 官方集中采购 (集采) 与 OpenAI Codex 研发代码助手代采服务平台。支持对公转账、6% 增值税专用发票、大客户阶梯折扣与 72h 封号包赔兜底。",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#09090B",
+  "theme_color": "#10A37F",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    },
+    {
+      "src": "/logo.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ],
+  "categories": ["business", "productivity", "developer"]
+}
