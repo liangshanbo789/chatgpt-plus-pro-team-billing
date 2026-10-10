@@ -460,74 +460,47 @@ export default function OnboardingGuidePage() {
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-3 text-xs">
-              {/* 工具一：2fa.fun 在线网页换码 */}
-              <div className="p-3.5 rounded-xl bg-surface-elevated/70 border border-theme-subtle hover:border-emerald-500/40 transition-colors flex flex-col justify-between space-y-3">
+              {/* 优先推荐一：Authenticator.cc 浏览器插件 */}
+              <div className="p-3.5 rounded-xl bg-surface border-2 border-emerald-500/40 hover:border-emerald-500/60 transition-all flex flex-col justify-between space-y-3 relative shadow-xs">
                 <div className="space-y-1.5">
                   <div className="flex items-center justify-between">
-                    <span className="font-semibold text-primary flex items-center gap-1.5">
-                      <span className="w-2 h-2 rounded-full bg-emerald-500" />
-                      <span>2FA.fun 在线网页生成</span>
-                    </span>
-                    <span className="text-[10px] px-1.5 py-0.2 rounded bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 font-mono border border-emerald-500/20">
-                      免装即用
-                    </span>
-                  </div>
-                  <p className="text-secondary text-[11px] leading-relaxed">
-                    身边没有手机或临时换机？直接在网页输入 OpenAI 给出的 Secret Key 密钥，即时计算输出 6 位 TOTP 动态码。
-                  </p>
-                </div>
-                <a
-                  href="https://2fa.fun/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="btn-openai-white text-[11px] py-1.5 w-full flex items-center justify-center gap-1 shadow-xs"
-                >
-                  <span>访问 2FA.fun 网页版</span>
-                  <ExternalLink className="w-3 h-3" />
-                </a>
-              </div>
-
-              {/* 工具二：Authenticator.cc 浏览器插件 */}
-              <div className="p-3.5 rounded-xl bg-surface-elevated/70 border border-theme-subtle hover:border-blue-500/40 transition-colors flex flex-col justify-between space-y-3">
-                <div className="space-y-1.5">
-                  <div className="flex items-center justify-between">
-                    <span className="font-semibold text-primary flex items-center gap-1.5">
-                      <span className="w-2 h-2 rounded-full bg-blue-500" />
+                    <span className="font-bold text-primary flex items-center gap-1.5">
+                      <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
                       <span>Authenticator 浏览器插件</span>
                     </span>
-                    <span className="text-[10px] px-1.5 py-0.2 rounded bg-blue-500/10 text-blue-600 dark:text-blue-400 font-mono border border-blue-500/20">
-                      电脑办公首推
+                    <span className="text-[10px] px-1.5 py-0.2 rounded bg-emerald-500/15 text-emerald-600 dark:text-emerald-400 font-mono font-bold border border-emerald-500/30">
+                      ⭐ 电脑办公首推
                     </span>
                   </div>
                   <p className="text-secondary text-[11px] leading-relaxed">
-                    适配 Chrome / Edge / Firefox。常驻浏览器工具栏，无需掏出手机扫码，点击扩展图标即可秒级生成与一键填码。
+                    <strong>研发与办公首选。</strong>适配 Chrome / Edge / Firefox。常驻浏览器工具栏，无需每次掏手机扫码，点击扩展图标即可秒出动态码与一键自动填充。
                   </p>
                 </div>
                 <a
                   href="https://authenticator.cc/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="btn-openai-secondary text-[11px] py-1.5 w-full flex items-center justify-center gap-1"
+                  className="btn-openai-white text-[11px] py-1.5 w-full flex items-center justify-center gap-1 shadow-xs"
                 >
                   <span>获取 Authenticator.cc 插件</span>
                   <ExternalLink className="w-3 h-3" />
                 </a>
               </div>
 
-              {/* 工具三：手机原生 App 官方正版渠道 */}
-              <div className="p-3.5 rounded-xl bg-surface-elevated/70 border border-theme-subtle hover:border-purple-500/40 transition-colors flex flex-col justify-between space-y-3">
+              {/* 优先推荐二：手机原生 App 官方正版渠道 */}
+              <div className="p-3.5 rounded-xl bg-surface border-2 border-blue-500/30 hover:border-blue-500/50 transition-all flex flex-col justify-between space-y-3 shadow-xs">
                 <div className="space-y-1.5">
                   <div className="flex items-center justify-between">
-                    <span className="font-semibold text-primary flex items-center gap-1.5">
-                      <span className="w-2 h-2 rounded-full bg-purple-500" />
+                    <span className="font-bold text-primary flex items-center gap-1.5">
+                      <span className="w-2 h-2 rounded-full bg-blue-500" />
                       <span>主流手机端原生 App</span>
                     </span>
-                    <span className="text-[10px] px-1.5 py-0.2 rounded bg-purple-500/10 text-purple-600 dark:text-purple-400 font-mono border border-purple-500/20">
-                      权威生态
+                    <span className="text-[10px] px-1.5 py-0.2 rounded bg-blue-500/10 text-blue-600 dark:text-blue-400 font-mono font-bold border border-blue-500/20">
+                      ⭐ 移动安全主力
                     </span>
                   </div>
                   <p className="text-secondary text-[11px] leading-relaxed">
-                    支持云备份防丢失。微软 Authenticator 支持企业级同步；谷歌验证器极简；苹果 iOS 自带钥匙串自动填充。
+                    <strong>安全稳定、防丢有保障。</strong>微软验证器支持企业级云备份；谷歌验证器极简；苹果 iOS 自带钥匙串自动填充。
                   </p>
                 </div>
                 <div className="grid grid-cols-2 gap-1.5 pt-1">
@@ -535,7 +508,7 @@ export default function OnboardingGuidePage() {
                     href="https://www.microsoft.com/en-us/security/mobile-authenticator-app"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="p-1 rounded bg-surface border border-theme-subtle text-[10px] text-center hover:border-primary transition-colors truncate"
+                    className="p-1 rounded bg-surface-elevated border border-theme-subtle text-[10px] text-center hover:border-primary transition-colors truncate"
                     title="Microsoft Authenticator 官网下载"
                   >
                     微软验证器 ↗
@@ -544,7 +517,7 @@ export default function OnboardingGuidePage() {
                     href="https://support.google.com/accounts/answer/1066447"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="p-1 rounded bg-surface border border-theme-subtle text-[10px] text-center hover:border-primary transition-colors truncate"
+                    className="p-1 rounded bg-surface-elevated border border-theme-subtle text-[10px] text-center hover:border-primary transition-colors truncate"
                     title="Google Authenticator 官方指引"
                   >
                     谷歌验证器 ↗
@@ -553,7 +526,7 @@ export default function OnboardingGuidePage() {
                     href="https://support.apple.com/zh-cn/102637"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="p-1 rounded bg-surface border border-theme-subtle text-[10px] text-center hover:border-primary transition-colors truncate"
+                    className="p-1 rounded bg-surface-elevated border border-theme-subtle text-[10px] text-center hover:border-primary transition-colors truncate"
                     title="Apple iOS / Mac 钥匙串自动验证码"
                   >
                     iOS 自带钥匙串 ↗
@@ -562,12 +535,39 @@ export default function OnboardingGuidePage() {
                     href="https://bitwarden.com/"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="p-1 rounded bg-surface border border-theme-subtle text-[10px] text-center hover:border-primary transition-colors truncate"
+                    className="p-1 rounded bg-surface-elevated border border-theme-subtle text-[10px] text-center hover:border-primary transition-colors truncate"
                     title="Bitwarden 密码管理器"
                   >
                     Bitwarden ↗
                   </a>
                 </div>
+              </div>
+
+              {/* 备用应急：2fa.fun 在线网页换码 */}
+              <div className="p-3.5 rounded-xl bg-surface-elevated/70 border border-theme-subtle hover:border-theme-hover transition-colors flex flex-col justify-between space-y-3">
+                <div className="space-y-1.5">
+                  <div className="flex items-center justify-between">
+                    <span className="font-semibold text-primary flex items-center gap-1.5">
+                      <span className="w-2 h-2 rounded-full bg-slate-400" />
+                      <span>2FA.fun 在线网页生成</span>
+                    </span>
+                    <span className="text-[10px] px-1.5 py-0.2 rounded bg-surface text-tertiary font-mono border border-theme-subtle">
+                      临时 / 应急备选
+                    </span>
+                  </div>
+                  <p className="text-secondary text-[11px] leading-relaxed">
+                    身边暂无手机或无法安装插件时的应急方案。直接在网页输入 OpenAI Secret Key 密钥即可即时计算换取 6 位 TOTP 动态码。
+                  </p>
+                </div>
+                <a
+                  href="https://2fa.fun/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn-openai-secondary text-[11px] py-1.5 w-full flex items-center justify-center gap-1"
+                >
+                  <span>访问 2FA.fun 网页版</span>
+                  <ExternalLink className="w-3 h-3" />
+                </a>
               </div>
             </div>
 

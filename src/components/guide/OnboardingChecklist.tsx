@@ -45,7 +45,7 @@ const ONBOARDING_STEPS: StepItem[] = [
     id: "step_2fa",
     stepNumber: "03",
     title: "在个人安全设置中强制开启 2FA 并抄录恢复密钥",
-    summary: "支持 2fa.fun 在线网页、authenticator.cc 插件或微软/谷歌 App 绑定，务必保存 16 位恢复码。",
+    summary: "首选 Authenticator 浏览器插件或手机 App 绑定，支持 2fa.fun 应急，务必保存 16 位恢复码。",
     targetAnchor: "#step-3-2fa",
     icon: KeyRound,
   },

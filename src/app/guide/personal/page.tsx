@@ -348,47 +348,59 @@ export default function PersonalGuidePage() {
               🛠 推荐便捷 2FA 工具与官方通道：
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-2 text-xs">
-              <a
-                href="https://2fa.fun/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="p-2.5 rounded-lg bg-surface border border-theme-subtle hover:border-emerald-500/40 transition-colors flex items-center justify-between group"
-              >
-                <div>
-                  <div className="font-semibold text-primary group-hover:text-emerald-600 dark:group-hover:text-emerald-400">2FA.fun 网页版</div>
-                  <div className="text-[10px] text-tertiary">免装App · 密钥直接换码</div>
-                </div>
-                <ExternalLink className="w-3 h-3 text-tertiary group-hover:text-primary" />
-              </a>
-
+              {/* 首选一：Authenticator.cc 浏览器插件 */}
               <a
                 href="https://authenticator.cc/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-2.5 rounded-lg bg-surface border border-theme-subtle hover:border-blue-500/40 transition-colors flex items-center justify-between group"
+                className="p-2.5 rounded-lg bg-surface border-2 border-emerald-500/40 hover:border-emerald-500/60 transition-colors flex items-center justify-between group shadow-xs"
               >
                 <div>
-                  <div className="font-semibold text-primary group-hover:text-blue-600 dark:group-hover:text-blue-400">Authenticator.cc</div>
-                  <div className="text-[10px] text-tertiary">Chrome/Edge 扩展插件</div>
+                  <div className="font-semibold text-primary group-hover:text-emerald-600 dark:group-hover:text-emerald-400 flex items-center gap-1">
+                    <span>Authenticator.cc</span>
+                    <span className="text-[9px] px-1 py-0.2 rounded bg-emerald-500/15 text-emerald-600 dark:text-emerald-400 font-mono">首推</span>
+                  </div>
+                  <div className="text-[10px] text-tertiary">Chrome/Edge 插件 · 一键填码</div>
                 </div>
                 <ExternalLink className="w-3 h-3 text-tertiary group-hover:text-primary" />
               </a>
 
+              {/* 首选二：手机原生 App */}
               <a
                 href="https://www.microsoft.com/en-us/security/mobile-authenticator-app"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-2.5 rounded-lg bg-surface border border-theme-subtle hover:border-purple-500/40 transition-colors flex items-center justify-between group"
+                className="p-2.5 rounded-lg bg-surface border-2 border-blue-500/30 hover:border-blue-500/50 transition-colors flex items-center justify-between group shadow-xs"
               >
                 <div>
-                  <div className="font-semibold text-primary group-hover:text-purple-600 dark:group-hover:text-purple-400">微软验证器</div>
-                  <div className="text-[10px] text-tertiary">支持手机云备份防丢失</div>
+                  <div className="font-semibold text-primary group-hover:text-blue-600 dark:group-hover:text-blue-400 flex items-center gap-1">
+                    <span>微软 / 谷歌验证器</span>
+                    <span className="text-[9px] px-1 py-0.2 rounded bg-blue-500/10 text-blue-600 dark:text-blue-400 font-mono">手机主力</span>
+                  </div>
+                  <div className="text-[10px] text-tertiary">支持云备份防丢 · iOS原生</div>
+                </div>
+                <ExternalLink className="w-3 h-3 text-tertiary group-hover:text-primary" />
+              </a>
+
+              {/* 备用：2FA.fun 在线网页 */}
+              <a
+                href="https://2fa.fun/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="p-2.5 rounded-lg bg-surface border border-theme-subtle hover:border-theme-hover transition-colors flex items-center justify-between group"
+              >
+                <div>
+                  <div className="font-semibold text-primary group-hover:text-secondary flex items-center gap-1">
+                    <span>2FA.fun 网页版</span>
+                    <span className="text-[9px] px-1 py-0.2 rounded bg-surface-elevated text-tertiary font-mono">应急备用</span>
+                  </div>
+                  <div className="text-[10px] text-tertiary">身边无手机 · 密钥直接换码</div>
                 </div>
                 <ExternalLink className="w-3 h-3 text-tertiary group-hover:text-primary" />
               </a>
             </div>
             <div className="text-[11px] text-tertiary">
-              💡 扫码时点击「Can&apos;t scan QR code?」可获取 Secret Key 密钥，直接粘贴到 2FA.fun 或浏览器插件即可换取 6 位动态验证码。
+              💡 扫码时点击「Can&apos;t scan QR code?」可获取 Secret Key 密钥，直接粘贴到 Authenticator 浏览器插件或 2FA.fun 即可换取 6 位动态验证码。
             </div>
           </div>
         </div>
