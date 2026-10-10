@@ -214,25 +214,26 @@ export default function ProductCatalog({
 
         {/* 分类快捷切换器 Filter Tabs */}
         <div className="flex items-center justify-between mb-8 flex-wrap gap-3">
-          <div className="flex items-center gap-2 flex-wrap">
+          <div className="flex items-center gap-1.5 sm:gap-2 overflow-x-auto pb-1 max-w-full sm:flex-wrap">
             {[
-              { id: "business", label: "🏢 企业空间 Business (原Team升级)", count: "2 款" },
-              { id: "pro", label: "⚡ 高算力 Pro 系列 (100/200/500)", count: "3 款" },
-              { id: "individual", label: "👤 基础普及 (Plus)", count: "1 款" },
-              { id: "all", label: "🔀 全部对比视图", count: "6 款" },
+              { id: "business", label: "🏢 企业空间 Business (原Team升级)", shortLabel: "🏢 企业 Business", count: "2 款" },
+              { id: "pro", label: "⚡ 高算力 Pro 系列 (100/200/500)", shortLabel: "⚡ 研发 Pro", count: "3 款" },
+              { id: "individual", label: "👤 基础普及 (Plus)", shortLabel: "👤 基础 Plus", count: "1 款" },
+              { id: "all", label: "🔀 全部对比视图", shortLabel: "🔀 全部对比", count: "6 款" },
             ].map((tab) => {
               const active = filterCategory === tab.id;
               return (
                 <button
                   key={tab.id}
                   onClick={() => setFilterCategory(tab.id)}
-                  className={`flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-medium transition-all cursor-pointer ${
+                  className={`flex items-center gap-1.5 sm:gap-2 px-3 sm:px-3.5 py-1.5 rounded-full text-xs font-medium transition-all cursor-pointer whitespace-nowrap shrink-0 ${
                     active
                       ? "bg-primary text-canvas shadow-xs font-semibold"
                       : "bg-surface-elevated text-secondary border border-theme-subtle hover:text-primary hover:border-theme-hover"
                   }`}
                 >
-                  <span>{tab.label}</span>
+                  <span className="hidden sm:inline">{tab.label}</span>
+                  <span className="sm:hidden">{tab.shortLabel}</span>
                   <span className={`text-[10px] font-mono px-1 rounded ${
                     active ? "bg-canvas/20 text-canvas" : "text-tertiary"
                   }`}>

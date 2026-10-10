@@ -24,11 +24,12 @@ export default function HeroSection({ onOpenContact, onOpenDocs }: HeroSectionPr
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         {/* Top Terminal Badge - 突出大中型企业采购与阶梯优惠 */}
-        <div className="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full border border-theme-subtle bg-surface-elevated text-xs font-mono text-secondary mb-6 backdrop-blur-md shadow-xs">
-          <span className="w-2 h-2 rounded-full bg-[#10A37F] animate-pulse" />
+        <div className="inline-flex flex-wrap sm:flex-nowrap items-center justify-center gap-1.5 sm:gap-2.5 px-3 sm:px-3.5 py-1.5 rounded-full border border-theme-subtle bg-surface-elevated text-xs font-mono text-secondary mb-6 backdrop-blur-md shadow-xs max-w-full">
+          <span className="w-2 h-2 rounded-full bg-[#10A37F] animate-pulse shrink-0" />
           <span className="font-semibold text-primary">企业 GPT 官方集采 · 研发 Codex 代采</span>
-          <span className="text-tertiary">/</span>
-          <span>阶梯定价 · 采购量越大单价越低 · 100% 官方正规直采</span>
+          <span className="text-tertiary hidden sm:inline">/</span>
+          <span className="hidden sm:inline">阶梯定价 · 采购量越大单价越低 · 100% 官方正规直采</span>
+          <span className="sm:hidden text-[11px] text-emerald-600 dark:text-emerald-400">· 阶梯降本立减</span>
         </div>
 
         {/* Enterprise Compliance Credential Bar (四大硬核合规准入微标) */}
@@ -142,14 +143,14 @@ export default function HeroSection({ onOpenContact, onOpenDocs }: HeroSectionPr
         {/* Social Proof & Quantitative Trust Bar (权威交付信赖看板) */}
         <div className="mb-14 max-w-5xl mx-auto rounded-2xl bg-surface border border-theme-subtle shadow-sm overflow-hidden">
           {/* Top Realtime Audited Status Header */}
-          <div className="px-4 py-2 bg-surface-elevated border-b border-theme-subtle flex flex-col sm:flex-row sm:items-center justify-between gap-1 text-[11px] font-mono text-secondary">
-            <div className="flex items-center gap-2">
-              <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
+          <div className="px-3 sm:px-4 py-2 bg-surface-elevated border-b border-theme-subtle flex flex-col sm:flex-row sm:items-center justify-between gap-1 text-[11px] font-mono text-secondary">
+            <div className="flex flex-wrap items-center gap-1.5 sm:gap-2">
+              <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse shrink-0" />
               <span className="font-semibold text-primary">大客户阶梯集采与合规清算通道</span>
-              <span className="text-tertiary">|</span>
-              <span>2026 年 09 月运营周期 · 零合规争议与违约记录</span>
+              <span className="text-tertiary hidden sm:inline">|</span>
+              <span className="text-[10px] sm:text-[11px] text-tertiary sm:text-secondary">2026年运营周期 · 零合规争议与违约</span>
             </div>
-            <span className="text-emerald-600 dark:text-[#10A37F] font-medium">
+            <span className="text-emerald-600 dark:text-[#10A37F] font-medium text-[10px] sm:text-[11px]">
               ● 金融级公对公清算通路运行正常
             </span>
           </div>
@@ -175,7 +176,7 @@ export default function HeroSection({ onOpenContact, onOpenDocs }: HeroSectionPr
         </div>
 
         {/* 4 Pillars Trust Grid (重构为四大核心支柱：阶梯量大从优位列首位) */}
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-3.5 max-w-5xl mx-auto">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3.5 max-w-5xl mx-auto">
           {/* Card 1: 阶梯定价 · 量大从优 */}
           <div className="codex-panel p-5 text-left border-t-2 border-t-[#10A37F]">
             <div className="flex items-center gap-2.5 mb-3">

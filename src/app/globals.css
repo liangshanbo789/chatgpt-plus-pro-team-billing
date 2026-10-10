@@ -495,4 +495,11 @@ html.dark .codex-pill-green {
   animation: marquee 35s linear infinite;
 }
 
+/* 移动端联动：当价格测算吸底栏出现时，悬浮客服挂件自动平滑上浮避让，彻底杜绝遮挡操作按钮 */
+@media (max-width: 1023px) {
+  body[data-calc-in-view="true"] [aria-label="客服与采购顾问支持"] {
+    bottom: max(5.2rem, calc(env(safe-area-inset-bottom, 0px) + 4.8rem)) !important;
+  }
+}
+
 

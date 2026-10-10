@@ -482,10 +482,11 @@ export default function Navbar({ onOpenContact, onOpenDocs }: NavbarProps) {
           <ThemeToggle variant="icon" />
           <button
             onClick={() => onOpenContact("mobile-nav")}
-            className="btn-openai-white text-xs !py-1.5 !px-3 cursor-pointer flex items-center gap-1 whitespace-nowrap"
+            className="btn-openai-white text-xs !py-1.5 !px-2.5 sm:!px-3 cursor-pointer flex items-center gap-1 whitespace-nowrap"
           >
             <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
-            <span>7×24H 咨询</span>
+            <span className="hidden min-[380px]:inline">7×24H </span>
+            <span>咨询</span>
           </button>
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}

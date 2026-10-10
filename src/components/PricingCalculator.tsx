@@ -53,13 +53,25 @@ export default function PricingCalculator({
     const observer = new IntersectionObserver(
       ([entry]) => {
         setIsCalcInView(entry.isIntersecting);
+        if (typeof document !== "undefined") {
+          if (entry.isIntersecting) {
+            document.body.setAttribute("data-calc-in-view", "true");
+          } else {
+            document.body.removeAttribute("data-calc-in-view");
+          }
+        }
       },
       { threshold: 0.08 }
     );
     if (sectionRef.current) {
       observer.observe(sectionRef.current);
     }
-    return () => observer.disconnect();
+    return () => {
+      observer.disconnect();
+      if (typeof document !== "undefined") {
+        document.body.removeAttribute("data-calc-in-view");
+      }
+    };
   }, []);
 
   useEffect(() => {
@@ -627,11 +639,12 @@ export default function PricingCalculator({
                     {
                       value: product.minSeats,
                       label: `${product.minSeats} 起购`,
+                      shortLabel: `${product.minSeats}起`,
                     },
-                    { value: 5, label: "5 席 (团队)" },
-                    { value: 10, label: "10 席" },
-                    { value: 20, label: "20 席 (集采底价)" },
-                    { value: 50, label: "50+ 席" },
+                    { value: 5, label: "5 席 (团队)", shortLabel: "5席" },
+                    { value: 10, label: "10 席", shortLabel: "10席" },
+                    { value: 20, label: "20 席 (集采底价)", shortLabel: "20席底价" },
+                    { value: 50, label: "50+ 席", shortLabel: "50+席" },
                   ].map((mark) => {
                     const min = product.minSeats;
                     const max = 50;
@@ -648,7 +661,7 @@ export default function PricingCalculator({
                         key={mark.value}
                         type="button"
                         onClick={() => setSeats(mark.value)}
-                        className={`absolute transition-colors cursor-pointer hover:text-primary ${
+                        className={`absolute transition-colors cursor-pointer hover:text-primary whitespace-nowrap text-[10px] sm:text-[11px] ${
                           isSelected
                             ? "text-emerald-600 dark:text-[#10A37F] font-semibold"
                             : "text-secondary"
@@ -660,7 +673,8 @@ export default function PricingCalculator({
                             isMin || isMax ? "none" : "translateX(-50%)",
                         }}
                       >
-                        {mark.label}
+                        <span className="hidden sm:inline">{mark.label}</span>
+                        <span className="sm:hidden">{mark.shortLabel}</span>
                       </button>
                     );
                   })}
@@ -1051,11 +1065,15 @@ export default function PricingCalculator({
               <div>
                 <div className="font-bold text-zinc-950 font-sans mb-2 flex items-center justify-between">
                   <span>一、 采购服务清单与阶梯报价明细表：</span>
-                  <span className="text-[11px] text-zinc-500 font-normal">
+                  <span className="text-[11px] text-zinc-500 font-normal hidden sm:inline">
                     币种：人民币 (RMB) · 计价单位：元
                   </span>
+                  <span className="text-[10px] text-emerald-600 sm:hidden">
+                    ↔ 左右滑动查看
+                  </span>
                 </div>
-                <table className="w-full text-left text-xs border border-zinc-300 font-sans">
+                <div className="overflow-x-auto pb-1 -mx-2 px-2 sm:mx-0 sm:px-0">
+                  <table className="w-full text-left text-xs border border-zinc-300 font-sans min-w-[580px]">
                   <thead className="bg-zinc-100 text-zinc-800 text-[11px]">
                     <tr className="border-b border-zinc-300">
                       <th className="p-2.5">标的软件及版本</th>
@@ -1114,6 +1132,7 @@ export default function PricingCalculator({
                     </tr>
                   </tbody>
                 </table>
+                </div>
               </div>
 
               {/* Financial Cost Breakdown & Perks */}
@@ -1227,7 +1246,7 @@ export default function PricingCalculator({
                     <div className="font-bold text-zinc-900 border-b border-zinc-200 pb-1">
                       【技术服务商确认与加盖商务专用章】
                     </div>
-                    <div className="space-y-1">
+                    <div className="space-y-1 relative z-10 max-w-[85%] sm:max-w-none">
                       <div>
                         单位名称：<strong>成都游手科技有限公司</strong>
                       </div>
@@ -1239,7 +1258,7 @@ export default function PricingCalculator({
                     </div>
 
                     {/* High-Fidelity Vector Red Seal Stamp */}
-                    <div className="absolute right-2 bottom-1 pointer-events-none select-none opacity-95 transform rotate-[-4deg]">
+                    <div className="absolute right-2 bottom-1 pointer-events-none select-none opacity-20 sm:opacity-95 transform rotate-[-4deg] z-0">
                       <div className="w-28 h-28 rounded-full border-[2.5px] border-rose-600 text-rose-600 flex flex-col items-center justify-center p-1 bg-rose-500/[0.03] shadow-xs">
                         <div className="text-[7.5px] font-bold text-center scale-90 leading-tight">
                           成都游手科技有限公司

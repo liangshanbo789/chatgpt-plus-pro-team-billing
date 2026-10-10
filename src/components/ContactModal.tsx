@@ -29,6 +29,7 @@ export default function ContactModal({ isOpen, onClose, source }: ContactModalPr
   const [copiedWeChat, setCopiedWeChat] = useState(false);
   const [copiedEmail, setCopiedEmail] = useState(false);
   const [copiedNote, setCopiedNote] = useState<string | null>(null);
+  const [mobileChannel, setMobileChannel] = useState<"personal" | "wework">("personal");
 
   if (!isOpen) return null;
 
@@ -178,10 +179,46 @@ export default function ContactModal({ isOpen, onClose, source }: ContactModalPr
             </div>
           )}
 
+          {/* Mobile-Only Channel Switcher: 手机端快速切换通道，避免纵向滚屏过长 */}
+          <div className="flex sm:hidden p-1 rounded-xl bg-surface-elevated border border-theme-subtle text-xs">
+            <button
+              type="button"
+              onClick={() => setMobileChannel("personal")}
+              className={`flex-1 py-1.5 px-2 rounded-lg font-medium flex items-center justify-center gap-1.5 transition-all cursor-pointer ${
+                mobileChannel === "personal"
+                  ? "bg-surface text-primary shadow-xs font-semibold"
+                  : "text-secondary hover:text-primary"
+              }`}
+            >
+              <MessageCircle className="w-3.5 h-3.5 text-[#10A37F]" />
+              <span>大客户总监微信</span>
+              <span className="text-[9px] px-1 py-0.2 rounded bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 font-mono">
+                直通
+              </span>
+            </button>
+            <button
+              type="button"
+              onClick={() => setMobileChannel("wework")}
+              className={`flex-1 py-1.5 px-2 rounded-lg font-medium flex items-center justify-center gap-1.5 transition-all cursor-pointer ${
+                mobileChannel === "wework"
+                  ? "bg-surface text-primary shadow-xs font-semibold"
+                  : "text-secondary hover:text-primary"
+              }`}
+            >
+              <QrCode className="w-3.5 h-3.5 text-blue-500" />
+              <span>官方认证企业微信</span>
+              <span className="text-[9px] px-1 py-0.2 rounded bg-blue-500/10 text-blue-600 dark:text-blue-400 font-mono">
+                认证
+              </span>
+            </button>
+          </div>
+
           {/* Quick Connect Cards (双微信分流：个人微信 vs 企业微信) */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
             {/* 1. 个人微信（主推：大客户总监直通 + 商务弹性与个性化方案） */}
-            <div className="codex-panel p-4 border-[#10A37F]/30 bg-surface-elevated flex flex-col items-center text-center relative overflow-hidden">
+            <div className={`codex-panel p-4 border-[#10A37F]/30 bg-surface-elevated flex-col items-center text-center relative overflow-hidden ${
+              mobileChannel === "personal" ? "flex" : "hidden sm:flex"
+            }`}>
               <div className="absolute top-0 right-0 w-24 h-24 bg-[#10A37F]/5 rounded-bl-full pointer-events-none" />
 
               <div className="w-full flex items-center justify-between mb-3 pb-2 border-b border-theme-subtle">
@@ -232,7 +269,9 @@ export default function ContactModal({ isOpen, onClose, source }: ContactModalPr
             </div>
 
             {/* 2. 企业微信（主推：官方实名认证 + 财务发票对公验真） */}
-            <div className="codex-panel p-4 border-theme-subtle bg-surface-elevated flex flex-col items-center text-center">
+            <div className={`codex-panel p-4 border-theme-subtle bg-surface-elevated flex-col items-center text-center ${
+              mobileChannel === "wework" ? "flex" : "hidden sm:flex"
+            }`}>
               <div className="w-full flex items-center justify-between mb-3 pb-2 border-b border-theme-subtle">
                 <span className="text-xs font-semibold text-primary flex items-center gap-1.5">
                   <QrCode className="w-3.5 h-3.5 text-blue-500" />
