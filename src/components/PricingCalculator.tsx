@@ -15,6 +15,10 @@ import {
   Lock,
   ExternalLink,
   ArrowDown,
+  Cpu,
+  Sparkles,
+  Users,
+  Layers,
 } from "lucide-react";
 import {
   PRODUCTS_CONFIG,
@@ -32,8 +36,9 @@ export default function PricingCalculator({
   onOpenContact,
 }: PricingCalculatorProps) {
   const [productType, setProductType] = useState<string>(
-    selectedProductId || "pro200",
+    selectedProductId || "business_std",
   );
+  const [categoryTab, setCategoryTab] = useState<string>("business");
   const [seats, setSeats] = useState<number>(5);
   const [billingCycle, setBillingCycle] = useState<BillingCycle>("monthly");
   const [copied, setCopied] = useState(false);
@@ -60,6 +65,8 @@ export default function PricingCalculator({
   useEffect(() => {
     if (selectedProductId && PRODUCTS_CONFIG[selectedProductId]) {
       setProductType(selectedProductId);
+      const targetCat = PRODUCTS_CONFIG[selectedProductId].category;
+      setCategoryTab(targetCat);
       // Ensure seats not below new product's minSeats
       const targetMin = PRODUCTS_CONFIG[selectedProductId].minSeats;
       setSeats((prev) => Math.max(prev, targetMin));
@@ -135,6 +142,7 @@ export default function PricingCalculator({
 报价有效期：自生成之日起 30 天内有效
 采购客户抬头：${clientCompanyName || "【贵司企业全称】"}
 采购版本：${product.name} (${product.officialPriceDisplay})
+产品属性：${product.category === "business" ? "【企业受控空间】商业数据隔离不入训 · 统一Admin控制台 · 员工离职席位可回收 · SAML SSO" : product.category === "pro" ? "【研发高算力专席】10x~25x极限算力 · 免除5小时封顶 · 满血Astra深度推理 · 研发算法攻坚" : "【基础普及版】个人账号官方直充代采 · 统一对公报销发票"}
 采购席位数：${currentSeats} 个
 结算周期：${cycleName} (${cycleMonths} 个月)
 最终结算单价：¥ ${unitPrice} 元/${product.category === "business" ? "人" : "席位"}/月 (含 6% 增值税专票)
@@ -175,42 +183,59 @@ export default function PricingCalculator({
 
   const productList = [
     {
-      id: "pro200",
-      label: "Pro 200 (10x 旗舰)",
-      desc: "$200/月 · 研发主力",
-      badge: "最热门",
-    },
-    {
-      id: "pro100",
-      label: "Pro 100 (5x 算力)",
-      desc: "$100/月 · 进阶长文",
-      badge: "5x 算力",
-    },
-    {
-      id: "pro500",
-      label: "Pro 500 (25x 顶配)",
-      desc: "$500/月 · Ultrafast",
-      badge: "300 tps",
-    },
-    {
       id: "business_std",
+      category: "business",
       label: "Business 标准版",
       desc: "$25/人/月 · 数据不入训",
       badge: "原Team升级",
+      highlights: ["商业数据不入训", "统一Admin后台", "离职席位可回收"],
     },
     {
       id: "business_pre",
+      category: "business",
       label: "Business 尊享版",
       desc: "$125/人/月 · 5x高算力",
       badge: "免5小时限制",
+      highlights: ["5x高倍算力", "免5小时限制", "SAML SSO单点登录"],
+    },
+    {
+      id: "pro200",
+      category: "pro",
+      label: "Pro 200 (10x 旗舰)",
+      desc: "$200/月 · 研发主力",
+      badge: "最热门",
+      highlights: ["10x满血算力", "免5小时限制", "研发算法标配"],
+    },
+    {
+      id: "pro100",
+      category: "pro",
+      label: "Pro 100 (5x 算力)",
+      desc: "$100/月 · 进阶长文",
+      badge: "5x 算力",
+      highlights: ["5x高倍算力", "100万Token长文本", "深度推理调研"],
+    },
+    {
+      id: "pro500",
+      category: "pro",
+      label: "Pro 500 (25x 顶配)",
+      desc: "$500/月 · Ultrafast",
+      badge: "300 tps",
+      highlights: ["25x极限算力", "300 tps 独占极速", "无上限连续科研"],
     },
     {
       id: "plus",
+      category: "individual",
       label: "ChatGPT Plus",
       desc: "$20/月 · 个人代充报销",
       badge: "基础普及",
+      highlights: ["日常文案与客服", "员工现有邮箱直充", "6%增值税专票"],
     },
   ];
+
+  const displayedProducts =
+    categoryTab === "all"
+      ? productList
+      : productList.filter((p) => p.category === categoryTab);
 
   return (
     <section
@@ -228,8 +253,7 @@ export default function PricingCalculator({
             透明测算企业采购成本与大宗集采优惠
           </h2>
           <p className="text-sm sm:text-base text-secondary">
-            采购账号席位越多、结算周期越长，单席成本越低，自动触发阶梯立减。报价全含
-            6% 增值税专票及 7×24 小时全天候交付保障。
+            针对企业组织空间（Business）与核心研发专席（Pro）提供差异化采买模型。采购席位越多、结算周期越长，单席成本越低，自动触发阶梯立减。
           </p>
         </div>
 
@@ -241,14 +265,73 @@ export default function PricingCalculator({
             <div>
               <div className="flex items-center justify-between mb-3">
                 <label className="block text-xs font-semibold text-secondary uppercase tracking-wider">
-                  1. 选择采购产品版本 (共 6 款官方最新规格)
+                  1. 选择采购形态与版本 (场景隔离 · 精准选型)
                 </label>
                 <span className="text-[11px] text-tertiary">
                   当前已选：<strong className="text-primary">{product.name}</strong>
                 </span>
               </div>
-              <div className="grid grid-cols-2 sm:grid-cols-3 gap-2 sm:gap-2.5">
-                {productList.map((item) => (
+
+              {/* 需求场景分栏切换器 (Intent Segmented Switcher) */}
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-1.5 p-1 bg-surface-elevated rounded-xl border border-theme-subtle mb-3.5">
+                {[
+                  {
+                    id: "business",
+                    label: "🏢 企业空间 Business",
+                    sub: "数据不入训 / Admin后台",
+                  },
+                  {
+                    id: "pro",
+                    label: "⚡ 研发专席 Pro",
+                    sub: "10x~25x算力 / 免限额",
+                  },
+                  {
+                    id: "individual",
+                    label: "👤 基础普及 Plus",
+                    sub: "个人直充 / 对公专票",
+                  },
+                  {
+                    id: "all",
+                    label: "🔀 全部 (6款)",
+                    sub: "全规格矩阵对比",
+                  },
+                ].map((tab) => {
+                  const active = categoryTab === tab.id;
+                  return (
+                    <button
+                      key={tab.id}
+                      type="button"
+                      onClick={() => {
+                        setCategoryTab(tab.id);
+                        if (tab.id === "business" && product.category !== "business") {
+                          setProductType("business_std");
+                          setSeats((prev) => Math.max(prev, 2));
+                        } else if (tab.id === "pro" && product.category !== "pro") {
+                          setProductType("pro200");
+                          setSeats((prev) => Math.max(prev, 1));
+                        } else if (tab.id === "individual" && product.category !== "individual") {
+                          setProductType("plus");
+                          setSeats((prev) => Math.max(prev, 1));
+                        }
+                      }}
+                      className={`p-2 rounded-lg text-left transition-all cursor-pointer ${
+                        active
+                          ? "bg-surface text-primary shadow-xs font-semibold border border-theme-subtle"
+                          : "text-secondary hover:text-primary hover:bg-surface/50"
+                      }`}
+                    >
+                      <div className="text-[11px] sm:text-xs font-medium truncate">{tab.label}</div>
+                      <div className="text-[9px] text-tertiary font-mono truncate hidden sm:block mt-0.5">
+                        {tab.sub}
+                      </div>
+                    </button>
+                  );
+                })}
+              </div>
+
+              {/* 产品选项卡网格 */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-2 sm:gap-2.5">
+                {displayedProducts.map((item) => (
                   <button
                     key={item.id}
                     onClick={() => {
@@ -256,7 +339,7 @@ export default function PricingCalculator({
                       const targetMin = PRODUCTS_CONFIG[item.id]?.minSeats || 1;
                       setSeats((prev) => Math.max(prev, targetMin));
                     }}
-                    className={`p-2.5 sm:p-3 rounded-xl border text-left transition-all cursor-pointer relative ${
+                    className={`p-3 rounded-xl border text-left transition-all cursor-pointer relative ${
                       productType === item.id
                         ? "border-emerald-500/60 bg-surface-hover text-primary shadow-xs font-semibold ring-1 ring-emerald-500/30"
                         : "border-theme-subtle bg-surface-elevated text-secondary hover:border-theme-hover hover:text-primary"
@@ -270,11 +353,80 @@ export default function PricingCalculator({
                         {item.badge}
                       </span>
                     </div>
-                    <div className="text-[10px] text-secondary font-mono">
+                    <div className="text-[10px] text-secondary font-mono mb-2">
                       {item.desc}
+                    </div>
+                    <div className="flex flex-wrap gap-1 text-[9px] text-tertiary">
+                      {item.highlights.map((h, i) => (
+                        <span
+                          key={i}
+                          className="px-1.5 py-0.2 rounded bg-surface border border-theme-subtle/80"
+                        >
+                          {h}
+                        </span>
+                      ))}
                     </div>
                   </button>
                 ))}
+              </div>
+
+              {/* 动态场景专属合规与算力承诺卡片 */}
+              <div className="mt-3.5 p-3.5 rounded-xl bg-surface-elevated border border-theme-subtle text-xs">
+                {product.category === "business" ? (
+                  <div className="flex items-start gap-2.5">
+                    <Building2 className="w-4 h-4 text-emerald-600 dark:text-emerald-400 shrink-0 mt-0.5" />
+                    <div className="space-y-1 w-full">
+                      <div className="font-semibold text-emerald-700 dark:text-emerald-300 flex items-center justify-between">
+                        <span className="flex items-center gap-1.5">
+                          <span>已选：ChatGPT Business 企业受控空间治理承诺</span>
+                        </span>
+                        <span className="text-[9px] font-mono px-1.5 py-0.2 rounded bg-emerald-500/10 border border-emerald-500/20 text-emerald-600 dark:text-emerald-400">
+                          大客户 IT / 合规标配
+                        </span>
+                      </div>
+                      <p className="text-[11px] text-secondary leading-relaxed">
+                        • <strong>商业数据绝不入训：</strong>Prompt 与代码 100% 隔离，绝不参与模型训练。<br />
+                        • <strong>企业数字资产可控：</strong>专属 Admin 控制台，<strong>员工离职一键注销并无损收回席位</strong>重新流转。<br />
+                        • <strong>企业级 SSO 与协作：</strong>支持 SAML 2.0 企业 SSO 单点登录，在工作空间安全共享私有 GPTs 与知识库。
+                      </p>
+                    </div>
+                  </div>
+                ) : product.category === "pro" ? (
+                  <div className="flex items-start gap-2.5">
+                    <Cpu className="w-4 h-4 text-amber-500 dark:text-amber-400 shrink-0 mt-0.5" />
+                    <div className="space-y-1 w-full">
+                      <div className="font-semibold text-amber-700 dark:text-amber-300 flex items-center justify-between">
+                        <span className="flex items-center gap-1.5">
+                          <span>已选：ChatGPT Pro 研发高算力攻坚专席保障</span>
+                        </span>
+                        <span className="text-[9px] font-mono px-1.5 py-0.2 rounded bg-amber-500/10 border border-amber-500/20 text-amber-600 dark:text-amber-400">
+                          核心算法 / 架构研发标配
+                        </span>
+                      </div>
+                      <p className="text-[11px] text-secondary leading-relaxed">
+                        • <strong>解除 5 小时用量上限：</strong>专为高强度科研攻坚设计，全天候深度思考高频调用不中断。<br />
+                        • <strong>10x~25x 极端算力通道：</strong>搭载满血 GPT-6 Astra 推理，部分规格独占 Ultrafast 300 tps 极速模式。<br />
+                        • <strong>百万上下文记忆：</strong>支持 100 万 (1M Token) 上下文研判与 Computer Operator 自动化操控。
+                      </p>
+                    </div>
+                  </div>
+                ) : (
+                  <div className="flex items-start gap-2.5">
+                    <Sparkles className="w-4 h-4 text-blue-500 dark:text-blue-400 shrink-0 mt-0.5" />
+                    <div className="space-y-1 w-full">
+                      <div className="font-semibold text-blue-700 dark:text-blue-300 flex items-center justify-between">
+                        <span>已选：ChatGPT Plus 个人账号直充与阳光报销保障</span>
+                        <span className="text-[9px] font-mono px-1.5 py-0.2 rounded bg-blue-500/10 border border-blue-500/20 text-blue-600 dark:text-blue-400">
+                          单兵日常普及款
+                        </span>
+                      </div>
+                      <p className="text-[11px] text-secondary leading-relaxed">
+                        • <strong>员工个人邮箱直充：</strong>无需更换账号，通过正规商业卡段代充，彻底解决海外信用卡封卡。<br />
+                        • <strong>统一合规对公报销：</strong>提供银行转账回单与 6% 软件服务增值税专票，满足财务平账要求。
+                      </p>
+                    </div>
+                  </div>
+                )}
               </div>
             </div>
 
@@ -285,14 +437,20 @@ export default function PricingCalculator({
                   htmlFor={seatsSliderId}
                   className="text-xs font-semibold text-secondary uppercase tracking-wider"
                 >
-                  2. 采购账号席位数 (当前: {currentSeats} 席)
+                  2. 采购
+                  {product.category === "business"
+                    ? "组织席位数"
+                    : product.category === "pro"
+                    ? "研发专席数"
+                    : "账号数"}{" "}
+                  (当前: {currentSeats} {product.category === "business" ? "人/席" : "席"})
                 </label>
                 <span className="text-xs text-emerald-600 dark:text-[#10A37F] font-mono font-medium">
                   {tierLabel}
                 </span>
               </div>
 
-              {/* 3 档阶梯对比矩阵看板 (移动端紧凑自适应) */}
+              {/* 3 档阶梯对比矩阵看板 */}
               <div className="grid grid-cols-3 gap-1.5 sm:gap-2.5 mb-3">
                 {[
                   {
@@ -347,7 +505,7 @@ export default function PricingCalculator({
                     <div className="text-xs sm:text-sm font-mono font-bold text-primary leading-tight">
                       ¥{tier.price}
                       <span className="text-[9px] sm:text-[10px] font-normal text-secondary ml-0.5">
-                        /席/月
+                        {product.category === "business" ? "/人/月" : "/席/月"}
                       </span>
                     </div>
                     <div className="text-[9px] sm:text-[10px] text-secondary mt-0.5 truncate">
@@ -415,6 +573,42 @@ export default function PricingCalculator({
                     </span>
                   </div>
                 )}
+              </div>
+
+              {/* 席位快捷预设按钮组 (按场景适配) */}
+              <div className="flex items-center gap-1.5 mb-2.5 overflow-x-auto pb-1">
+                <span className="text-[10px] text-tertiary font-medium shrink-0">
+                  常用快速选配：
+                </span>
+                {(product.category === "business"
+                  ? [
+                      { count: 2, label: "2 席 (起购)" },
+                      { count: 5, label: "5 席 (小团队)" },
+                      { count: 10, label: "10 席 (标准部门)" },
+                      { count: 20, label: "20 席 (集采底价)" },
+                      { count: 50, label: "50 席 (全员部署)" },
+                    ]
+                  : [
+                      { count: 1, label: "1 席 (核心专家)" },
+                      { count: 3, label: "3 席 (攻坚小组)" },
+                      { count: 5, label: "5 席 (研发部)" },
+                      { count: 10, label: "10 席 (主力团队)" },
+                      { count: 20, label: "20 席 (集采底价)" },
+                    ]
+                ).map((preset) => (
+                  <button
+                    key={preset.count}
+                    type="button"
+                    onClick={() => setSeats(preset.count)}
+                    className={`px-2 py-0.5 rounded text-[10px] font-mono transition-colors cursor-pointer shrink-0 border ${
+                      currentSeats === preset.count
+                        ? "bg-primary text-canvas border-primary font-semibold"
+                        : "bg-surface-elevated text-secondary border-theme-subtle hover:text-primary hover:border-theme-hover"
+                    }`}
+                  >
+                    {preset.label}
+                  </button>
+                ))}
               </div>
 
               {/* 滑块 */}
@@ -882,8 +1076,12 @@ export default function PricingCalculator({
                           {product.name}
                         </strong>
                         <div className="text-[10px] text-zinc-500 font-mono">
-                          官方标价: {product.officialPriceDisplay} ·
-                          正规企业信用卡通道
+                          {product.category === "business"
+                            ? "【企业受控空间 · 商业数据不入训】"
+                            : product.category === "pro"
+                            ? "【研发高算力专席 · 免除5小时限流】"
+                            : "【个人普及版 · 企业对公报销】"}{" "}
+                          官方标价: {product.officialPriceDisplay}
                         </div>
                       </td>
                       <td className="p-2.5 text-center font-mono font-medium">
